@@ -1,0 +1,82 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Justform';
+  - var description = '';
+  - var pageClass = 'ui-page';
+
+block content
+  .container
+    .row
+      .col-10
+        h1.h1(style="text-align: center") TYPOGRAPHY
+      .col-8
+        h1.h1
+          |H1 —
+          br
+          |Helvetica Neue Medium 80
+          br
+          |Spacing 80
+          br
+          |#000000
+      .col-3
+        h2.h2
+          |H2 —
+          br
+          |Helvetica Neue Regular 30
+          br
+          |Spacing 32
+          br
+          |#000000
+      .col-2.offset-1
+        p.text-filter-links
+          |Filter Links —
+          br
+          |Helvetica Neue Regular 16
+          br
+          |Spacing 18
+          br
+          |#000000
+      .w-100
+      .col-3
+        p.text-regular
+          |Text —
+          br
+          |Helvetica Neue Light 16
+          br
+          |Spacing 24
+          br
+          |#5D5D5D
+      .col-2.offset-1
+        p.text-links
+          |Links —
+          br
+          |Helvetica Neue Light Italic 16
+          br
+          |Spacing 22
+          br
+          |#000000
+      .w-100
+      .col-3
+        p.text-filter
+          |Filter txt —
+          br
+          |Helvetica Neue Light 14
+          br
+          |Spacing 28
+          br
+          |#5D5D5D
+      .col-2.offset-1
+        p.text-breadcrumbs
+          |Bread —
+          br
+          |Helvetica Neue Light 12
+          br
+          |Spacing 28
+          br
+          |#5D5D5D
+    .row
+      .col-10
+        h1.h1(style="text-align: center") COMPONENTS
+      .col-2
+        include ../components/filter/filter

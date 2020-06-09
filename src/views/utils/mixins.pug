@@ -1,0 +1,14 @@
+mixin wrapper(classname)
+  div(class=classname + '__container')
+    div(class=classname + '__row')
+      if block
+        block
+
+mixin pic(classname, srcset, alt)
+  - classname = classname || '';
+  - alt = alt || '';
+  - srcset = srcset || '';
+  - picname = srcset.substring(srcset.lastIndexOf("/") + 1, srcset.lastIndexOf("."));
+  picture(class=classname)
+    source(srcset=srcset)
+    img(src="./assets/img/" + picname + ".webp", alt=alt)
