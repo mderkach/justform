@@ -12,8 +12,16 @@ const filter = {
 
       label.addEventListener('click', (e) => {
         e.preventDefault();
-        label.classList.add('is-active');
+        label.classList.toggle('is-active');
       });
+
+      // document.addEventListener('click', (event) => {
+      //   label.addEventListener('click', () => {
+      //     if (event.target !== label) {
+      //       label.classList.remove('is-active');
+      //     }
+      //   });
+      // });
 
       const menuItem = label.querySelectorAll('.filter-menu-item');
       if (!select.hasAttribute('multiple')) {
