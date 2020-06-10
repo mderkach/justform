@@ -10,6 +10,6 @@ import './scss/main.scss';
 // import './assets/css/main.css'
 
 // components
+import filter from './views/components/filter/filter';
 
-// eslint-disable-next-line import/no-unresolved
-import './views/components/**/*.js';
+filter.init();

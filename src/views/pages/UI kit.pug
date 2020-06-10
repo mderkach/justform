@@ -75,8 +75,72 @@ block content
           |Spacing 28
           br
           |#5D5D5D
-    .row
+    .row(style="padding: 50px 0")
       .col-10
         h1.h1(style="text-align: center") COMPONENTS
       .col-2
-        include ../components/filter/filter
+        +filter(
+          '',
+          'Кровати',
+          [
+            { 'name':'Все кровати', 'value': 'Все кровати', 'default': true, 'selected': true, 'disabled': false, 'hidden': false},
+            { 'name':'Изголовье для кровати', 'value': 'Изголовье для кровати', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+            { 'name':'Кованные кровати', 'value': 'Кованные кровати', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+            { 'name':'Кровати с балдахином', 'value': 'Кровати с балдахином', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+          ]
+          )
+        +filter(
+          '',
+          'Кровати',
+          [
+            { 'name':'Все кровати', 'value': 'Все кровати', 'default': true, 'selected': true, 'disabled': false, 'hidden': false},
+            { 'name':'Изголовье для кровати', 'value': 'Изголовье для кровати', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+            { 'name':'Кованные кровати', 'value': 'Кованные кровати', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+            { 'name':'Кровати с балдахином', 'value': 'Кровати с балдахином', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+          ]
+          )
+        +filter(
+          '',
+          'Кровати',
+          [
+            { 'name':'Все кровати', 'value': 'Все кровати', 'default': true, 'selected': true, 'disabled': false, 'hidden': false},
+            { 'name':'Изголовье для кровати', 'value': 'Изголовье для кровати', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+            { 'name':'Кованные кровати', 'value': 'Кованные кровати', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+            { 'name':'Кровати с балдахином', 'value': 'Кровати с балдахином', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+          ]
+          )
+        +filter(
+          '',
+          'Кровати',
+          [
+            { 'name':'Все кровати', 'value': 'Все кровати', 'default': true, 'selected': true, 'disabled': false, 'hidden': false},
+            { 'name':'Изголовье для кровати', 'value': 'Изголовье для кровати', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+            { 'name':'Кованные кровати', 'value': 'Кованные кровати', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+            { 'name':'Кровати с балдахином', 'value': 'Кровати с балдахином', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+          ]
+          )
+        +filter(
+          '',
+          'Кровати',
+          [
+            { 'name':'Все кровати', 'value': 'Все кровати', 'default': true, 'selected': true, 'disabled': false, 'hidden': false},
+            { 'name':'Изголовье для кровати', 'value': 'Изголовье для кровати', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+            { 'name':'Кованные кровати', 'value': 'Кованные кровати', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+            { 'name':'Кровати с балдахином', 'value': 'Кровати с балдахином', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+          ]
+          )
+      .col-2
+        +filter(
+          '',
+          'Расположение',
+          [
+            { 'name':'Любое', 'value': 'Любое', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+            { 'name':'Библиотека', 'value': 'Библиотека', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+            { 'name':'Библиотека', 'value': 'Гостинная', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+          ],
+        true)
+    .row(style="padding: 50px 0")
+      .col-10
+        h1.h1 Шапка
+
+    include ../modules/header/header

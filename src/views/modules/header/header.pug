@@ -1,2 +1,37 @@
-header
-  h2 this is a header
+header.header
+  +pic('header__logo', './assets/img/logo.png')
+  .header__cell
+    +filter(
+      '',
+      'Предметы',
+      [
+        { 'name':'Любое', 'value': 'Любое', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+        { 'name':'Библиотека', 'value': 'Библиотека', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+        { 'name':'Библиотека', 'value': 'Гостинная', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+      ],
+      false)
+  .header__cell
+    +filter(
+      '',
+      'Расположение',
+      [
+        { 'name':'Любое', 'value': 'Любое', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+        { 'name':'Библиотека', 'value': 'Библиотека', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+        { 'name':'Библиотека', 'value': 'Гостинная', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+      ],
+    true)
+  .header__cell
+    +filter(
+      '',
+      'Фабрики',
+      [
+        { 'name':'Любое', 'value': 'Любое', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+        { 'name':'Библиотека', 'value': 'Библиотека', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+        { 'name':'Библиотека', 'value': 'Гостинная', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+      ],
+    true)
+  .header__cell
+    a.text-filter.header__contacts(href="#") Контакты
+    a.header__cart_wrapper(href="#")
+      +icon('header__cart', 'cart')
+      p.text-breadcrumbs.header__cart_counter 3

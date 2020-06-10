@@ -12,3 +12,10 @@ mixin pic(classname, srcset, alt)
   picture(class=classname)
     source(srcset=srcset)
     img(src="./assets/img/" + picname + ".webp", alt=alt)
+
+mixin icon(classname, name)
+  - classname = classname || ''
+  svg(class=classname)
+    use(xlink:href="./assets/img/svg/sprite.svg#" + name)
+
+include ../components/filter/filter

@@ -1,5 +1,135 @@
 .filter {
   &-wrapper {
-    background-color: aliceblue;
+    position: relative;
+    width: 100%;
+
+    select {
+      display: none;
+
+      &[multiple] {
+        ~ .filter-menu {
+          .filter-menu-item {
+            position: relative;
+            padding-left: 26px;
+
+            &::before {
+              position: absolute;
+              content: '';
+              top: 50%;
+              left: 0;
+              display: block;
+              width: 16px;
+              padding: 1px;
+              height: 16px;
+              transform: translateY(-50%);
+              border: 1px solid $black;
+            }
+
+            &.is-selected {
+              &::after {
+                position: absolute;
+                content: '';
+                top: 50%;
+                left: 2px;
+                display: block;
+                width: 12px;
+                height: 12px;
+                transform: translateY(-50%);
+                background-color: $black;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.is-active {
+      .filter {
+        &-header {
+          &::before {
+            background-color: $gray;
+          }
+          &::after {
+            background-color: $gray;
+            transform: rotate(180deg);
+          }
+        }
+
+        &-name {
+          color: $gray;
+        }
+
+        &-menu {
+          height: 100%;
+          transform: scaleY(1);
+        }
+      }
+    }
+  }
+
+  &-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-bottom: rem(18);
+    border-bottom: 1px solid #979797;
+
+    &::before,
+    &::after {
+      position: absolute;
+      display: block;
+      top: 12px;
+      right: 0;
+      width: 12px;
+      height: 2px;
+      background-color: $black;
+      content: '';
+      transition: all 0.3s ease;
+    }
+
+    &::after {
+      transform: rotate(90deg);
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &-name {
+    display: block;
+    margin-right: rem(16);
+  }
+
+  &-counter {
+    display: none;
+    line-height: 1;
+  }
+
+  &-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 0;
+    padding-top: 18px;
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+    transform-origin: top;
+
+    &-item {
+      @extend .text-filter;
+      border-bottom: 1px solid #e0e0e0;
+
+      &.is-selected {
+        font-weight: bold;
+        color: $black;
+      }
+
+      &.is-disabled {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+    }
   }
 }

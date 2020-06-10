@@ -1,10 +1,18 @@
-.filter-wrapper
-  select
-    option(default, hidden) Все кровати
-    option Изголовье для кровати
-    option Кованные кровати
-    option Кровати с балдахином
-    option Кровати с мягким изголовьем
-    option Круглые кровати
-    option Односпальные кровати
-    option Основание для кровати
+mixin filter(classname, name, options, multiple)
+  - classname = classname || ''
+  - multiple = multiple || false
+  - name = name
+  - options = options || []
+  .filter-wrapper(class=classname)
+    select(name='arr[]', multiple=multiple)
+      each option in options
+        option(
+          value=option.value,
+          selected=option.selected,
+          hidden=option.hidden
+          disabled=option.disabled
+          default=option.default
+          ) #{ option.name }
+    .filter-header
+      span.filter-name.text-filter-links #{name}
+      span.filter-counter.text-breadcrumbs 0

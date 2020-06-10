@@ -17,8 +17,6 @@
 
 .text {
   &-regular {
-    width: 23rem;
-    height: 5.688rem;
     color: $gray;
     font-family: 'Helvetica';
     font-size: 1rem;
@@ -28,16 +26,12 @@
   }
 
   &-filter {
-    width: 9rem;
-    height: 6.5rem;
     color: $gray;
     font-size: 0.875rem;
     font-weight: 300;
     line-height: 1.75rem;
 
     &-links {
-      width: 11.563rem;
-      height: 4.563rem;
       color: $black;
       font-size: 1rem;
       letter-spacing: -0.014rem;

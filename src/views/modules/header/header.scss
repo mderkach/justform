@@ -1,3 +1,43 @@
-header {
-  background-color: aliceblue;
+.header {
+  @include make-row();
+  width: 100%;
+  display: flex;
+  padding: 55px 0 50px;
+
+  &__logo,
+  &__cell {
+    @include make-col-ready();
+    @include make-col(2);
+  }
+
+  &__logo {
+    padding-top: 3px;
+  }
+
+  &__cell {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &__contacts {
+    color: $black;
+  }
+
+  &__cart {
+    width: 21px;
+    height: 17px;
+
+    &_wrapper {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+    }
+
+    &_counter {
+      position: relative;
+      top: -10px;
+      margin-left: 4px;
+      line-height: 28px;
+    }
+  }
 }
