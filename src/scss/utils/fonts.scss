@@ -44,8 +44,8 @@
 @include font-face('HelveticaNeue', '/assets/fonts/HelveticaNeue-UltraLightItalic', 100, italic);
 @include font-face('HelveticaNeue', '/assets/fonts/HelveticaNeue-Light', 300, normal);
 @include font-face('HelveticaNeue', '/assets/fonts/HelveticaNeue-LightItalic', 300, italic);
-@include font-face('HelveticaNeue', '/assets/fonts/HelveticaNeue', 400, normal);
+@include font-face('HelveticaNeue', '/assets/fonts/HelveticaNeue', normal, normal);
 @include font-face('HelveticaNeue', '/assets/fonts/HelveticaNeue-Medium', 500, normal);
 @include font-face('HelveticaNeue', '/assets/fonts/HelveticaNeue-Bold', 700, normal);
 @include font-face('HelveticaNeue', '/assets/fonts/HelveticaNeue-BoldItalic', 700, italic);
-@include font-face('HelveticaNeue', '/assets/fonts/HelveticaNeue-CondensedBlack', 900, normal);
+@include font-face('HelveticaNeue', '/assets/fonts/HelveticaNeue-Black', 900, normal);

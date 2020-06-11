@@ -1,0 +1,15 @@
+mixin item(name, descr, price, img, isNew)
+  - name = name
+  - descr = descr
+  - price = price
+  - img = img
+  - isNew = false || isNew
+  a.item(href="#")
+    .item__img_wrapper
+      if isNew
+        +icon('item__new', 'new')
+      +pic('item__img', img)
+      .item__price
+        span.text-breadcrumbs #{ price }
+    p.text-regular.item__name #{ name }
+    p.text-breadcrumbs.item__descr #{ descr }
