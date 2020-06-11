@@ -1,6 +1,6 @@
 .h1 {
   color: $black;
-  font-family: 'Helvetica';
+  font-family: 'HelveticaNeue';
   font-size: 5rem;
   font-weight: 500;
   letter-spacing: -0.132rem;
@@ -9,8 +9,9 @@
 
 .h2 {
   color: $black;
-  font-family: 'Helvetica';
+  font-family: 'HelveticaNeue';
   font-size: 1.875rem;
+  font-weight: normal;
   letter-spacing: -0.026rem;
   line-height: 2rem;
 }
@@ -18,7 +19,7 @@
 .text {
   &-regular {
     color: $gray;
-    font-family: 'Helvetica';
+    font-family: 'HelveticaNeue';
     font-size: 1rem;
     font-weight: 300;
     letter-spacing: -0.014rem;
@@ -27,12 +28,15 @@
 
   &-filter {
     color: $gray;
+    font-family: 'HelveticaNeue';
     font-size: 0.875rem;
     font-weight: 300;
     line-height: 1.75rem;
 
     &-links {
       color: $black;
+      font-family: 'HelveticaNeue';
+      font-weight: normal;
       font-size: 1rem;
       letter-spacing: -0.014rem;
     }
@@ -40,6 +44,7 @@
 
   &-links {
     color: $black;
+    font-family: 'HelveticaNeue';
     font-size: 1rem;
     font-weight: 300;
     font-style: italic;
@@ -49,6 +54,7 @@
 
   &-breadcrumbs {
     color: $gray;
+    font-family: 'HelveticaNeue';
     font-size: 0.75rem;
     font-weight: 300;
     line-height: 1.75rem;

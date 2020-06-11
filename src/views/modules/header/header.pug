@@ -35,3 +35,8 @@ header.header
     a.header__cart_wrapper(href="#")
       +icon('header__cart', 'cart')
       p.text-breadcrumbs.header__cart_counter 3
+    button.header__menu-button(type='button' aria-label='Menu' aria-controls='navigation')
+      span.header__menu-button_inner
+      span.header__menu-button_inner
+    button.header__search-button(type='button' aria-label='Search' aria-controls='search')
+      +icon('', 'search')

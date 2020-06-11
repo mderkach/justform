@@ -2,7 +2,7 @@
    ========================================================================== */
 
 // Font
-$mainFont: 'Helvetica', sans-serif;
+$mainFont: 'HelveticaNeue', 'Helvetica', 'Arial', sans-serif;
 $mainFontColor: #101010;
 
 // Size
@@ -52,14 +52,3 @@ $black: #000;
 $gray: #5d5d5d;
 
 //hamburger
-$hamburger-padding-x: 1px !default;
-$hamburger-padding-y: 1px !default;
-$hamburger-layer-width: 16px !default;
-$hamburger-layer-height: 3px !default;
-$hamburger-layer-spacing: 3px !default;
-$hamburger-layer-color: $white !default;
-$hamburger-layer-border-radius: 4px !default;
-$hamburger-hover-opacity: 0.7 !default;
-$hamburger-active-layer-color: $hamburger-layer-color !default;
-$hamburger-active-hover-opacity: $hamburger-hover-opacity !default;
-$hamburger-types: (collapse);

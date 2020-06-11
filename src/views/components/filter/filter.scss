@@ -23,7 +23,7 @@
               padding: 1px;
               height: 16px;
               transform: translateY(-50%);
-              border: 1px solid $black;
+              border: 1px solid #d7d7d7;
             }
 
             &.is-selected {
@@ -37,6 +37,26 @@
                 height: 12px;
                 transform: translateY(-50%);
                 background-color: $black;
+              }
+
+              &::before {
+                border-color: $black;
+              }
+            }
+
+            &:hover {
+              color: $black;
+
+              &::after {
+                position: absolute;
+                content: '';
+                top: 50%;
+                left: 2px;
+                display: block;
+                width: 12px;
+                height: 12px;
+                transform: translateY(-50%);
+                background-color: #e2e2e2;
               }
             }
           }
@@ -96,6 +116,15 @@
 
     &:hover {
       cursor: pointer;
+
+      .filter-name {
+        color: $gray;
+      }
+
+      &::before,
+      &::after {
+        background-color: $gray;
+      }
     }
   }
 
@@ -130,6 +159,10 @@
       &.is-disabled {
         opacity: 0.5;
         pointer-events: none;
+      }
+
+      &:hover {
+        cursor: pointer;
       }
     }
   }

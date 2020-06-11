@@ -17,6 +17,11 @@ html {
   scroll-behavior: smooth;
 }
 
+button {
+  padding: 0;
+  background-color: transparent;
+}
+
 .is-modal-open {
   overflow: hidden;
 }
