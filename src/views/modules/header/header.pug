@@ -1,42 +1,126 @@
 header.header
-  +pic('header__logo', './assets/img/logo.png')
-  .header__cell
-    +filter(
-      '',
-      'Предметы',
-      [
-        { 'name':'Любое', 'value': 'Любое', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
-        { 'name':'Библиотека', 'value': 'Библиотека', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
-        { 'name':'Библиотека', 'value': 'Гостинная', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
-      ],
-      false)
-  .header__cell
-    +filter(
-      '',
-      'Расположение',
-      [
-        { 'name':'Любое', 'value': 'Любое', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
-        { 'name':'Библиотека', 'value': 'Библиотека', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
-        { 'name':'Библиотека', 'value': 'Гостинная', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
-      ],
-    true)
-  .header__cell
-    +filter(
-      '',
-      'Фабрики',
-      [
-        { 'name':'Любое', 'value': 'Любое', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
-        { 'name':'Библиотека', 'value': 'Библиотека', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
-        { 'name':'Библиотека', 'value': 'Гостинная', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
-      ],
-    true)
-  .header__cell
-    a.text-filter-links.header__contacts(href="#") Контакты
-    a.header__cart_wrapper(href="#")
-      +icon('header__cart', 'cart')
-      p.text-breadcrumbs.header__cart_counter 3
-    button.header__menu-button(type='button' aria-label='Menu' aria-controls='navigation')
-      span.header__menu-button_inner
-      span.header__menu-button_inner
-    button.header__search-button(type='button' aria-label='Search' aria-controls='search')
-      +icon('', 'search')
+  +wrapper('header')
+    +pic('header__logo', './assets/img/logo.png')
+    .header__cell
+      a.header__category-wrapper(href="items")
+        .header__category-header
+          span.header__category-name.text-filter-links Предметы
+    .header__cell
+      a.header__category-wrapper(href="positions")
+        .header__category-header
+          span.header__category-name.text-filter-links Расположение
+    .header__cell
+      a.header__category-wrapper(href="factory")
+        .header__category-header
+          span.header__category-name.text-filter-links Фабрики
+    .header__cell
+      a.text-filter-links.header__contacts(href="#") Контакты
+      a.header__cart_wrapper(href="#")
+        +icon('header__cart', 'cart')
+        p.text-breadcrumbs.header__cart_counter 3
+      button.header__menu-button(type='button' aria-label='Menu' aria-controls='navigation')
+        span.header__menu-button_inner
+        span.header__menu-button_inner
+      button.header__search-button(type='button' aria-label='Search' aria-controls='search')
+        +icon('', 'search')
+    .header__category-menu-wrapper
+      .header__category-menu(data-parent="items")
+        a.header__category-link(href="#") Аксессуары
+        a.header__category-link(href="#") Бары
+        a.header__category-link(href="#") Библиотеки
+        a.header__category-link(href="#") Буфеты и витрины
+        a.header__category-link(href="#") Гаржеробные
+        a.header__category-link(href="#") Двери
+        a.header__category-link(href="#") Детская мебель
+        a.header__category-link(href="#") Диваны
+        //-
+        a.header__category-link(href="#") Зеркала
+        a.header__category-link(href="#") Ковры
+        a.header__category-link(href="#") Комоды
+        a.header__category-link(href="#") Консоли
+        a.header__category-link(href="#") Кресла
+        a.header__category-link(href="#") Кровати
+        a.header__category-link(href="#") Кухни
+        a.header__category-link(href="#") Кушетки и банкетки
+        //-
+        a.header__category-link(href="#") Матрасы
+        a.header__category-link(href="#") Мебель для ТВ
+        a.header__category-link(href="#") Мебель для ванной
+        a.header__category-link(href="#") Модульные системы
+        a.header__category-link(href="#") Офисная мебель
+        a.header__category-link(href="#") Пуфы
+        a.header__category-link(href="#") Свет
+        a.header__category-link(href="#") Секретеры
+        //-
+        a.header__category-link(href="#") Столы
+        a.header__category-link(href="#") Стулья
+        a.header__category-link(href="#") Текстиль
+        a.header__category-link(href="#") Уличная мебель
+        a.header__category-link(href="#") Тумбочки
+        a.header__category-link(href="#") Шкафы
+      .header__category-menu(data-parent="positions")
+        a.header__category-link(href="#") Библиотека
+        a.header__category-link(href="#") Ванная
+        a.header__category-link(href="#") Гардеробная
+        a.header__category-link(href="#") Гостиная
+        a.header__category-link(href="#") Детская
+        a.header__category-link(href="#") Кабинет
+        a.header__category-link(href="#") Кухня
+        a.header__category-link(href="#") Офис
+        //-
+        a.header__category-link(href="#") Прихожая
+        a.header__category-link(href="#") Рестораны и бары
+        a.header__category-link(href="#") Спальня
+        a.header__category-link(href="#") Столовая
+        a.header__category-link(href="#") Улица
+      .header__category-menu(data-parent="factory")
+        .header__category-row
+          .header__cell
+            a.text-breadcrumbs(href="#") Все фабрики
+          .header__cell
+            p.text-filter-links A
+        .header__category-row
+          .header__category-factory
+            a.text-filter.is-active(href="#") A
+            a.text-filter(href="#") B
+            a.text-filter(href="#") C
+            a.text-filter(href="#") D
+            a.text-filter(href="#") E
+            a.text-filter(href="#") F
+            a.text-filter(href="#") G
+            a.text-filter(href="#") H
+            a.text-filter(href="#") I
+            a.text-filter(href="#") J
+            a.text-filter(href="#") K
+            a.text-filter(href="#") L
+            a.text-filter(href="#") M
+            a.text-filter(href="#") N
+            a.text-filter(href="#") O
+            a.text-filter(href="#") P
+            a.text-filter(href="#") Q
+            a.text-filter(href="#") R
+            a.text-filter(href="#") S
+            a.text-filter(href="#") T
+            a.text-filter(href="#") U
+            a.text-filter(href="#") V
+            a.text-filter(href="#") W
+            a.text-filter(href="#") X
+            a.text-filter(href="#") Y
+            a.text-filter(href="#") Z
+          .header__category-factory-menu
+            a.header__category-link(href="#") ABC ITALIA
+            a.header__category-link(href="#") Abstracta
+            a.header__category-link(href="#") Acerbis
+            a.header__category-link(href="#") ACTIU
+            a.header__category-link(href="#") Adele-C
+            a.header__category-link(href="#") Adentro
+            a.header__category-link(href="#") ADORA
+            a.header__category-link(href="#") Adrenalina
+            a.header__category-link(href="#") Agresti
+            a.header__category-link(href="#") ALBED
+            a.header__category-link(href="#") Alberta Salotti
+            a.header__category-link(href="#") Alchymia
+            a.header__category-link(href="#") Alias
+            a.header__category-link(href="#") Alias
+            a.header__category-link(href="#") Alias
+            a.header__category-link(href="#") Alias

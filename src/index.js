@@ -11,5 +11,7 @@ import './scss/main.scss';
 
 // components
 import filter from './views/components/filter/filter';
+import header from './views/modules/header/header';
 
 filter.init();
+header.init();

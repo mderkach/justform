@@ -1,7 +1,28 @@
 .header {
-  @include make-row();
-  display: flex;
+  position: sticky;
+  top: 0;
   padding: 56px 0 50px;
+  z-index: 900;
+
+  &.is-sticky {
+    background-color: #f8f8f8;
+  }
+
+  &.is-expanded {
+    background-color: #f0f0f0;
+  }
+
+  &__container {
+    @include make-container($gutter: $grid-gutter-width);
+    @include make-container-max-widths(
+      $max-widths: $container-max-widths,
+      $breakpoints: $grid-breakpoints
+    );
+  }
+
+  &__row {
+    @include make-row();
+  }
 
   &__logo,
   &__cell {
@@ -83,6 +104,191 @@
       height: 16px;
       margin-top: 3px;
       padding: 0;
+    }
+  }
+
+  &__category {
+    &-wrapper {
+      position: relative;
+      width: 100%;
+
+      &:hover {
+        color: $gray;
+        text-decoration: none;
+      }
+
+      &.header__category {
+        &-header {
+          &::before {
+            background-color: $gray;
+          }
+          &::after {
+            background-color: $gray;
+            transform: rotate(180deg);
+          }
+        }
+
+        &-name {
+          color: $gray;
+        }
+
+        &-menu {
+          height: 100%;
+          padding-top: 18px;
+          transform: scaleY(1);
+        }
+      }
+    }
+
+    &-header {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding-bottom: rem(18);
+      border-bottom: 1px solid #979797;
+
+      &::before,
+      &::after {
+        position: absolute;
+        display: block;
+        top: 12px;
+        right: 0;
+        width: 12px;
+        height: 2px;
+        background-color: $black;
+        content: '';
+        transition: all 0.3s ease;
+      }
+
+      &::after {
+        transform: rotate(90deg);
+      }
+
+      &:hover {
+        cursor: pointer;
+
+        .header__category-name {
+          color: $gray;
+        }
+
+        &::before,
+        &::after {
+          background-color: $gray;
+        }
+      }
+
+      &-name {
+        display: block;
+        margin-right: rem(16);
+      }
+    }
+
+    &-menu {
+      &[data-parent='items'] {
+        @include make-col-offset(2);
+      }
+
+      &[data-parent='positions'] {
+        @include make-col-offset(4);
+        margin-right: 20%;
+      }
+
+      &[data-parent='factory'] {
+        align-items: flex-start;
+        flex-direction: row;
+        max-height: unset;
+
+        &.is-active {
+          margin-bottom: 0;
+        }
+      }
+
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      width: 100%;
+      height: 0;
+      max-height: 232px;
+      transform: scaleY(0);
+      transition: transform 0.5s ease, margin 0.5s ease;
+      transform-origin: top;
+
+      &.is-active {
+        height: 100%;
+        margin-top: 50px;
+        margin-bottom: 90px;
+        transform: scaleY(1);
+      }
+
+      &-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+    }
+
+    &-link {
+      display: block;
+      width: 100%;
+      max-width: 232px;
+      margin: 0 $gutter;
+      border-bottom: 1px solid #e0e0e0;
+      @extend .text-filter;
+
+      &:hover {
+        cursor: pointer;
+        @extend .text-filter;
+        text-decoration: none;
+      }
+    }
+
+    &-factory {
+      @include make-col-ready();
+      @include make-col(1);
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-content: space-between;
+      max-height: 364px;
+
+      a {
+        width: 12px;
+
+        &.is-active {
+          font-weight: 500;
+          color: $black;
+        }
+
+        &:hover {
+          cursor: pointer;
+          color: $gray;
+          text-decoration: none;
+        }
+      }
+
+      &-menu {
+        @include make-col(8);
+        @include make-col-offset(1);
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        max-height: 364px;
+      }
+    }
+
+    &-row {
+      display: flex;
+      width: 100%;
+
+      + .header__category-row {
+        margin-bottom: 60px;
+      }
+
+      .header__cell {
+        height: 20px;
+      }
     }
   }
 }
