@@ -23,11 +23,16 @@ const header = {
       console.log('closed');
     }
   },
+  closeAll: (arr, event) => {
+    arr.forEach((item) => {
+      if (event.target !== item) {
+        item.classList.remove('is-active');
+      }
+    });
+  },
   stuck: false,
   init: () => {
     if (header.wrapper) {
-      console.log(`header ready`);
-
       const getDistance = () => {
         const topDist = header.wrapper.offsetTop;
         return topDist;
@@ -57,24 +62,25 @@ const header = {
       header.categories.forEach((category) => {
         category.addEventListener('click', (e) => {
           e.preventDefault();
-
-          // if (category.classList.contains('is-active') && category.hasAttribute('data-target')) {
-          //   category.classList.remove('is-active');
-          // } else {
-          //   category.classList.add('is-active');
-          // }
-
+          header.wrapper.focus();
           let target = header.selectTarget(category, 'href');
 
           if (category.hasAttribute('data-target')) {
             target = header.selectTarget(category, 'data-target');
           }
 
-          console.log(category);
+          header.categories.forEach((link) => link.classList.remove('is-active'));
+          category.classList.toggle('is-active');
 
           menus.forEach((menu) => {
             if (menu === target) {
               menu.classList.toggle('is-active');
+
+              if (menu.classList.contains('is-active')) {
+                header.wrapper.classList.add('is-expanded');
+              } else {
+                header.wrapper.classList.remove('is-expanded');
+              }
             } else {
               menu.classList.remove('is-active');
             }
