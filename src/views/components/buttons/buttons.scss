@@ -1,0 +1,31 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: rem(10);
+  padding: rem(9) 0 rem(10);
+
+  &-primary {
+    background-color: $black;
+    color: $white;
+
+    &:hover {
+      background-color: #1e1e1e;
+    }
+  }
+
+  &-secondary {
+    background-color: #e2e2e2;
+    color: $gray;
+
+    &:hover {
+      background-color: #f0f0f0;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: none;
+  }
+}

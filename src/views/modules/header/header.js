@@ -65,12 +65,17 @@ const header = {
           header.wrapper.focus();
           let target = header.selectTarget(category, 'href');
 
+          header.categories.forEach((link) => {
+            if (link === category && !link.classList.contains('is-active')) {
+              link.classList.add('is-active');
+            } else {
+              link.classList.remove('is-active');
+            }
+          });
+
           if (category.hasAttribute('data-target')) {
             target = header.selectTarget(category, 'data-target');
           }
-
-          header.categories.forEach((link) => link.classList.remove('is-active'));
-          category.classList.toggle('is-active');
 
           menus.forEach((menu) => {
             if (menu === target) {
