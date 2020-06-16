@@ -1,0 +1,27 @@
+.search__wrapper
+  +wrapper('search')
+    form.search
+      input.search__input(type="text")
+      button.search__reset.text-breadcrumbs(type="reset") Очистить
+    button.search-close
+      +icon('', 'close')
+    .search__results
+      p.search__results-not-found.text-regular По запросу « Абракадабра » ничего не найдено
+      h2.search__results-header.h2
+        |Кресла
+        span 3
+      .search__results-wrapper
+        +item('Название модели','Фабрика','€ 5.000 — 10.000','./assets/img/img1.png', true)
+        +item('Название модели','Фабрика','€ 500.000 — 10000.000','./assets/img/img2.png', true)
+        +item('Название модели','Фабрика','€ 5.000 — 10.000','./assets/img/img3.png', true)
+        +item('Название модели','Фабрика','€ 5.000 — 10.000','./assets/img/img4.png', true)
+        +item('Название модели','Фабрика','€ 5.000 — 10.000','./assets/img/img5.png', true)
+        +item('Название модели','Фабрика','€ 5.000 — 10.000','./assets/img/img6.png', true)
+        +item('Название модели','Фабрика','€ 5.000 — 10.000','./assets/img/img7.png', true)
+        +item('Название модели','Фабрика','€ 5.000 — 10.000','./assets/img/img8.png', true)
+      h2.search__results-header.h2
+        |Кресла
+        span 1
+      .search__results-wrapper
+        +item('Название модели','Фабрика','€ 5.000 — 10.000','./assets/img/img1.png', true)
+        +item('Название модели','Фабрика','€ 500.000 — 10000.000','./assets/img/img2.png', true)
