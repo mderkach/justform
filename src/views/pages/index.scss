@@ -1,0 +1,17 @@
+.index {
+  &__banner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    &-header {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding-top: rem(40);
+      z-index: 2;
+    }
+  }
+}

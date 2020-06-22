@@ -1,0 +1,12 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Justform';
+  - var description = '';
+  - var pageClass = 'index-page';
+
+block content
+  section.index__banner
+    .index__banner-header
+      +pic('index-banner__logo', './assets/img/logo-alt.png')
+    include ../components/slider/sliderBanner
