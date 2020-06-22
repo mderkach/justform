@@ -1,0 +1,25 @@
+@import './item';
+
+.itemLink {
+  .item {
+    &__name {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    &__submenu {
+      display: flex;
+      flex-direction: column;
+      margin-top: rem(15);
+
+      &-link {
+        font-size: rem(14);
+        &:hover {
+          text-decoration: none;
+          color: $gray;
+        }
+      }
+    }
+  }
+}

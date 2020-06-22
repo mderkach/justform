@@ -10,3 +10,17 @@ block content
     .index__banner-header
       +pic('index-banner__logo', './assets/img/logo-alt.png')
     include ../components/slider/sliderBanner
+    +header(true, false)
+    .index__container
+      .index__grid
+        +itemLink('Аксессуары','./assets/img/img1.png',[])
+        +itemLink('Бары','./assets/img/img1.png',[])
+        +itemLink('Библиотеки','./assets/img/img1.png',[])
+        +itemLink('Буфеты и витрины','./assets/img/img1.png',[])
+        +itemLink('Гардеробные','./assets/img/img1.png',[])
+        +cardGray('italy', 'Made in Italy <br><br>')
+        +cardGray('box', 'Доставка, сборка <br> по России и Европе')
+        +cardGray('chair', 'Шоу-рум в центре <br> Москвы')
+        +cardGray('delivery', 'Прямые поставки <br> от фабрик')
+        +cardGray('lock', 'Интерьеры <br> «под ключ»')
+        +itemLink('Гардеробные','./assets/img/img1.png',['Входные двери','Глухие двери','Двери без обналичников','Еще…'])

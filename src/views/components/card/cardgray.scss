@@ -1,0 +1,24 @@
+.card {
+  &__gray {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 200px;
+    padding: rem(20);
+    background-color: #959191;
+
+    &-icon {
+      width: 100%;
+      height: 100%;
+      max-width: 30px;
+      max-height: 30px;
+    }
+
+    &-descr {
+      font-size: rem(16);
+      letter-spacing: rem(-0.22);
+      color: $white;
+    }
+  }
+}

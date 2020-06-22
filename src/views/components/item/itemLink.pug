@@ -1,0 +1,11 @@
+mixin itemLink(name, img, submenu)
+  - name = name
+  - img = img
+  - submenu = submenu || []
+  .item.itemLink
+    .item__img_wrapper
+      +pic('item__img', img)
+    a.text-regular.item__name(href="#") #{ name }
+    .item__submenu
+      each item in submenu
+        a(href="#").text-breadcrumbs.item__submenu-link #{ item }
