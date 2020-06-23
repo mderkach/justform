@@ -10,17 +10,80 @@ block content
     .index__banner-header
       +pic('index-banner__logo', './assets/img/logo-alt.png')
     include ../components/slider/sliderBanner
-    +header(true, false)
+  +header(true, false)
+  section.index__categories
     .index__container
       .index__grid
-        +itemLink('Аксессуары','./assets/img/img1.png',[])
-        +itemLink('Бары','./assets/img/img1.png',[])
-        +itemLink('Библиотеки','./assets/img/img1.png',[])
-        +itemLink('Буфеты и витрины','./assets/img/img1.png',[])
-        +itemLink('Гардеробные','./assets/img/img1.png',[])
+        +itemLink('Аксессуары','./assets/img/accs.jpg')
+        +itemLink('Бары','./assets/img/bar.jpg')
+        +itemLink('Библиотеки','./assets/img/libr.jpg')
+        +itemLink('Буфеты и витрины','./assets/img/showcase.jpg')
+        +itemLink('Гардеробные','./assets/img/wardrobe.jpg')
         +cardGray('italy', 'Made in Italy <br><br>')
         +cardGray('box', 'Доставка, сборка <br> по России и Европе')
         +cardGray('chair', 'Шоу-рум в центре <br> Москвы')
         +cardGray('delivery', 'Прямые поставки <br> от фабрик')
         +cardGray('lock', 'Интерьеры <br> «под ключ»')
-        +itemLink('Гардеробные','./assets/img/img1.png',['Входные двери','Глухие двери','Двери без обналичников','Еще…'])
+        +itemLink('Двери','./assets/img/door.jpg',['Входные двери','Глухие двери','Двери без обналичников','Еще…'])
+        +itemLink('Детская мебель','./assets/img/kids.jpg',['Аксессуары для детской','Диваны для детской','Кресла для детской','Еще…'])
+        +itemLink('Диваны','./assets/img/sofa.jpg',['Дизайнерские диваны','Закругленные диваны','Кожанные диваны','Еще…'])
+        +itemLink('Зеркала','./assets/img/mirror.jpg',['Квадратные зеркла','Круглые зеркала','Напольные зеркала','Еще…'])
+        +itemLink('Ковры','./assets/img/carpet.jpg')
+        +itemLink('Комоды','./assets/img/commode.jpg')
+        +itemLink('Консоли','./assets/img/console.jpg')
+        +itemLink('Кресла','./assets/img/chairs.jpg',['Дизайнерские кресла','Кресла кровати','Офисные и рабочие кресла','Еще…'])
+        +itemLink('Кровати','./assets/img/beds.jpg',['Изголовье для кровати','Кованные кровати','Кровати с балдахином','Еще…'])
+        +itemLink('Кухни','./assets/img/kitchen.jpg')
+        +itemLink('Кушетки и банкетки','./assets/img/couch.jpg')
+        +itemLink('Матрас','./assets/img/mattres.jpg')
+        +itemLink('Мебель для ТВ','./assets/img/tv.jpg',['Рамы под ТВ','Тумбы под  ТВ'])
+        +itemLink('Мебель для ванной','./assets/img/shower.jpg')
+        +itemLink('Офисная мебель','./assets/img/office.jpg',['Кресла для кабинета','Офисные комоды','Офисные стеллажи','Еще…'])
+        +itemLink('Пуфы','./assets/img/poof.jpg')
+        +itemLink('Свет','./assets/img/light.jpg',['Бра','Люстры','Настольные лампы','Еще…'])
+        +itemLink('Секретеры','./assets/img/secret.jpg')
+        +itemLink('Столы','./assets/img/table.jpg',['Журнальные столы','Компьютерные столы','Кофейные столики','Еще…'])
+        +itemLink('Стулья','./assets/img/armchair.jpg',['Барные стулья','Вращающиеся стулья','Ротанг и плетеные стулья','Еще…'])
+        +itemLink('Текстиль','./assets/img/textyle.jpg')
+        +itemLink('Уличная мебель','./assets/img/street.jpg',['Аксессуары для улицы','Барные стулья для улицы','Диваны для улицы','Еще…'])
+        +itemLink('Тумбы','./assets/img/stand.jpg')
+        +itemLink('Шкафы','./assets/img/locker.jpg',['С компланарными дверьми','С раздвижными дверьми','С распашными дверьми'])
+        a.card__gray.card__gray_alt(href="#")
+          +icon('card__gray-icon', 'search')
+          p.card__gray-descr Поиск
+  section.index__furniture
+    +wrapper('index')
+      h2.index__header.h2 Итальянская мебель
+      .index__block
+        p.index__text.text-links « Качество никогда не возникает случайно; оно всегда представляет собой результат ясного намерения, искреннего усилия, разумного руководства и квалифицированного исполнения; оно достигается мудрым выбором из многих альтернатив »
+        p.index__text.text-regular — Уилл Фостер
+        p.index__text.text-regular
+          | Именно этой цитатой можно охарактеризовать итальянских производителей мебели.
+          | Не больше  не меньше: только лучшее сырье и материалы, высокопроф  не меньше
+          | и не меньше: только лучшее сырье и материалы, высокопрофессиональные мастера
+          | и современные технологии позволяют итальянским брендам оставаться на высоте среди других мировых торговых марок.
+      h3.index__furniture-h3.text-filter-links Итальянская мебель — эталон <br> мирового уровня
+      .index__block.no-offset
+        p.index__text.text-regular
+          | Мебель с Апеннинского полуострова занимает ведущие позиции на внешнем рынке уже несколько столетий подряд. Италия — это страна, где ценятся семейные традиции не только в отношениях,
+          | но и в деле. Поэтому большинство старинных брендов являются семейным бизнесом, который передается из поколения в поколение, а продукция с каждым годом становится только лучше.
+        p.index__text.text-regular
+          | Конкуренция в сфере производства мебели в Италии всегда была высокой, поэтому каждый мастер старался угодить всем своим клиентам: работа делалась на совесть и с индивидуальным подходом.
+        a.index__more.text-links(href="#") Подробнее…
+  section.index__payment
+    +wrapper('index')
+      .index__payment-block
+        h2.h2 Оплата товаров
+        a.text-regular(href="tel:+74955328686") +7 495 532—86—86
+      .index__block
+        p.index__text.text-regular Оплату товаров вы можете осуществить <br> следующими способами:
+        .index__payment-methods
+          .index__payment-methods-row
+            +icon('','money')
+            span.text-filter-links Наличными
+          .index__payment-methods-row
+            +icon('','moneyless')
+            span.text-filter-links Безналичный расчет
+          .index__payment-methods-row
+            +icon('','bankcard')
+            span.text-filter-links Банковской картой

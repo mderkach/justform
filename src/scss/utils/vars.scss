@@ -6,7 +6,6 @@ $mainFont: 'HelveticaNeue', 'Helvetica', 'Arial', sans-serif;
 $mainFontColor: #101010;
 
 // Size
-$baseSizing: 1rem; // 1rem = 16px
 $iconDefault: 4.8rem;
 //desktops
 $large_desktop: 1440px;
@@ -18,7 +17,7 @@ $small_tablet: 768px;
 $large_mobile: 576px;
 $small_mobile: 460px;
 //core font
-$mainFontSize: 1rem; //16px
+$mainFontSize: 16px; //16px
 $mainFontWeight: 400;
 $mainLineHeight: 150%; //24x or 1.25rem
 $boxHeight: $mainLineHeight;
