@@ -78,21 +78,15 @@
       @include make-col(3);
       @include make-col-offset(1);
     }
-
-    a {
-      font-weight: 500;
-      font-style: italic;
-      color: $black;
-
-      &:hover {
-        cursor: pointer;
-        text-decoration: none;
-      }
-    }
   }
 
   &__more {
+    font-weight: 500;
+    font-style: italic;
+    color: $black;
+
     &:hover {
+      cursor: pointer;
       text-decoration: none;
       color: $gray;
     }
@@ -141,6 +135,29 @@
           margin-bottom: 0;
         }
       }
+    }
+  }
+
+  &__factory {
+    @extend .index__furniture;
+
+    .index__block {
+      @include make-col(6);
+      margin-bottom: 0;
+    }
+
+    &-menu {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0 rem(40);
+      max-height: (29 * 13) * 1px; // height of link * number of links
+      margin: rem(16) 0 rem(35);
+    }
+
+    &-link {
+      @extend .header__category-link;
+      max-width: 100%;
+      margin: 0;
     }
   }
 }
