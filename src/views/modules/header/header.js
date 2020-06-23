@@ -1,5 +1,5 @@
 const header = {
-  wrapper: document.querySelector('header'),
+  wrapper: document.querySelector('.header'),
   categories: document.querySelectorAll('.header__category-wrapper'),
   more: document.querySelector('.header__menu-button'),
   search: document.querySelector('.header__search-button'),

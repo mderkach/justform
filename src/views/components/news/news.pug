@@ -1,0 +1,10 @@
+mixin news(banner, date, heading, excerpt)
+  article.news
+    +wrapper('news')
+      +pic('news__banner', banner)
+      time.news__date.text-filter(datetime="") !{ date }
+      header.news__header
+        h2.h2
+          a(href="#") #{ heading }
+      section.news__excerpt
+        p.text-regular !{ excerpt }
