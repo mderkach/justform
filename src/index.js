@@ -2,7 +2,7 @@
 // JS
 // eslint-disable-next-line import/no-unresolved
 import './js/*';
-
+import './views/modules/footer/footer';
 // SCSS
 import './scss/main.scss';
 

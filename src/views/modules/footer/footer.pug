@@ -1,2 +1,9 @@
-footer
-  h2 this is a footer
+footer.footer
+  +wrapper('footer')
+    .footer__block
+      h2.h2 Наш адрес:
+      a.text-links(href="mailto:hello@justform.ru") hello@justform.ru
+    .footer__block.no-offset
+      p.text-regular 115114, Москва, Дербеневская наб. 7 с14
+      a.text-regular(href="tel:+74955328686") +7 495 532—86—86
+    .footer__map#map
