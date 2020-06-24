@@ -35,6 +35,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     gap: rem(56) rem(40);
+
+    @include media-breakpoint-down(lg) {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 
   &__header {
@@ -42,6 +46,12 @@
     @include make-col(8);
     @include make-col-offset(1);
     margin-bottom: rem(109);
+
+    @include media-breakpoint-down(lg) {
+      @include make-col-offset(0);
+      @include make-col(10);
+      margin-bottom: rem(24);
+    }
   }
 
   &__block {
@@ -53,6 +63,12 @@
 
     &.no-offset {
       @include make-col-offset(0);
+    }
+
+    @include media-breakpoint-down(lg) {
+      @include make-col-offset(0);
+      @include make-col(8);
+      margin-bottom: rem(33);
     }
   }
 
@@ -68,15 +84,29 @@
   &__categories {
     padding-bottom: rem(146);
     border-bottom: 2px solid #e2e2e2;
+
+    @include media-breakpoint-down(lg) {
+      padding: 0 0 rem(40);
+    }
   }
 
   &__furniture {
     padding: rem(112) 0 rem(115);
 
+    @include media-breakpoint-down(lg) {
+      padding: rem(34) 0 rem(55);
+    }
+
     &-h3 {
       @include make-col-ready();
       @include make-col(3);
       @include make-col-offset(1);
+
+      @include media-breakpoint-down(lg) {
+        @include make-col-offset(0);
+        @include make-col(10);
+        margin-bottom: rem(24);
+      }
     }
   }
 
@@ -96,6 +126,10 @@
     padding: rem(109) 0 rem(113);
     background-color: #efeded;
 
+    @include media-breakpoint-down(lg) {
+      padding: rem(34) 0 rem(55);
+    }
+
     &-block {
       @include make-col-ready();
       @include make-col-offset(1);
@@ -105,16 +139,39 @@
       flex-direction: column;
       justify-content: space-between;
 
+      @include media-breakpoint-down(lg) {
+        @include make-col-offset(0);
+        @include make-col(10);
+      }
+
       ~ .index__block {
         @include make-col-offset(1);
         margin-bottom: 0;
         padding-top: rem(143);
+
+        @include media-breakpoint-down(lg) {
+          @include make-col-offset(0);
+          @include make-col(10);
+
+          padding-top: rem(0);
+
+          .index__text {
+            margin-top: rem(21);
+            margin-bottom: rem(40);
+          }
+        }
       }
 
       a {
         &:hover {
           text-decoration: none;
           color: $gray;
+        }
+      }
+
+      h2 {
+        @include media-breakpoint-down(lg) {
+          margin-bottom: rem(21);
         }
       }
     }

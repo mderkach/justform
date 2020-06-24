@@ -8,6 +8,10 @@
     padding: rem(20);
     background-color: #959191;
 
+    @include media-breakpoint-down(lg) {
+      display: none;
+    }
+
     &-icon {
       @include size(100%);
       max-width: 30px;
@@ -26,8 +30,18 @@
       padding-bottom: rem(16);
       background-color: #e2e2e2;
 
+      @include media-breakpoint-down(lg) {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-between;
+        height: calc(100% - 140px);
+        max-height: unset;
+      }
+
       &:hover {
         text-decoration: none;
+        background-color: #f0f0f0;
+
         .card__gray-descr {
           text-decoration: none;
           color: $black;
