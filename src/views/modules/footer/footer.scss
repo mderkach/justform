@@ -28,8 +28,21 @@
       @include make-col-offset(0);
     }
 
+    @include media-breakpoint-down(lg) {
+      @include make-col-offset(0);
+      @include make-col(10);
+      margin-bottom: rem(20);
+    }
+
     + .footer__block {
       padding-top: rem(149);
+
+      @include media-breakpoint-down(lg) {
+        @include make-col-offset(0);
+        @include make-col(10);
+
+        padding-top: rem(0);
+      }
 
       a {
         color: $black;
@@ -44,5 +57,11 @@
 
     height: rem(400);
     filter: grayscale(100%);
+
+    @include media-breakpoint-down(lg) {
+      @include make-col-offset(0);
+      @include make-col(10);
+      height: rem(220);
+    }
   }
 }
