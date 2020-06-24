@@ -19,6 +19,10 @@
     @extend .swiper-slide;
     position: relative;
 
+    @include media-breakpoint-down(lg) {
+      height: rem(550);
+    }
+
     &::before {
       position: absolute;
       content: '';
