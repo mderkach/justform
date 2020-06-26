@@ -1,4 +1,5 @@
 .catalog {
+  padding: rem(60) 0 rem(116);
   &__container {
     @include make-container($gutter: $grid-gutter-width);
     @include make-container-max-widths(
@@ -9,5 +10,19 @@
 
   &__row {
     @include make-row();
+  }
+
+  &__filter {
+    @include make-col-ready();
+    @include make-col(2);
+  }
+
+  &__list {
+    @include make-col-ready();
+    @include make-col(8);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 40px;
   }
 }
