@@ -1,8 +1,10 @@
 const header = {
   wrapper: document.querySelector('.header'),
+  mobile: document.querySelector('.header-main-mobile'),
   categories: document.querySelectorAll('.header__category-wrapper'),
   more: document.querySelector('.header__menu-button'),
   search: document.querySelector('.header__search-button'),
+  searchMobile: document.querySelector('.header-main-mobile-search'),
   overlay: document.querySelector('.search__wrapper'),
   closeOverlay: document.querySelector('.search-close'),
   selectTarget: (link, attr) => {
@@ -33,28 +35,31 @@ const header = {
       }
     });
   },
+  sticky: (elm) => {
+    const getDistance = () => {
+      const topDist = elm.offsetTop;
+      return topDist;
+    };
+
+    const stickPpoint = getDistance();
+
+    window.onscroll = () => {
+      const dist = getDistance() - window.pageYOffset;
+      const offset = window.pageYOffset;
+
+      if (dist <= 0 && !header.stuck) {
+        elm.classList.add('is-sticky');
+        header.stuck = true;
+      } else if (header.stuck && offset <= stickPpoint) {
+        elm.classList.remove('is-sticky');
+        header.stuck = false;
+      }
+    };
+  },
   stuck: false,
   init: () => {
     if (header.wrapper) {
-      const getDistance = () => {
-        const topDist = header.wrapper.offsetTop;
-        return topDist;
-      };
-
-      const stickPpoint = getDistance();
-
-      window.onscroll = () => {
-        const dist = getDistance() - window.pageYOffset;
-        const offset = window.pageYOffset;
-
-        if (dist <= 0 && !header.stuck) {
-          header.wrapper.classList.add('is-sticky');
-          header.stuck = true;
-        } else if (header.stuck && offset <= stickPpoint) {
-          header.wrapper.classList.remove('is-sticky');
-          header.stuck = false;
-        }
-      };
+      header.sticky(header.wrapper);
     }
 
     if (header.categories) {
@@ -113,6 +118,16 @@ const header = {
         document.body.classList.remove('is-modal-open');
         document.body.style.position = 'relative';
       });
+    }
+
+    if (header.mobile) {
+      console.log('header.mobile');
+      const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+      console.log(vw);
+
+      if (vw < 1200) {
+        header.sticky(header.mobile);
+      }
     }
   },
 };

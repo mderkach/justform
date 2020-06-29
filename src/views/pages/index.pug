@@ -7,8 +7,7 @@ block variables
 
 block content
   section.index__banner
-    .index__banner-header
-      +pic('index-banner__logo', './assets/img/logo-alt.png')
+    include ../modules/header/headerMainMobile
     include ../components/slider/sliderBanner
   +header(true, false)
   include ../modules/filterMainMobile/filterMainMobile
