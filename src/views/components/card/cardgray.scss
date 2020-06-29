@@ -38,6 +38,14 @@
         max-height: unset;
       }
 
+      @include media-breakpoint-down(xs) {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-between;
+        height: calc(100% - 165px);
+        max-height: unset;
+      }
+
       &:hover {
         text-decoration: none;
         background-color: #f0f0f0;

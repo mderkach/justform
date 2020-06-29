@@ -67,6 +67,10 @@
 
     margin-bottom: rem(109);
 
+    &:last-child {
+      margin-bottom: 0;
+    }
+
     &.no-offset {
       @include make-col-offset(0);
     }
@@ -117,7 +121,7 @@
   }
 
   &__more {
-    font-weight: 500;
+    // font-weight: 500;
     font-style: italic;
     color: $black;
 
@@ -215,12 +219,23 @@
       gap: 0 rem(40);
       max-height: (29 * 13) * 1px; // height of link * number of links
       margin: rem(16) 0 rem(35);
+
+      @include media-breakpoint-down(lg) {
+        grid-template-columns: 1fr 1fr;
+        max-height: 100%;
+      }
     }
 
     &-link {
       @extend .header__category-link;
       max-width: 100%;
       margin: 0;
+
+      @include media-breakpoint-down(lg) {
+        &:nth-child(n + 16) {
+          display: none;
+        }
+      }
     }
   }
 }

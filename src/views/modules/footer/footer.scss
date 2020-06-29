@@ -2,6 +2,7 @@
   padding: rem(113) 0 rem(119);
   background-color: #f8f8f8;
   border-top: 2px solid #e2e2e2;
+
   &__container {
     @include make-container($gutter: $grid-gutter-width);
     @include make-container-max-widths(
@@ -62,6 +63,22 @@
       @include make-col-offset(0);
       @include make-col(10);
       height: rem(220);
+      margin-bottom: rem(23);
+    }
+  }
+
+  &-show-mobile {
+    display: none;
+
+    @include media-breakpoint-down(lg) {
+      display: block;
+      margin-bottom: 0;
+    }
+  }
+
+  &-hide-mobile {
+    @include media-breakpoint-down(lg) {
+      display: none;
     }
   }
 }

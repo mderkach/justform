@@ -178,11 +178,23 @@
         text-decoration: none;
       }
 
+      &.is-active {
+        .header__category {
+          &-header {
+            &::after {
+              background-color: $gray;
+              transform: rotate(0deg);
+            }
+          }
+        }
+      }
+
       &.header__category {
         &-header {
           &::before {
             background-color: $gray;
           }
+
           &::after {
             background-color: $gray;
             transform: rotate(180deg);
