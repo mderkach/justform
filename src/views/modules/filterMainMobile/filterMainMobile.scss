@@ -1,0 +1,29 @@
+.filter-main-mobile {
+  display: none;
+
+  background-color: #f8f8f8;
+  @include media-breakpoint-down(lg) {
+    display: block;
+  }
+
+  &__wrapper {
+    @include make-col-ready();
+    @include make-col(10);
+
+    padding-top: rem(28);
+    padding-bottom: rem(58);
+  }
+
+  &__search {
+    position: relative;
+    width: 100%;
+
+    &-button {
+      position: absolute;
+      right: 0;
+      bottom: rem(17);
+      width: rem(16);
+      height: rem(16);
+    }
+  }
+}
