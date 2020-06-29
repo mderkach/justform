@@ -1,6 +1,8 @@
 const header = {
   wrapper: document.querySelector('.header'),
   mobile: document.querySelector('.header-main-mobile'),
+  menuMobile: document.querySelector('.menu-mobile'),
+  menuMobileTrigger: document.querySelector('.header-main-mobile-button'),
   categories: document.querySelectorAll('.header__category-wrapper'),
   more: document.querySelector('.header__menu-button'),
   search: document.querySelector('.header__search-button'),
@@ -121,12 +123,37 @@ const header = {
     }
 
     if (header.mobile) {
-      console.log('header.mobile');
       const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
       console.log(vw);
 
       if (vw < 1200) {
         header.sticky(header.mobile);
+
+        if (header.menuMobile && header.menuMobileTrigger) {
+          header.menuMobileTrigger.addEventListener('click', (e) => {
+            header.menuMobile.classList.toggle('is-active');
+            header.menuMobileTrigger.classList.toggle('is-active');
+            header.mobile.classList.toggle('is-menu-active');
+          });
+        }
+
+        if (header.searchMobile) {
+          header.searchMobile.addEventListener('click', (e) => {
+            e.preventDefault();
+            header.overlay.classList.add('is-active');
+            document.body.classList.add('is-modal-open');
+            setTimeout(() => {
+              document.body.style.position = 'fixed';
+            }, 500);
+          });
+
+          header.closeOverlay.addEventListener('click', (e) => {
+            e.preventDefault();
+            header.overlay.classList.remove('is-active');
+            document.body.classList.remove('is-modal-open');
+            document.body.style.position = 'relative';
+          });
+        }
       }
     }
   },

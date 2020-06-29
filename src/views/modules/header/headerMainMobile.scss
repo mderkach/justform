@@ -13,6 +13,35 @@
       padding: rem(30) 0;
     }
 
+    &.is-menu-active {
+      background-color: #f8f8f8;
+      .header-main-mobile {
+        &__logo {
+          display: block;
+
+          &-alt {
+            display: none;
+          }
+        }
+
+        &-button {
+          &_inner {
+            background-color: $black;
+
+            &::before {
+              background-color: $black;
+            }
+          }
+        }
+
+        &-search {
+          svg {
+            fill: $black;
+          }
+        }
+      }
+    }
+
     &.is-sticky {
       position: fixed;
       top: 0;
@@ -51,6 +80,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 0 $gutter;
     }
 
     &__logo {
@@ -61,6 +91,15 @@
       @extend .header__menu-button;
       margin-top: 0;
       opacity: 0;
+
+      &.is-active {
+        .header-main-mobile-button_inner {
+          background-color: $black;
+          &::before {
+            background-color: $black;
+          }
+        }
+      }
 
       @include media-breakpoint-down(lg) {
         opacity: 1;

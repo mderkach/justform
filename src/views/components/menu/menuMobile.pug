@@ -1,0 +1,35 @@
+.menu-mobile
+  +wrapper('menu-mobile')
+    +filter(
+      '',
+      'Предметы',
+      [
+        { 'name':'Аксессуары', 'value': 'Аксессуары', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+        { 'name':'Бары', 'value': 'Бары', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+        { 'name':'Библиотеки', 'value': 'Библиотеки', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+      ]
+    )
+    +filter(
+      '',
+      'Расположение',
+      [
+        { 'name':'Библиотека', 'value': 'Библиотека', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+        { 'name':'Ванная', 'value': 'Ванная', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+        { 'name':'Гардеробная', 'value': 'Гардеробная', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+      ]
+    )
+    +filter(
+      '',
+      'Фабрики',
+      [
+        { 'name':'Все кровати', 'value': 'Все кровати', 'default': true, 'selected': true, 'disabled': false, 'hidden': false},
+        { 'name':'Изголовье для кровати', 'value': 'Изголовье для кровати', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+        { 'name':'Кованные кровати', 'value': 'Кованные кровати', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+        { 'name':'Кровати с балдахином', 'value': 'Кровати с балдахином', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+      ]
+    )
+    a.menu-mobile-link.text-filter-links(href="#") Контакты
+    a.menu-mobile-link.text-filter-links(href="#") Заказ и доставка
+    a.menu-mobile-link.text-filter-links(href="#") Сотрудничество
+    a.menu-mobile-link.text-filter-links(href="#") О компании
+    a.menu-mobile-link.text-filter-links(href="#") Новости

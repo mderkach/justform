@@ -69,6 +69,11 @@
       line-height: rem(80);
       text-align: center;
 
+      @include media-breakpoint-down(lg) {
+        font-size: rem(42);
+        line-height: rem(42);
+      }
+
       svg {
         @extend .item__new;
         left: unset;
@@ -86,6 +91,10 @@
       &-descr {
         color: $white;
         font-style: normal;
+
+        @include media-breakpoint-down(lg) {
+          font-size: rem(12);
+        }
       }
 
       &-separator {

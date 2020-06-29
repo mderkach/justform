@@ -1,0 +1,36 @@
+.menu-mobile {
+  position: fixed;
+  top: 84px;
+  width: 100%;
+  height: calc(100% - 84px);
+  padding-top: rem(20);
+  background-color: #f8f8f8;
+  transition: all 0.5s ease;
+  transform: scaleY(0);
+
+  &.is-active {
+    transform: scaleY(1);
+  }
+
+  &__container {
+    @include make-container($gutter: $grid-gutter-width);
+    @include make-container-max-widths(
+      $max-widths: $container-max-widths,
+      $breakpoints: $grid-breakpoints
+    );
+  }
+
+  &__row {
+    @include make-row();
+
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0 $gutter;
+  }
+
+  &-link {
+    display: block;
+    line-height: rem(42);
+    border-bottom: 1px solid #e2e2e2;
+  }
+}
