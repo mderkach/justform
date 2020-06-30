@@ -6,6 +6,11 @@
     display: flex;
     justify-content: space-between;
     padding-top: rem(105);
+
+    @include media-breakpoint-down(lg) {
+      @include make-col(10);
+      @include make-col-offset(0);
+    }
   }
 
   &__pages {
