@@ -1,0 +1,46 @@
+.pagination {
+  &__wrapper {
+    @include make-col-ready();
+    @include make-col(8);
+    @include make-col-offset(2);
+    display: flex;
+    justify-content: space-between;
+    padding-top: rem(105);
+  }
+
+  &__pages {
+    display: flex;
+    align-items: center;
+  }
+
+  &-link {
+    display: block;
+    margin-right: rem(40);
+    font-size: rem(30);
+    line-height: rem(32);
+
+    &.is-active {
+      color: #e2e2e2;
+    }
+
+    &:hover {
+      color: $gray;
+      text-decoration: none;
+
+      svg {
+        fill: $gray;
+      }
+    }
+  }
+
+  &-icon {
+    width: rem(19);
+    height: rem(15);
+  }
+
+  &__select {
+    .text-regular {
+      font-weight: 500;
+    }
+  }
+}
