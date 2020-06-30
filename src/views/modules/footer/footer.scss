@@ -47,6 +47,11 @@
 
       a {
         color: $black;
+
+        &:hover {
+          color: $gray;
+          text-decoration: none;
+        }
       }
     }
   }
@@ -74,11 +79,19 @@
       display: block;
       margin-bottom: 0;
     }
+
+    &:hover {
+      color: inherit;
+    }
   }
 
   &-hide-mobile {
     @include media-breakpoint-down(lg) {
       display: none;
+    }
+
+    &:hover {
+      color: inherit;
     }
   }
 }

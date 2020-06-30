@@ -109,9 +109,6 @@ const header = {
         e.preventDefault();
         header.overlay.classList.add('is-active');
         document.body.classList.add('is-modal-open');
-        setTimeout(() => {
-          document.body.style.position = 'fixed';
-        }, 500);
       });
 
       header.closeOverlay.addEventListener('click', (e) => {
@@ -131,6 +128,7 @@ const header = {
 
         if (header.menuMobile && header.menuMobileTrigger) {
           header.menuMobileTrigger.addEventListener('click', (e) => {
+            e.preventDefault();
             header.menuMobile.classList.toggle('is-active');
             header.menuMobileTrigger.classList.toggle('is-active');
             header.mobile.classList.toggle('is-menu-active');

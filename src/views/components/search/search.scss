@@ -11,19 +11,23 @@
   &__wrapper {
     position: fixed;
     top: 0;
-    right: 0;
+    right: -10000px;
     width: 100vw;
     height: 100vh;
     padding: rem(56) 0 rem(112);
     background-color: #e2e2e2;
     z-index: 910;
-    transform: scaleX(0);
+    // transform: scaleX(0);
     transform-origin: right center;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease;
     overflow: auto;
+    opacity: 0;
 
     &.is-active {
-      transform: scaleX(1);
+      // transform: scaleX(1);
+      left: 0;
+      right: 0;
+      opacity: 1;
     }
   }
 
@@ -58,6 +62,8 @@
     @include make-col-offset(1);
     @include make-col-ready();
     @include make-col(8);
+
+    padding-top: rem(112);
 
     @include media-breakpoint-down(lg) {
       @include make-col(10);
