@@ -2,7 +2,7 @@
 // JS
 // eslint-disable-next-line import/no-unresolved
 import './js/*';
-import './views/modules/footer/footer';
+import mapFooter from './views/modules/footer/footer';
 // SCSS
 import './scss/main.scss';
 
@@ -17,3 +17,4 @@ import sliderBanner from './views/components/slider/sliderBanner';
 filter.init();
 header.init();
 sliderBanner.init();
+mapFooter.init();

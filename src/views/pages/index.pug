@@ -7,9 +7,8 @@ block variables
 
 block content
   section.index__banner
-    include ../modules/header/headerMainMobile
+    +header(false, false, true)
     include ../components/slider/sliderBanner
-  +header(true, true)
   include ../modules/filterMainMobile/filterMainMobile
   section.index__categories
     .index__container

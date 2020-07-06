@@ -1,13 +1,19 @@
-mixin header(isToolbar, hasCart)
+mixin header(isToolbar, hasCart, isTransparent)
   - isToolbar = false || isToolbar
   - hasCart = false || hasCart
+  - isTransparent = false || isTransparent
 
   header.header(
-    class= isToolbar ? 'is-toolbar' : 'no-toolbar'
+    class= isToolbar ? 'is-toolbar' : ''
     class= hasCart ? 'has-cart' : 'no-cart'
+    class= isTransparent ? 'is-transparent' : ''
+    data-transparent= isTransparent ? "true" : false
   )
     +wrapper('header')
-      +pic('header__logo', './assets/img/logo.png')
+      if (!isTransparent)
+        +pic('header__logo', './assets/img/logo.png')
+      else
+        +pic('header__logo', './assets/img/logo-alt.png')
       .header__cell
         a.header__category-wrapper(href="items")
           .header__category-header
@@ -154,4 +160,14 @@ mixin header(isToolbar, hasCart)
             .header__category-cart-buttons
               +buttonPrimary('#', 'Узнать цену')
               +buttonSecondary('#', 'Подробнее')
+  .header-main-mobile
+    +wrapper('header')
+      button.header-main-mobile-button(type='button' aria-label='Menu' aria-controls='more', data-target="more")
+        span.header-main-mobile-button_inner
+      +pic('header-main-mobile__logo-alt', './assets/img/logo-alt.png')
+      +pic('header-main-mobile__logo', './assets/img/logo.png')
+      button.header-main-mobile-search(type='button' aria-label='Search' aria-controls='search')
+        +icon('', 'search')
+  include ../../components/menu/menuMobile
+
   include ../../components/search/search

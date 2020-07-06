@@ -2,6 +2,10 @@
   padding: rem(56) 0 rem(50);
   z-index: 900;
 
+  @include media-breakpoint-down(lg) {
+    display: none;
+  }
+
   &.is-sticky {
     position: fixed;
     top: 0;
@@ -41,6 +45,53 @@
     .header__cell_contacts {
       margin-right: 0;
       margin-left: auto;
+    }
+  }
+
+  &.is-transparent {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: transparent;
+
+    .header {
+      &__category {
+        &-header {
+          span {
+            color: $white;
+          }
+
+          border-bottom-color: $white;
+
+          &::before,
+          &::after {
+            background-color: $white;
+          }
+        }
+      }
+
+      &__contacts {
+        color: $white;
+      }
+
+      &__menu {
+        &-button {
+          &_inner {
+            background-color: $white;
+            &::before {
+              background-color: $white;
+            }
+          }
+        }
+      }
+
+      &__search {
+        &-button {
+          svg {
+            fill: $white;
+          }
+        }
+      }
     }
   }
 
@@ -430,6 +481,137 @@
 
       &-buttons {
         padding-top: rem(20);
+      }
+    }
+  }
+
+  &-main-mobile {
+    display: none;
+    top: 0;
+    width: 100%;
+    padding-top: rem(40);
+    z-index: 2;
+
+    @include media-breakpoint-down(lg) {
+      @include make-col-ready();
+      @include make-col(10);
+      position: absolute;
+      display: block;
+      padding: rem(30) 0;
+    }
+
+    &.is-menu-active {
+      background-color: #f8f8f8;
+
+      .header-main-mobile {
+        &__logo {
+          display: block;
+
+          &-alt {
+            display: none;
+          }
+        }
+
+        &-button {
+          &_inner {
+            background-color: $black;
+
+            &::before {
+              background-color: $black;
+            }
+          }
+        }
+
+        &-search {
+          svg {
+            fill: $black;
+          }
+        }
+      }
+    }
+
+    &.is-sticky {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #f8f8f8;
+
+      .header-main-mobile {
+        &__logo {
+          display: block;
+
+          &-alt {
+            display: none;
+          }
+        }
+
+        &-button {
+          &_inner {
+            background-color: $black;
+
+            &::before {
+              background-color: $black;
+            }
+          }
+        }
+
+        &-search {
+          svg {
+            fill: $black;
+          }
+        }
+      }
+    }
+
+    .header__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 $gutter;
+    }
+
+    &__logo {
+      display: none;
+    }
+
+    &-button {
+      @extend .header__menu-button;
+      margin-top: 0;
+      opacity: 0;
+
+      &.is-active {
+        .header-main-mobile-button_inner {
+          background-color: $black;
+          &::before {
+            background-color: $black;
+          }
+        }
+      }
+
+      @include media-breakpoint-down(lg) {
+        opacity: 1;
+      }
+
+      &_inner {
+        @extend .header__menu-button_inner;
+        background-color: #fff;
+
+        &::before {
+          background-color: #fff;
+        }
+      }
+    }
+
+    &-search {
+      @extend .header__search-button;
+      opacity: 0;
+
+      @include media-breakpoint-down(lg) {
+        opacity: 1;
+      }
+      svg {
+        fill: $white;
       }
     }
   }

@@ -1,12 +1,6 @@
 .index {
   &-page {
     background-color: #f8f8f8;
-
-    .header {
-      @include media-breakpoint-down(lg) {
-        display: none;
-      }
-    }
   }
 
   &__banner {
@@ -41,9 +35,11 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     gap: rem(56) rem(40);
+    padding-top: rem(60);
 
     @include media-breakpoint-down(lg) {
       grid-template-columns: 1fr 1fr;
+      padding-top: 0;
     }
   }
 
