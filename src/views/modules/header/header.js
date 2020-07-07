@@ -23,19 +23,24 @@ const header = {
       elm.classList.add('is-expanded');
     }
   },
-  checkExpandedMenu: (elm) => {
-    if (elm.classList.contains('is-active')) {
-      console.log('expanded');
-    } else {
-      console.log('closed');
-    }
-  },
   closeAll: (arr, event) => {
     arr.forEach((item) => {
       if (event.target !== item) {
         item.classList.remove('is-active');
       }
     });
+  },
+  checkTransparency: (elm) => {
+    if (elm.dataset.transparent === 'true') {
+      return true;
+    }
+    return false;
+  },
+  checkWasTransparant: (elm) => {
+    if (elm.dataset.wasTransparent === 'true') {
+      return true;
+    }
+    return false;
   },
   sticky: (elm) => {
     const getDistance = () => {
@@ -51,6 +56,8 @@ const header = {
 
       if (dist <= 0 && !header.stuck) {
         elm.classList.add('is-sticky');
+        header.wrapper.setAttribute('data-transparent', 'false');
+        header.wrapper.setAttribute('data-was-transparent', 'false');
         if (elm.dataset.transparent) {
           elm.classList.remove('is-transparent');
           header.swapLogo(false);
@@ -58,6 +65,8 @@ const header = {
         header.stuck = true;
       } else if (header.stuck && offset <= stickPpoint) {
         elm.classList.remove('is-sticky');
+        header.wrapper.setAttribute('data-transparent', 'true');
+        header.wrapper.setAttribute('data-was-transparent', 'false');
         if (elm.dataset.transparent) {
           elm.classList.add('is-transparent');
           header.swapLogo(true);
@@ -70,8 +79,6 @@ const header = {
     const logo = document.querySelector('.header__logo');
     const logoSource = logo.querySelector('source');
     const logoImg = logo.querySelector('img');
-
-    console.log(logoSource, logoImg);
     if (!bool) {
       logoSource.setAttribute('srcset', './assets/img/logo.png');
       logoImg.setAttribute('src', './assets/img/logo.webp');
@@ -95,6 +102,8 @@ const header = {
         category.addEventListener('click', (e) => {
           e.preventDefault();
           header.wrapper.focus();
+          const isTransparent = header.checkTransparency(header.wrapper);
+          const wasTransparent = header.checkWasTransparant(header.wrapper);
           let target = header.selectTarget(category, 'href');
 
           header.categories.forEach((link) => {
@@ -115,8 +124,18 @@ const header = {
 
               if (menu.classList.contains('is-active')) {
                 header.wrapper.classList.add('is-expanded');
+                if (isTransparent) {
+                  header.wrapper.classList.remove('is-transparent');
+                  header.swapLogo(false);
+                  header.wrapper.setAttribute('data-was-transparent', 'true');
+                }
               } else {
                 header.wrapper.classList.remove('is-expanded');
+                if (wasTransparent) {
+                  header.wrapper.classList.add('is-transparent');
+                  header.swapLogo(true);
+                  header.wrapper.setAttribute('data-was-transparent', 'false');
+                }
               }
             } else {
               menu.classList.remove('is-active');
@@ -127,7 +146,6 @@ const header = {
     }
 
     if (header.search && header.overlay && header.closeOverlay) {
-      console.log(header.search);
       header.search.addEventListener('click', (e) => {
         e.preventDefault();
         header.overlay.classList.add('is-active');
@@ -158,7 +176,6 @@ const header = {
         }
 
         if (header.searchMobile) {
-          console.log(header.searchMobile);
           header.searchMobile.addEventListener('click', (e) => {
             e.preventDefault();
             header.overlay.classList.add('is-active');

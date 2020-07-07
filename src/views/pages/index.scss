@@ -41,6 +41,10 @@
       grid-template-columns: 1fr 1fr;
       padding-top: 0;
     }
+
+    @include media-breakpoint-down(xs) {
+      gap: rem(56) rem(16);
+    }
   }
 
   &__header {
@@ -75,6 +79,9 @@
       @include make-col-offset(0);
       @include make-col(8);
       margin-bottom: rem(33);
+      &:first-of-type {
+        margin-bottom: rem(7);
+      }
     }
   }
 
@@ -112,6 +119,9 @@
         @include make-col-offset(0);
         @include make-col(10);
         margin-bottom: rem(24);
+        font-weight: 300;
+        font-size: rem(18);
+        letter-spacing: rem(-0.24px);
       }
     }
   }
@@ -207,6 +217,10 @@
     .index__block {
       @include make-col(6);
       margin-bottom: 0;
+
+      @include media-breakpoint-down(lg) {
+        @include make-col(10);
+      }
     }
 
     &-menu {

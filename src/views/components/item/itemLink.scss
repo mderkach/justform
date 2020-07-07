@@ -20,6 +20,21 @@
           color: $gray;
         }
       }
+
+      &-hidden {
+        display: flex;
+        flex-direction: column;
+        height: 0;
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: transform 0.5s ease;
+        overflow: hidden;
+
+        &.is-active {
+          height: 100%;
+          transform: scaleY(1);
+        }
+      }
     }
   }
 }

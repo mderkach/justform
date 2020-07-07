@@ -6,6 +6,17 @@ mixin itemLink(name, img, submenu)
     .item__img_wrapper
       +pic('item__img', img)
     a.text-regular.item__name(href="#") #{ name }
-    .item__submenu
-      each item in submenu
-        a(href="#").text-breadcrumbs.item__submenu-link #{ item }
+    if submenu.length
+      .item__submenu
+        each item, index in submenu
+          if submenu.length <= 3
+            a(href="#").text-breadcrumbs.item__submenu-link #{ item }
+          else
+            if index < 3
+              a(href="#").text-breadcrumbs.item__submenu-link #{ item }
+            if index === 3
+              a(href="javascript:void(0);").text-breadcrumbs.item__submenu-link.item__submenu-hidden-trigger Еще...
+              .item__submenu-hidden
+                each item, index in submenu
+                  if index >= 3
+                    a(href="#").text-breadcrumbs.item__submenu-link #{ item }
