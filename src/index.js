@@ -15,6 +15,7 @@ import header from './views/modules/header/header';
 import sliderBanner from './views/components/slider/sliderBanner';
 import itemLink from './views/components/item/itemLink';
 import menuMobile from './views/components/menu/menuMobile';
+import filterSimple from './views/components/filter/filterSimple';
 
 filter.init();
 header.init();
@@ -22,3 +23,4 @@ sliderBanner.init();
 mapFooter.init();
 itemLink.init();
 menuMobile.init();
+filterSimple.init();

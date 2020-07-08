@@ -3,8 +3,8 @@
     @include make-col-ready();
     @include make-col(8);
     @include make-col-offset(2);
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     padding-top: rem(105);
 
     @include media-breakpoint-down(lg) {
@@ -44,8 +44,6 @@
   }
 
   &__select {
-    .text-regular {
-      font-weight: 500;
-    }
+    grid-column-start: 4;
   }
 }

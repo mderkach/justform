@@ -1,0 +1,12 @@
+mixin filterSimple(descr, name, items)
+  - descr = descr
+  - items = items
+  form.filter-simple-wrapper
+    span.filter-simple-header.text-filter-links #{ descr }
+    .filter-simple
+      span.filter-simple-value.text-filter-links 4
+      .filter-simple-menu
+        each item in items
+          label.filter-simple-label(for=item.value)
+            input.filter-simple-input(type="radio", value=item.value, name=name, id=item.value, checked=item.checked)
+            span.filter-simple-input-descr #{ item.value }

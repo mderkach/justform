@@ -1,5 +1,6 @@
 .catalog {
   padding: rem(60) 0 rem(116);
+  background-color: #f8f8f8;
 
   &__container {
     @include make-container($gutter: $grid-gutter-width);
