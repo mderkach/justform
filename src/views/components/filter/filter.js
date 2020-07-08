@@ -10,18 +10,17 @@ const filter = {
       // create menu items
       filter.createSelectMenuItems(label);
 
-      label.addEventListener('click', (e) => {
-        e.preventDefault();
-        label.classList.toggle('is-active');
-      });
+      const header = label.querySelector('.filter-header');
 
-      // document.addEventListener('click', (event) => {
-      //   label.addEventListener('click', () => {
-      //     if (event.target !== label) {
-      //       label.classList.remove('is-active');
-      //     }
-      //   });
-      // });
+      header.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        if (label.classList.contains('is-active')) {
+          label.classList.remove('is-active');
+        } else {
+          label.classList.add('is-active');
+        }
+      });
 
       const menuItem = label.querySelectorAll('.filter-menu-item');
       if (!select.hasAttribute('multiple')) {
