@@ -2,6 +2,10 @@
   padding: rem(60) 0 rem(116);
   background-color: #f8f8f8;
 
+  @include media-breakpoint-down(lg) {
+    padding: rem(30) 0;
+  }
+
   &__container {
     @include make-container($gutter: $grid-gutter-width);
     @include make-container-max-widths(

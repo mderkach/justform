@@ -4,12 +4,20 @@
     @include make-col(8);
     @include make-col-offset(2);
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     padding-top: rem(105);
 
     @include media-breakpoint-down(lg) {
       @include make-col(10);
       @include make-col-offset(0);
+
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include media-breakpoint-down(md) {
+      grid-template-columns: 1fr;
+      grid-template-rows: rem(40);
+      gap: rem(20) 0;
     }
   }
 
@@ -45,5 +53,24 @@
 
   &__select {
     grid-column-start: 4;
+
+    @include media-breakpoint-down(lg) {
+      grid-column-start: 3;
+      grid-column-end: 4;
+    }
+
+    @include media-breakpoint-down(md) {
+      grid-column-start: 1 !important;
+      grid-column-end: 1 !important;
+      grid-row-start: 2;
+    }
+
+    .filter-simple-wrapper {
+      padding-left: rem(16);
+
+      @include media-breakpoint-down(md) {
+        padding-left: 0;
+      }
+    }
   }
 }

@@ -11,6 +11,12 @@
     height: 100%;
     z-index: -1;
 
+    @include media-breakpoint-down(md) {
+      width: 250%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
     img {
       display: block;
       width: 100%;
@@ -65,6 +71,12 @@
       cursor: pointer;
       text-decoration: none;
       color: $white;
+    }
+  }
+
+  &__title {
+    @include media-breakpoint-down(sm) {
+      font-size: rem(42);
     }
   }
 }
