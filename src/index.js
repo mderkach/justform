@@ -14,9 +14,11 @@ import filter from './views/components/filter/filter';
 import header from './views/modules/header/header';
 import sliderBanner from './views/components/slider/sliderBanner';
 import itemLink from './views/components/item/itemLink';
+import menuMobile from './views/components/menu/menuMobile';
 
 filter.init();
 header.init();
 sliderBanner.init();
 mapFooter.init();
 itemLink.init();
+menuMobile.init();

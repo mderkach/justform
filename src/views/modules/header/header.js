@@ -172,6 +172,7 @@ const header = {
             header.menuMobile.classList.toggle('is-active');
             header.menuMobileTrigger.classList.toggle('is-active');
             header.mobile.classList.toggle('is-menu-active');
+            document.body.classList.toggle('is-modal-open');
           });
         }
 

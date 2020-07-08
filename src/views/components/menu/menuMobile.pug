@@ -1,33 +1,60 @@
 .menu-mobile
   +wrapper('menu-mobile')
-    +filter(
-      '',
-      'Предметы',
-      [
-        { 'name':'Аксессуары', 'value': 'Аксессуары', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
-        { 'name':'Бары', 'value': 'Бары', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
-        { 'name':'Библиотеки', 'value': 'Библиотеки', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
-      ]
-    )
-    +filter(
-      '',
-      'Расположение',
-      [
-        { 'name':'Библиотека', 'value': 'Библиотека', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
-        { 'name':'Ванная', 'value': 'Ванная', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
-        { 'name':'Гардеробная', 'value': 'Гардеробная', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
-      ]
-    )
-    +filter(
-      '',
-      'Фабрики',
-      [
-        { 'name':'Все кровати', 'value': 'Все кровати', 'default': true, 'selected': true, 'disabled': false, 'hidden': false},
-        { 'name':'Изголовье для кровати', 'value': 'Изголовье для кровати', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
-        { 'name':'Кованные кровати', 'value': 'Кованные кровати', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
-        { 'name':'Кровати с балдахином', 'value': 'Кровати с балдахином', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
-      ]
-    )
+    .menu-mobile-category
+      span.menu-mobile-category-header.text-filter-links Предметы
+      .menu-mobile-submenu
+        a.menu-mobile-link.text-filter-links(href="#") Аксессуары
+        a.menu-mobile-link.text-filter-links(href="#") Бары
+        a.menu-mobile-link.text-filter-links(href="#") Библиотеки
+        a.menu-mobile-link.text-filter-links(href="#") Буфеты и витрины
+        a.menu-mobile-link.text-filter-links(href="#") Гаржеробные
+        a.menu-mobile-link.text-filter-links(href="#") Двери
+        a.menu-mobile-link.text-filter-links(href="#") Детская мебель
+        a.menu-mobile-link.text-filter-links(href="#") Диваны
+        a.menu-mobile-link.text-filter-links(href="#") Зеркала
+        a.menu-mobile-link.text-filter-links(href="#") Ковры
+        a.menu-mobile-link.text-filter-links(href="#") Комоды
+        a.menu-mobile-link.text-filter-links(href="#") Консоли
+        a.menu-mobile-link.text-filter-links(href="#") Кресла
+        a.menu-mobile-link.text-filter-links(href="#") Кровати
+        a.menu-mobile-link.text-filter-links(href="#") Кухни
+        a.menu-mobile-link.text-filter-links(href="#") Кушетки и банкетки
+        a.menu-mobile-link.text-filter-links(href="#") Матрасы
+        a.menu-mobile-link.text-filter-links(href="#") Мебель для ТВ
+        a.menu-mobile-link.text-filter-links(href="#") Мебель для ванной
+        a.menu-mobile-link.text-filter-links(href="#") Модульные системы
+        a.menu-mobile-link.text-filter-links(href="#") Офисная мебель
+        a.menu-mobile-link.text-filter-links(href="#") Пуфы
+        a.menu-mobile-link.text-filter-links(href="#") Свет
+        a.menu-mobile-link.text-filter-links(href="#") Секретеры
+        a.menu-mobile-link.text-filter-links(href="#") Столы
+        a.menu-mobile-link.text-filter-links(href="#") Стулья
+        a.menu-mobile-link.text-filter-links(href="#") Текстиль
+        a.menu-mobile-link.text-filter-links(href="#") Уличная мебель
+        a.menu-mobile-link.text-filter-links(href="#") Тумбочки
+        a.menu-mobile-link.text-filter-links(href="#") Шкафы
+    .menu-mobile-category
+      span.menu-mobile-category-header.text-filter-links Расположение
+      .menu-mobile-submenu
+        a.menu-mobile-link.text-filter-links(href="#") Библиотека
+        a.menu-mobile-link.text-filter-links(href="#") Ванная
+        a.menu-mobile-link.text-filter-links(href="#") Гардеробная
+        a.menu-mobile-link.text-filter-links(href="#") Гостиная
+        a.menu-mobile-link.text-filter-links(href="#") Детская
+        a.menu-mobile-link.text-filter-links(href="#") Кабинет
+        a.menu-mobile-link.text-filter-links(href="#") Кухня
+        a.menu-mobile-link.text-filter-links(href="#") Офис
+        a.menu-mobile-link.text-filter-links(href="#") Прихожая
+        a.menu-mobile-link.text-filter-links(href="#") Рестораны и бары
+        a.menu-mobile-link.text-filter-links(href="#") Спальня
+        a.menu-mobile-link.text-filter-links(href="#") Столовая
+        a.menu-mobile-link.text-filter-links(href="#") Улица
+    .menu-mobile-category
+      span.menu-mobile-category-header.text-filter-links Фабрики
+      .menu-mobile-submenu
+        a.menu-mobile-link.text-filter-links(href="#") Контакты
+        a.menu-mobile-link.text-filter-links(href="#") Контакты
+        a.menu-mobile-link.text-filter-links(href="#") Контакты
     a.menu-mobile-link.text-filter-links(href="#") Контакты
     a.menu-mobile-link.text-filter-links(href="#") Заказ и доставка
     a.menu-mobile-link.text-filter-links(href="#") Сотрудничество
