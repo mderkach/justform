@@ -1,0 +1,18 @@
+.filter {
+  &-reset {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: rem(37 - 18);
+    margin-bottom: rem(18);
+
+    @include media-breakpoint-down(lg) {
+      margin-top: 0;
+    }
+  }
+
+  &-icon {
+    @include size(rem(10));
+  }
+}

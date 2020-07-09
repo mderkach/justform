@@ -33,7 +33,7 @@ mixin header(isToolbar, hasCart, isTransparent)
           +icon('header__cart', 'cart')
           p.text-breadcrumbs.header__cart_counter 3
         button.header__menu-button(type='button' aria-label='Menu' aria-controls='more', data-target="more")
-          span.header__menu-button_inner
+          div.header__menu-button_inner
         button.header__search-button(type='button' aria-label='Search' aria-controls='search')
           +icon('', 'search')
       .header__category-menu-wrapper
@@ -164,7 +164,7 @@ mixin header(isToolbar, hasCart, isTransparent)
   .header-main-mobile
     +wrapper('header')
       button.header-main-mobile-button(type='button' aria-label='Menu' aria-controls='more', data-target="more")
-        span.header-main-mobile-button_inner
+        div.header-main-mobile-button_inner
       +pic('header-main-mobile__logo-alt', './assets/img/logo-alt.png')
       +pic('header-main-mobile__logo', './assets/img/logo.png')
       button.header-main-mobile-search(type='button' aria-label='Search' aria-controls='search')
