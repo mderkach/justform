@@ -188,7 +188,7 @@
       &_inner {
         position: relative;
         display: block;
-        width: 100%;
+        width: rem(16);
         height: 2px;
         background-color: $black;
         transition: transform 0.5s ease;
@@ -198,7 +198,7 @@
           top: -6px;
           content: '';
           display: block;
-          width: 100%;
+          width: rem(16);
           height: 2px;
           background-color: $black;
           transition: transform 0.5s ease, top 0.5s ease;
@@ -498,7 +498,7 @@
     top: 0;
     width: 100%;
     padding-top: rem(40);
-    z-index: 2;
+    z-index: 900;
 
     @include media-breakpoint-down(lg) {
       @include make-col-ready();

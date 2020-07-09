@@ -156,7 +156,6 @@ const header = {
         e.preventDefault();
         header.overlay.classList.remove('is-active');
         document.body.classList.remove('is-modal-open');
-        document.body.style.position = 'relative';
       });
     }
 
@@ -181,16 +180,12 @@ const header = {
             e.preventDefault();
             header.overlay.classList.add('is-active');
             document.body.classList.add('is-modal-open');
-            setTimeout(() => {
-              document.body.style.position = 'fixed';
-            }, 500);
           });
 
           header.closeOverlay.addEventListener('click', (e) => {
             e.preventDefault();
             header.overlay.classList.remove('is-active');
             document.body.classList.remove('is-modal-open');
-            document.body.style.position = 'relative';
           });
         }
       }
