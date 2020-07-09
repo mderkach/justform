@@ -17,6 +17,7 @@ import itemLink from './views/components/item/itemLink';
 import menuMobile from './views/components/menu/menuMobile';
 import filterSimple from './views/components/filter/filterSimple';
 import filterReset from './views/components/filter/filterReset';
+import cardGray from './views/components/card/cardGray';
 
 filter.init();
 header.init();
@@ -26,3 +27,4 @@ itemLink.init();
 menuMobile.init();
 filterSimple.init();
 filterReset.init();
+cardGray.init();

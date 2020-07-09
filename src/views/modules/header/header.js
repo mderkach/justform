@@ -44,7 +44,7 @@ const header = {
   },
   sticky: (elm) => {
     const getDistance = () => {
-      const topDist = elm.offsetTop;
+      const topDist = elm.offsetTop + 50;
       return topDist;
     };
 
