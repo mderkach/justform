@@ -1,6 +1,19 @@
 /* eslint-disable no-plusplus */
 const filter = {
   wrapper: document.querySelectorAll('.filter-wrapper'),
+  openFilter: (elm) => {
+    const header = elm.querySelector('.filter-header');
+
+    header.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      if (elm.classList.contains('is-active')) {
+        elm.classList.remove('is-active');
+      } else {
+        elm.classList.add('is-active');
+      }
+    });
+  },
   createSelect: () => {
     filter.wrapper.forEach((label) => {
       const select = label.querySelector('select');
@@ -10,17 +23,7 @@ const filter = {
       // create menu items
       filter.createSelectMenuItems(label);
 
-      const header = label.querySelector('.filter-header');
-
-      header.addEventListener('click', (e) => {
-        e.preventDefault();
-
-        if (label.classList.contains('is-active')) {
-          label.classList.remove('is-active');
-        } else {
-          label.classList.add('is-active');
-        }
-      });
+      filter.openFilter(label);
 
       const menuItem = label.querySelectorAll('.filter-menu-item');
       if (!select.hasAttribute('multiple')) {
@@ -28,6 +31,8 @@ const filter = {
       } else {
         filter.toggleActive(menuItem, options, select, label, true);
       }
+
+      filter.calculateSelected(select, label);
     });
   },
   createSelectMenu: (elm) => {
@@ -84,6 +89,7 @@ const filter = {
       counter.style.display = 'none';
     }
     counter.textContent = opts.length;
+    console.log(opts);
   },
   toggleActive: (items, options, select, wrapper, multiple) => {
     items.forEach((item) => {
@@ -122,6 +128,28 @@ const filter = {
     if (filter.wrapper) {
       filter.createSelect();
     }
+  },
+  recreateNode: (el, withChildren) => {
+    if (withChildren) {
+      el.parentNode.replaceChild(el.cloneNode(true), el);
+    } else {
+      const newEl = el.cloneNode(false);
+      while (el.hasChildNodes()) newEl.appendChild(el.firstChild);
+      el.parentNode.replaceChild(newEl, el);
+    }
+  },
+  refresh: () => {
+    filter.wrapper.forEach((label) => {
+      const select = label.querySelector('select');
+      const options = [...label.querySelector('select')];
+
+      options.forEach((option) => {
+        option.removeAttribute('selected');
+      });
+
+      label.querySelector('.filter-menu').remove();
+      filter.calculateSelected(select, label);
+    });
   },
 };
 

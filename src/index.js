@@ -16,6 +16,7 @@ import sliderBanner from './views/components/slider/sliderBanner';
 import itemLink from './views/components/item/itemLink';
 import menuMobile from './views/components/menu/menuMobile';
 import filterSimple from './views/components/filter/filterSimple';
+import filterReset from './views/components/filter/filterReset';
 
 filter.init();
 header.init();
@@ -24,3 +25,4 @@ mapFooter.init();
 itemLink.init();
 menuMobile.init();
 filterSimple.init();
+filterReset.init();
