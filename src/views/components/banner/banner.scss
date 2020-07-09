@@ -1,7 +1,8 @@
 .banner {
   position: relative;
-  padding-top: 197px;
-  padding-bottom: 111px;
+  padding-top: rem(197);
+  padding-bottom: rem(111);
+  overflow: hidden;
 
   &__backgorund {
     position: absolute;

@@ -33,11 +33,12 @@
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 40px;
+    gap: rem(40);
 
     @include media-breakpoint-down(lg) {
       @include make-col(10);
       grid-template-columns: 1fr 1fr;
+      gap: rem(20);
     }
   }
 }

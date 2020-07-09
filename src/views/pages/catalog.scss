@@ -1,0 +1,43 @@
+.catalog {
+  &__container {
+    @include make-container($gutter: $grid-gutter-width);
+    @include make-container-max-widths(
+      $max-widths: $container-max-widths,
+      $breakpoints: $grid-breakpoints
+    );
+  }
+
+  &__row {
+    @include make-row();
+  }
+
+  &__section {
+    padding: rem(112) 0 rem(116);
+    background-color: #f8f8f8;
+    border-top: 1px solid #e2e2e2;
+  }
+
+  &__header {
+    @include make-col-ready();
+    @include make-col(8);
+    @include make-col-offset(1);
+    margin-bottom: rem(109);
+
+    @include media-breakpoint-down(lg) {
+      @include make-col-offset(0);
+      @include make-col(10);
+      margin-bottom: rem(24);
+    }
+  }
+
+  &__block {
+    @include make-col-ready();
+    @include make-col(5);
+    @include make-col-offset(4);
+
+    @include media-breakpoint-down(lg) {
+      @include make-col-offset(0);
+      @include make-col(10);
+    }
+  }
+}
