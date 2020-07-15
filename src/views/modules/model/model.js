@@ -23,6 +23,7 @@ const model = {
     `;
       sliderModel.slider.appendSlide(slide);
     });
+    sliderModel.slider.update();
   },
   init: () => {
     if (model.pictures) {
@@ -40,12 +41,14 @@ const model = {
           model.createSlide(imgArray);
           sliderModel.init();
           sliderModel.slider.slideToLoop(index);
+          sliderModel.slider.autoplay.start();
         });
       });
 
       model.closeOverlay.addEventListener('click', (e) => {
         e.preventDefault();
-        sliderModel.slider.destroy();
+        sliderModel.slider.removeAllSlides();
+        sliderModel.slider.update();
         model.overlay.classList.remove('is-active');
         document.body.classList.remove('is-modal-open');
       });
