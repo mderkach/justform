@@ -1,0 +1,9 @@
+mixin accordion(name, additional)
+  - additional = false || additional
+  .accordion-wrapper
+    span.accordion__header.text-filter-links #{ name }
+    if additional
+      span.accordion__additional.text-breadcrumbs #{ additional }
+    .accordion__content
+      if block
+        block

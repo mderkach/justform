@@ -1,0 +1,33 @@
+.accordion {
+  &-wrapper {
+    @extend .filter-wrapper;
+
+    &.is-active {
+      .accordion {
+        &__header {
+          color: $gray;
+        }
+
+        &__content {
+          padding-bottom: rem(18);
+        }
+      }
+    }
+  }
+
+  &__header {
+    @extend .filter-header;
+  }
+
+  &__content {
+    @extend .filter-menu;
+    padding-top: rem(15);
+  }
+
+  &__additional {
+    position: absolute;
+    top: rem(-2);
+    left: rem(84);
+    z-index: -1;
+  }
+}

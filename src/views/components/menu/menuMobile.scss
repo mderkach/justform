@@ -37,31 +37,32 @@
     border-bottom: 1px solid #e2e2e2;
   }
 
-  &-category {
-    @extend .filter-wrapper;
+  // &-category {
+  //   @extend .filter-wrapper;
 
-    &.is-active {
-      .menu-mobile {
-        &-category-header {
-          padding-bottom: rem(12);
-          color: $gray;
-          border-bottom-color: transparent;
-        }
+  //   &.is-active {
+  //     .menu-mobile {
+  //       &-category-header {
+  //         padding-bottom: rem(12);
+  //         color: $gray;
+  //         border-bottom-color: transparent;
+  //       }
 
-        &-submenu {
-          padding-top: 0;
-        }
-      }
-    }
+  //       &-submenu {
+  //         padding-top: 0;
+  //       }
+  //     }
+  //   }
 
-    &-header {
-      @extend .filter-header;
-    }
-  }
+  //   &-header {
+  //     @extend .filter-header;
+  //   }
+  // }
 
   &-submenu {
     @extend .filter-menu;
     padding-left: rem(55);
+    padding-top: 0 !important;
 
     .menu-mobile-link {
       @extend .filter-menu-item;

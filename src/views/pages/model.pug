@@ -1,0 +1,55 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Justform';
+  - var description = '';
+  - var pageClass = 'model-page';
+
+block content
+  section.model__section
+    +wrapper('model')
+      main.model__info
+        h2.model__info-name.h2
+          | Garden Sofa
+          br
+          | Aston Cord Outdoor
+        p.model__info-vendor.text-breadcrumbs Minotti
+        .model__info-details
+          .model__info-row
+            span.model__info-details_name.text-breadcrumbs ID
+            span.model__info-details_descr.text-breadcrumbs 1295408
+          .model__info-row
+            span.model__info-details_name.text-breadcrumbs Стиль
+            span.model__info-details_descr.text-breadcrumbs Современный
+          .model__info-row
+            span.model__info-details_name.text-breadcrumbs Серия
+            span.model__info-details_descr.text-breadcrumbs Aston Cord Outdoor
+          .model__info-row
+            span.model__info-details_name.text-breadcrumbs Расположение
+            span.model__info-details_descr.text-breadcrumbs Улица
+          .model__info-row
+            span.model__info-details_name.text-breadcrumbs Ценовой сегмент
+            span.model__info-details_descr.text-breadcrumbs € 10.000 — 20.000
+        +buttonPrimary('#', 'Узнать цену')
+        +buttonSecondary('#', 'Подробнее')
+        +accordion('Почему нет цены')
+          p.text-regular После того, как вы сделали выбор, заключается договор, где прописаны все особенности товара, его доставка и гарантии. При подписании документов вносится предоплата в размере 70% от стоимости заказа.
+        +accordion('Описание')
+          p.text-regular Обивка кровати — кожа или ткань, изголовье с отделкой капитоне. Структура из массива ели и фанеры тополя толщиной 25 мм. Наполнение из пенополиуретана варьируемой плотности. Цоколь из хромированного алюминия с эффектом старины. Отделочная лента из кожи с тисненым рельефным узором из овалов и декоративными пряжками с логотипом Visionnaire. Четыре угловых крепления и центральная перекладина из окрашенной стали входят в комплект оборудования, необходимого для стяжки кроватной рамы и её крепления к изголовью, а также служат регулируемой по высоте опорой для реечного дна. Несъёмная обивка.
+        +accordion('Размеры', 'Ширина — Глубина — Высота')
+          +pic('model__sizing-img', './assets/img/model.jpg')
+          .model__sizing
+            .model__sizing-left
+              p.model__sizing-artnum.text-breadcrumbs Art. 801bi
+              p.model__sizing-name.text-breadcrumbs Унитаз наполный
+            .model__sizing-right
+              p.model__sizing-size.text-breadcrumbs 170—82—72
+          .model__sizing
+            .model__sizing-left
+              p.model__sizing-artnum.text-breadcrumbs Art. 801bi
+              p.model__sizing-name.text-breadcrumbs Бачок сливной
+            .model__sizing-right
+              p.model__sizing-size.text-breadcrumbs 170—82—72
+        +accordion('Срок производства и доставки')
+          p.text-regular Когда продукция изготовлена, она проверяется на отсутствие браков, тщательно упаковывается и отправляется в Москву. Весь товар застрахован и будет доставлен через 2-3 недели на наш склад.
+      aside.model__images

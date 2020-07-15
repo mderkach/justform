@@ -1,9 +1,9 @@
-const menuMobile = {
-  categories: document.querySelectorAll('.menu-mobile-category'),
+const accordion = {
+  items: document.querySelectorAll('.accordion-wrapper'),
   init: () => {
-    if (menuMobile.categories) {
-      menuMobile.categories.forEach((category) => {
-        const header = category.querySelector('.menu-mobile-category-header');
+    if (accordion.items) {
+      accordion.items.forEach((item) => {
+        const header = item.querySelector('.accordion__header');
         header.addEventListener('click', (e) => {
           e.preventDefault();
           if (header.parentElement.classList.contains('is-active')) {
@@ -17,4 +17,4 @@ const menuMobile = {
   },
 };
 
-export default menuMobile;
+export default accordion;

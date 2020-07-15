@@ -1,7 +1,6 @@
 .menu-mobile
   +wrapper('menu-mobile')
-    .menu-mobile-category
-      span.menu-mobile-category-header.text-filter-links Предметы
+    +accordion('Предметы')
       .menu-mobile-submenu
         a.menu-mobile-link.text-filter-links(href="#") Аксессуары
         a.menu-mobile-link.text-filter-links(href="#") Бары
@@ -33,8 +32,7 @@
         a.menu-mobile-link.text-filter-links(href="#") Уличная мебель
         a.menu-mobile-link.text-filter-links(href="#") Тумбочки
         a.menu-mobile-link.text-filter-links(href="#") Шкафы
-    .menu-mobile-category
-      span.menu-mobile-category-header.text-filter-links Расположение
+    +accordion('Расположение')
       .menu-mobile-submenu
         a.menu-mobile-link.text-filter-links(href="#") Библиотека
         a.menu-mobile-link.text-filter-links(href="#") Ванная
@@ -49,8 +47,7 @@
         a.menu-mobile-link.text-filter-links(href="#") Спальня
         a.menu-mobile-link.text-filter-links(href="#") Столовая
         a.menu-mobile-link.text-filter-links(href="#") Улица
-    .menu-mobile-category
-      span.menu-mobile-category-header.text-filter-links Фабрики
+    +accordion('Фабрики')
       .menu-mobile-submenu
         a.menu-mobile-link.text-filter-links(href="#") Контакты
         a.menu-mobile-link.text-filter-links(href="#") Контакты
