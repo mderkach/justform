@@ -1,3 +1,5 @@
+@import '../../pages/model';
+
 .model {
   &__img {
     position: relative;
@@ -23,5 +25,42 @@
     filter: blur(24px);
     opacity: 0.3;
     z-index: -1;
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    right: -10000px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: #e2e2e2;
+    z-index: 909;
+    transform-origin: right center;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease;
+    overflow: hidden;
+    opacity: 0;
+
+    &.is-active {
+      left: 0;
+      right: 0;
+      opacity: 1;
+    }
+
+    &-close {
+      @extend .search-close;
+      position: absolute;
+      top: rem(70);
+      right: rem(30);
+    }
+  }
+
+  &__slider {
+    &-wrapper {
+      @include make-col-ready();
+      @include make-col(8);
+      @include make-col-offset(1);
+    }
   }
 }

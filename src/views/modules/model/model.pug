@@ -5,3 +5,8 @@ aside.model__images
   +pic('model__img', './assets/img/model_4.jpg')
   +pic('model__img', './assets/img/model_5.jpg')
   +pic('model__img', './assets/img/model_6.jpg')
+.model__overlay
+  +wrapper('model')
+    button.model__overlay-close
+      +icon('', 'close')
+    include ../../components/slider/sliderModel
