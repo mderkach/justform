@@ -18,6 +18,7 @@ import filterSimple from './views/components/filter/filterSimple';
 import filterReset from './views/components/filter/filterReset';
 import cardGray from './views/components/card/cardGray';
 import accordion from './views/components/accordion/accordion';
+import model from './views/modules/model/model';
 
 filter.init();
 header.init();
@@ -28,3 +29,4 @@ filterSimple.init();
 filterReset.init();
 cardGray.init();
 accordion.init();
+model.init();

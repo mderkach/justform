@@ -2,7 +2,7 @@ extends ../layout/main
 
 block variables
   - var title = 'Justform';
-  - var description = '';
+  - var description = 'model__img';
   - var pageClass = 'model-page';
 
 block content
@@ -52,4 +52,4 @@ block content
               p.model__sizing-size.text-breadcrumbs 170—82—72
         +accordion('Срок производства и доставки')
           p.text-regular Когда продукция изготовлена, она проверяется на отсутствие браков, тщательно упаковывается и отправляется в Москву. Весь товар застрахован и будет доставлен через 2-3 недели на наш склад.
-      aside.model__images
+      include ../modules/model/model
