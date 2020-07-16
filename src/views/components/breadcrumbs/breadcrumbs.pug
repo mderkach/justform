@@ -1,0 +1,5 @@
+mixin breadcrumbs(links)
+  .breadcrumbs__wrapper
+    each link in links
+      a.breadcrumbs__link.text-breadcrumbs(href="#") #{ link }
+      span.breadcumbs__separate.text-breadcrumbs &nbsp;&mdash;&nbsp
