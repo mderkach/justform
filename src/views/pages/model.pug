@@ -54,3 +54,18 @@ block content
         +accordion('Срок производства и доставки')
           p.text-regular Когда продукция изготовлена, она проверяется на отсутствие браков, тщательно упаковывается и отправляется в Москву. Весь товар застрахован и будет доставлен через 2-3 недели на наш склад.
       include ../modules/model/model
+  section.model__similar
+    +wrapper('model')
+      .model__similar-info
+        h2.h2
+          | Кровати фабрики
+          br
+          | Minotti
+        p.text-links Совремнные кровати
+      .model__grid
+        +item('Название модели','Фабрика','€ 5.000 — 10.000','./assets/img/accs.jpg', false)
+        +item('Название модели','Фабрика','€ 500.000 — 10000.000','./assets/img/accs.jpg', false)
+        +item('Название модели','Фабрика','€ 5.000 — 10.000','./assets/img/accs.jpg', false)
+        +item('Название модели','Фабрика','€ 5.000 — 10.000','./assets/img/accs.jpg', false)
+        +item('Название модели','Фабрика','€ 5.000 — 10.000','./assets/img/accs.jpg', false)
+  +news('./assets/img/news2.jpg', 'Август 31 <br> 2017', 'Открытие Molteni&Co в Будапеште', 'С открытием нового магазина Molteni & C Flagship в Будапеште в партнёрстве с Solinfo, группа Molteni продолжает стратегически строить свою дистрибьюторскую сеть на европейском рынке.<br><br> Molteni&C Flagship Store отпраздновал своё официальное открытие, проведя Grand Opening…')
