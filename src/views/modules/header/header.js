@@ -56,7 +56,7 @@ const header = {
 
       if (dist <= 0 && !header.stuck) {
         elm.classList.add('is-sticky');
-        if (!header.wrapper.classList.contains('not-trasparent')) {
+        if (!header.wrapper.classList.contains('not-transparent')) {
           header.wrapper.setAttribute('data-transparent', 'false');
           header.wrapper.setAttribute('data-was-transparent', 'false');
           if (elm.dataset.transparent) {
@@ -67,7 +67,7 @@ const header = {
         header.stuck = true;
       } else if (header.stuck && offset <= stickPpoint) {
         elm.classList.remove('is-sticky');
-        if (!header.wrapper.classList.contains('not-trasparent')) {
+        if (!header.wrapper.classList.contains('not-transparent')) {
           header.wrapper.setAttribute('data-transparent', 'true');
           header.wrapper.setAttribute('data-was-transparent', 'false');
           if (elm.dataset.transparent) {

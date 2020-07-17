@@ -22,12 +22,21 @@
 
   &__section {
     position: relative;
-    padding-top: rem(21);
+    padding-top: rem(165); // design padding + header height
+
+    @include media-breakpoint-down(lg) {
+      padding-top: rem(105);
+    }
   }
 
   &__info {
     @include make-col-ready();
     @include make-col(3);
+
+    @include media-breakpoint-down(lg) {
+      order: 2;
+      @include make-col(10);
+    }
 
     &-vendor {
       font-size: rem(14);
@@ -36,6 +45,10 @@
     &-details {
       margin-top: rem(150);
       margin-bottom: rem(30);
+
+      @include media-breakpoint-down(lg) {
+        margin-top: rem(30);
+      }
 
       &_name,
       &_descr {
@@ -48,14 +61,27 @@
     }
 
     &-row {
+      position: relative;
       display: flex;
       justify-content: space-between;
       border-bottom: 1px solid #d8d8d8;
     }
 
+    &-price {
+      position: absolute;
+      top: rem(6);
+      content: '';
+      width: rem(16);
+      height: rem(16);
+    }
+
     .button {
       &-secondary {
         margin-bottom: rem(80);
+
+        @include media-breakpoint-down(lg) {
+          margin-bottom: rem(30);
+        }
       }
     }
   }
@@ -87,14 +113,6 @@
     &-size {
       font-size: rem(14);
     }
-  }
-
-  &__images {
-    @include make-col-ready();
-    @include make-col(7);
-
-    display: flex;
-    flex-direction: column;
   }
 
   &__similar {

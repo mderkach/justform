@@ -103,6 +103,14 @@
     }
   }
 
+  &.not-transparent {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f8f8f8;
+  }
+
   &__container {
     @include make-container($gutter: $grid-gutter-width);
     @include make-container-max-widths(
@@ -499,6 +507,34 @@
     width: 100%;
     padding-top: rem(40);
     z-index: 900;
+
+    &[data-transparent='false'] {
+      .header-main-mobile {
+        &__logo {
+          display: block;
+
+          &-alt {
+            display: none;
+          }
+        }
+
+        &-button {
+          &_inner {
+            background-color: $black;
+
+            &::before {
+              background-color: $black;
+            }
+          }
+        }
+
+        &-search {
+          svg {
+            fill: $black;
+          }
+        }
+      }
+    }
 
     @include media-breakpoint-down(lg) {
       @include make-col-ready();

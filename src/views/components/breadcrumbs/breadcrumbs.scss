@@ -6,6 +6,11 @@
     display: flex;
     justify-content: flex-end;
     padding-bottom: rem(11);
+
+    @include media-breakpoint-down(lg) {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
   }
 
   &__link {

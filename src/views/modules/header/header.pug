@@ -6,7 +6,7 @@ mixin header(isToolbar, hasCart, isTransparent)
   header.header(
     class= isToolbar ? 'is-toolbar' : ''
     class= hasCart ? 'has-cart' : 'no-cart'
-    class= isTransparent ? 'is-transparent' : 'not-trasparent'
+    class= isTransparent ? 'is-transparent' : 'not-transparent'
     data-transparent= isTransparent ? 'true' : 'false'
     data-was-transparent= isTransparent ? 'false' : 'true'
   )
@@ -161,7 +161,9 @@ mixin header(isToolbar, hasCart, isTransparent)
             .header__category-cart-buttons
               +buttonPrimary('#', 'Узнать цену')
               +buttonSecondary('#', 'Подробнее')
-  .header-main-mobile
+  .header-main-mobile(
+    data-transparent= isTransparent ? 'true' : 'false'
+  )
     +wrapper('header')
       button.header-main-mobile-button(type='button' aria-label='Menu' aria-controls='more', data-target="more")
         div.header-main-mobile-button_inner
