@@ -56,20 +56,24 @@ const header = {
 
       if (dist <= 0 && !header.stuck) {
         elm.classList.add('is-sticky');
-        header.wrapper.setAttribute('data-transparent', 'false');
-        header.wrapper.setAttribute('data-was-transparent', 'false');
-        if (elm.dataset.transparent) {
-          elm.classList.remove('is-transparent');
-          header.swapLogo(false);
+        if (!header.wrapper.classList.contains('not-trasparent')) {
+          header.wrapper.setAttribute('data-transparent', 'false');
+          header.wrapper.setAttribute('data-was-transparent', 'false');
+          if (elm.dataset.transparent) {
+            elm.classList.remove('is-transparent');
+            header.swapLogo(false);
+          }
         }
         header.stuck = true;
       } else if (header.stuck && offset <= stickPpoint) {
         elm.classList.remove('is-sticky');
-        header.wrapper.setAttribute('data-transparent', 'true');
-        header.wrapper.setAttribute('data-was-transparent', 'false');
-        if (elm.dataset.transparent) {
-          elm.classList.add('is-transparent');
-          header.swapLogo(true);
+        if (!header.wrapper.classList.contains('not-trasparent')) {
+          header.wrapper.setAttribute('data-transparent', 'true');
+          header.wrapper.setAttribute('data-was-transparent', 'false');
+          if (elm.dataset.transparent) {
+            elm.classList.add('is-transparent');
+            header.swapLogo(true);
+          }
         }
         header.stuck = false;
       }

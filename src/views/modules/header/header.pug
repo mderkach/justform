@@ -6,8 +6,8 @@ mixin header(isToolbar, hasCart, isTransparent)
   header.header(
     class= isToolbar ? 'is-toolbar' : ''
     class= hasCart ? 'has-cart' : 'no-cart'
-    class= isTransparent ? 'is-transparent' : ''
-    data-transparent= isTransparent ? "true" : 'false'
+    class= isTransparent ? 'is-transparent' : 'not-trasparent'
+    data-transparent= isTransparent ? 'true' : 'false'
     data-was-transparent= isTransparent ? 'false' : 'true'
   )
     +wrapper('header')

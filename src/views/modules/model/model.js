@@ -45,13 +45,15 @@ const model = {
         });
       });
 
-      model.closeOverlay.addEventListener('click', (e) => {
-        e.preventDefault();
-        sliderModel.slider.removeAllSlides();
-        sliderModel.slider.update();
-        model.overlay.classList.remove('is-active');
-        document.body.classList.remove('is-modal-open');
-      });
+      if (model.closeOverlay) {
+        model.closeOverlay.addEventListener('click', (e) => {
+          e.preventDefault();
+          sliderModel.slider.removeAllSlides();
+          sliderModel.slider.update();
+          model.overlay.classList.remove('is-active');
+          document.body.classList.remove('is-modal-open');
+        });
+      }
     }
   },
 };
