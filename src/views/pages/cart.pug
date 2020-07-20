@@ -1,0 +1,27 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Justform';
+  - var description = '';
+  - var pageClass = 'cart-page';
+
+block content
+  section.cart__banner
+    +header(false, false, false)
+    +wrapper('cart')
+      .cart__info-wrapper
+        h1.cart__title.h1
+          | Корзина
+          span.text-breadcrumbs 3
+      p.cart__info-breadcrumbs.text-breadcrumbs Кресла 3 — Кровати 1
+  .cart__module
+    +wrapper('cart')
+      main.cart__items
+        .cart__items-wrapper
+          .cart__items-category-wrapper
+            h2.cart__items-category-name.h2
+              | Кресла
+              span.text-breadcrumbs 2
+          .cart__items-item-wrapper
+            include ../components/item/itemCart
+      aside.cart__info
