@@ -30,9 +30,10 @@ block content
             span.model__info-details_name.text-breadcrumbs Расположение
             span.model__info-details_descr.text-breadcrumbs Улица
           .model__info-row
-            span.model__info-details_name.text-breadcrumbs Ценовой сегмент
-            .model__info-price(style='background-color: #7eae6f; right: 126px')
-            span.model__info-details_descr.text-breadcrumbs € 10.000 — 20.000
+            span.model__info-details_name.text-breadcrumbs Стоимость
+            .model__info-price_wrapper
+              .model__info-price(style='background-color: #7eae6f;')
+              span.model__info-details_descr.text-breadcrumbs € 20.000
         +buttonPrimary('#', 'Узнать цену')
         +buttonSecondary('#', 'В корзину')
         +accordion('Почему нет цены', false, true)
