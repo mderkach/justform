@@ -1,98 +1,18 @@
-.item-cart
-  .item-cart__header
-    +pic('item-cart__img', './assets/img/cart__1.jpg')
-    .item-cart__info
-      p.text-regular.item-cart__name Rivera Armchair
-      p.text-breadcrumbs.item-cart__descr Minotti
-    button.item__cart-delete.text-breadcrumbs Удалить
-  .item-cart__body
-    .item-cart__filters
-      +filterSimple('Количество:', 'count', [
-        {
-          value: 1,
-          checked: false
-        },
-        {
-          value: 2,
-          checked: false
-        },
-        {
-          value: 3,
-          checked: false
-        },
-        {
-          value: 4,
-          checked: true
-        },
-        {
-          value: 5,
-          checked: false
-        },
-        {
-          value: 6,
-          checked: false
-        },
-      ])
-      +filterSimple('Обивка:', 'material', [
-        {
-          value: 'Ткань',
-          checked: true
-        },
-        {
-          value: 'Кожзам',
-          checked: false
-        },
-      ])
-      form.filter-simple-wrapper
-        span.filter-simple-header.text-filter-links Комментарий
-        .filter-simple
-          input(type="text", placeholder="Написать...", onfocus="this.placeholder=''", onblur="this.placeholder='Написать...'")
-.item-cart
-  .item-cart__header
-    +pic('item-cart__img', './assets/img/cart__1.jpg')
-    .item-cart__info
-      p.text-regular.item-cart__name Rivera Armchair
-      p.text-breadcrumbs.item-cart__descr Minotti
-    button.item__cart-delete.text-breadcrumbs Удалить
-  .item-cart__body
-    .item-cart__filters
-      +filterSimple('Количество:', 'count', [
-        {
-          value: 1,
-          checked: false
-        },
-        {
-          value: 2,
-          checked: false
-        },
-        {
-          value: 3,
-          checked: false
-        },
-        {
-          value: 4,
-          checked: true
-        },
-        {
-          value: 5,
-          checked: false
-        },
-        {
-          value: 6,
-          checked: false
-        },
-      ])
-      +filterSimple('Обивка:', 'material', [
-        {
-          value: 'Ткань',
-          checked: true
-        },
-        {
-          value: 'Кожзам',
-          checked: false
-        },
-      ])
-      form.filter-simple-wrapper
-        span.filter-simple-header.text-filter-links Комментарий
-        .filter-simple
-          input(type="text", placeholder="Написать...", onfocus="this.placeholder=''", onblur="this.placeholder='Написать...'")
+mixin itemCart(name, factory, image, filters)
+  - name = name
+  - factory = factory
+  - image = image
+  - filters = false || filters
+  .item-cart
+    .item-cart__header
+      +pic('item-cart__img', image)
+      .item-cart__info
+        p.text-regular.item-cart__name #{ name }
+        p.text-breadcrumbs.item-cart__descr #{ factory }
+      button.item__cart-delete.text-breadcrumbs Удалить
+    .item-cart__body
+      .item-cart__filters
+        each filter in filters
+          +filterSimple(filter.name, filter.descr, filter.items)
+        if block
+         block
