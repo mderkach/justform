@@ -1,6 +1,9 @@
-mixin accordion(name, additional)
+mixin accordion(name, additional, isActive)
   - additional = false || additional
-  .accordion-wrapper
+  - isActive = false || isActive
+  .accordion-wrapper(
+    class= isActive ? 'is-active' : ''
+  )
     span.accordion__header.text-filter-links #{ name }
     if additional
       span.accordion__additional.text-breadcrumbs #{ additional }
