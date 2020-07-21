@@ -127,17 +127,21 @@ const header = {
 
                 if (menu.classList.contains('is-active')) {
                   header.wrapper.classList.add('is-expanded');
-                  if (isTransparent) {
-                    header.wrapper.classList.remove('is-transparent');
-                    header.swapLogo(false);
-                    header.wrapper.setAttribute('data-was-transparent', 'true');
+                  if (!header.wrapper.classList.contains('not-transparent')) {
+                    if (isTransparent) {
+                      header.wrapper.classList.remove('is-transparent');
+                      header.swapLogo(false);
+                      header.wrapper.setAttribute('data-was-transparent', 'true');
+                    }
                   }
                 } else {
                   header.wrapper.classList.remove('is-expanded');
-                  if (wasTransparent) {
-                    header.wrapper.classList.add('is-transparent');
-                    header.swapLogo(true);
-                    header.wrapper.setAttribute('data-was-transparent', 'false');
+                  if (!header.wrapper.classList.contains('not-transparent')) {
+                    if (wasTransparent) {
+                      header.wrapper.classList.add('is-transparent');
+                      header.swapLogo(true);
+                      header.wrapper.setAttribute('data-was-transparent', 'false');
+                    }
                   }
                 }
               } else {
