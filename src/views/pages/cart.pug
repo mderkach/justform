@@ -205,6 +205,26 @@ block content
                   checked: false
                 },
               ])
+              +filterSimpleCheckboxes('Основание с подъемным механизмом :', 'mechanism', [
+                {
+                  value: 'Да',
+                  checked: false
+                },
+                {
+                  value: 'Нет',
+                  checked: false
+                },
+              ])
+              +filterSimpleCheckboxes('Указать размер матраса :', 'msize', [
+                {
+                  value: 'Да',
+                  checked: false
+                },
+                {
+                  value: 'Нет',
+                  checked: false
+                },
+              ])
               .filter-simple-wrapper
                 span.filter-simple-header.text-filter-links Комментарий
                 .filter-simple

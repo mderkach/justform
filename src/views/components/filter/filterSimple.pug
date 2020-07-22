@@ -7,6 +7,6 @@ mixin filterSimple(descr, name, items)
       span.filter-simple-value.text-filter-links
       .filter-simple-menu
         each item in items
-          label.filter-simple-label(for=item.value)
-            input.filter-simple-input(type="radio", value=item.value, name=name, id=item.value, checked=item.checked, disabled=item.disabled)
+          label.filter-simple-label(for=item.value + '-' + name)
+            input.filter-simple-input(type="radio", value=item.value, name=name, id=item.value + '-' + name, checked=item.checked, disabled=item.disabled)
             span.filter-simple-input-descr #{ item.value }

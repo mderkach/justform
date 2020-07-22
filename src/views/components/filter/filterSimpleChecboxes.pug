@@ -1,0 +1,10 @@
+mixin filterSimpleCheckboxes(descr, name, items)
+  - descr = descr
+  - items = items
+  .filter-simple-checkboxes-wrapper
+    span.filter-simple-header.text-filter-links #{ descr }
+    .filter-simple-checkboxes
+      each item in items
+        label.filter-simple-checkboxes-label(for=item.value + '-' + name)
+          input.filter-simple-checkboxes-input(type="radio", value=item.value, name=name, id=item.value + '-' + name, checked=item.checked)
+          span.filter-simple-checkboxes-input-descr.text-breadcrumbs #{ item.value }
