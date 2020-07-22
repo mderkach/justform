@@ -229,5 +229,20 @@ block content
                 span.filter-simple-header.text-filter-links Комментарий
                 .filter-simple
                   input(type="text", placeholder="Написать...", onfocus="this.placeholder=''", onblur="this.placeholder='Написать...'")
-
       aside.cart__info
+        .cart__info-header-wrapper
+          p.cart__info-header.text-filter-links Корзина
+          p.cart__info-counter.text-breadcrumbs x
+            span 9
+        .cart__info-body
+          .cart__info-item
+            span.text-breadcrumbs Rivera Armchair
+            span.text-breadcrumbs 4
+          .cart__info-item
+            span.text-breadcrumbs Aston Dinning with arms
+            span.text-breadcrumbs 4
+          .cart__info-item
+            span.text-breadcrumbs Bartlett Bed
+            span.text-breadcrumbs 1
+        +buttonPrimary('#', 'Узнать цену')
+        +buttonSecondary('#', 'Очистить')
