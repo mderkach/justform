@@ -39,6 +39,7 @@
 
     &-wrapper {
       display: flex;
+      align-items: center;
       width: 100%;
       padding-top: rem(7);
       padding-bottom: rem(6);
@@ -46,6 +47,7 @@
 
     &-header {
       flex: 1 0 50%;
+      line-height: 1;
     }
 
     &-menu {
@@ -67,6 +69,10 @@
       display: block;
       width: 100%;
       font-weight: 500;
+
+      &.is-placeholder {
+        font-weight: 300;
+      }
 
       &:hover {
         cursor: pointer;

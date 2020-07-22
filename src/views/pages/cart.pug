@@ -29,6 +29,11 @@ block content
                 items: 'count',
                 items: [
                   {
+                    value: 'Выбрать...',
+                    checked: true,
+                    disabled: true
+                  },
+                  {
                     value: 1,
                     checked: false
                   },
@@ -38,7 +43,7 @@ block content
                   },
                   {
                     value: 3,
-                    checked: true
+                    checked: false
                   },
                   {
                     value: 4,
@@ -59,19 +64,150 @@ block content
                 items: 'material',
                 items: [
                   {
+                    value: 'Выбрать...',
+                    checked: true,
+                    disabled: true
+                  },
+                  {
                     value: 'Ткань',
                     checked: false
                   },
                   {
                     value: 'Кожа',
-                    checked: true
+                    checked: false
                   },
                 ]
               }
-
             ])
-              form.filter-simple-wrapper
+            +itemCart('Aston Dinning with arms', 'Minotti', './assets/img/cart__2.jpg', [
+              {
+                name: 'Количество:',
+                items: 'count',
+                items: [
+                  {
+                    value: 'Выбрать...',
+                    checked: true,
+                    disabled: true
+                  },
+                  {
+                    value: 1,
+                    checked: false
+                  },
+                  {
+                    value: 2,
+                    checked: false
+                  },
+                  {
+                    value: 3,
+                    checked: false
+                  },
+                  {
+                    value: 4,
+                    checked: false
+                  },
+                  {
+                    value: 5,
+                    checked: false
+                  },
+                  {
+                    value: 6,
+                    checked: false
+                  },
+                ]
+              },
+            ])
+              .filter-simple-wrapper
                 span.filter-simple-header.text-filter-links Комментарий
                 .filter-simple
                   input(type="text", placeholder="Написать...", onfocus="this.placeholder=''", onblur="this.placeholder='Написать...'")
+        .cart__items-wrapper
+          .cart__items-category-wrapper
+            h2.cart__items-category-name.h2
+              | Кровати
+              span.text-breadcrumbs 1
+          .cart__items-item-wrapper
+            +itemCart('Bartlett Bed', 'Minotti', './assets/img/cart__3.jpg', [
+              {
+                name: 'Количество:',
+                items: 'count',
+                items: [
+                  {
+                    value: 'Выбрать...',
+                    checked: true,
+                    disabled: true
+                  },
+                  {
+                    value: 1,
+                    checked: false
+                  },
+                  {
+                    value: 2,
+                    checked: false
+                  },
+                  {
+                    value: 3,
+                    checked: false
+                  },
+                  {
+                    value: 4,
+                    checked: false
+                  },
+                  {
+                    value: 5,
+                    checked: false
+                  },
+                  {
+                    value: 6,
+                    checked: false
+                  },
+                ]
+              },
+              {
+                name: 'Обивка:',
+                items: 'material',
+                items: [
+                  {
+                    value: 'Выбрать...',
+                    checked: true,
+                    disabled: true
+                  },
+                  {
+                    value: 'Ткань',
+                    checked: false
+                  },
+                  {
+                    value: 'Кожа',
+                    checked: false
+                  },
+                  {
+                    value: 'Алькантара',
+                    checked: false
+                  },
+                  {
+                    value: 'Сетка',
+                    checked: false
+                  },
+                ]
+              }
+            ])
+              +filterSimple('Размер, см :', 'size', [
+                {
+                  value: 'Выбрать...',
+                  checked: true,
+                  disabled: true
+                },
+                {
+                  value: '10 cм',
+                  checked: false
+                },
+                {
+                  value: '20 cм',
+                  checked: false
+                },
+              ])
+              .filter-simple-wrapper
+                span.filter-simple-header.text-filter-links Комментарий
+                .filter-simple
+                  input(type="text", placeholder="Написать...", onfocus="this.placeholder=''", onblur="this.placeholder='Написать...'")
+
       aside.cart__info

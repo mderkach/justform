@@ -48,7 +48,8 @@
   }
 
   &__module {
-    padding-top: rem(114);
+    padding-top: rem(114 - 24);
+    padding-bottom: rem(120 - 46);
     background-color: #f8f8f8;
   }
 
@@ -61,7 +62,12 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr) repeat(5, 1fr);
       gap: rem(40);
+      padding-top: rem(24);
       border-bottom: 1px solid $black;
+
+      &:last-child {
+        border-bottom: none;
+      }
     }
 
     &-category {
