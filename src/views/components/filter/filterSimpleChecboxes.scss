@@ -1,4 +1,4 @@
-@import './filterSimple.scss';
+@import "./filterSimple.scss";
 
 .filter-simple-checkboxes {
   @extend .filter-simple;
@@ -69,7 +69,7 @@
         left: 0;
         top: 0;
         display: block;
-        content: '';
+        content: "";
         width: rem(16);
         height: rem(16);
         border: 1px solid #d7d7d7;
@@ -79,7 +79,7 @@
         position: absolute;
         left: rem(2);
         top: 50%;
-        content: '';
+        content: "";
         transform: translateY(-50%);
         width: rem(12);
         height: rem(12);

@@ -20,6 +20,19 @@
   }
 
   &__info {
+    @include make-col-ready();
+    @include make-col(2);
+    padding-top: rem(27);
+
+    @include media-breakpoint-down(lg) {
+      @include make-col(10);
+      order: 1;
+    }
+
+    @include media-breakpoint-down(md) {
+      padding-top: 0;
+    }
+
     &-wrapper {
       @include make-col-ready();
       @include make-col(10);
@@ -36,70 +49,6 @@
       justify-content: center;
       margin-top: rem(6);
     }
-  }
-
-  &__title {
-    display: flex;
-    align-items: flex-start;
-
-    span {
-      margin-left: rem(21);
-    }
-  }
-
-  &__module {
-    padding-top: rem(114 - 24);
-    padding-bottom: rem(120 - 46);
-    background-color: #f8f8f8;
-  }
-
-  &__items {
-    @include make-col-ready();
-    @include make-col-offset(1);
-    @include make-col(7);
-
-    &-wrapper {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr) repeat(5, 1fr);
-      gap: rem(40);
-      padding-top: rem(24);
-      border-bottom: 1px solid $black;
-
-      &:last-child {
-        border-bottom: none;
-      }
-    }
-
-    &-category {
-      &-wrapper {
-        grid-column-start: 1;
-        grid-column-end: 3;
-      }
-
-      &-name {
-        display: flex;
-        align-items: flex-start;
-
-        span {
-          position: relative;
-          top: rem(-4);
-          margin-left: rem(20);
-        }
-      }
-    }
-
-    &-item {
-      &-wrapper {
-        grid-column-start: 3;
-        grid-column-end: 8;
-      }
-    }
-  }
-
-  &__info {
-    @include make-col-ready();
-    @include make-col(2);
-    padding-top: rem(27);
 
     &-header {
       &-wrapper {
@@ -118,6 +67,98 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #e2e2e2;
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: flex-start;
+
+    span {
+      margin-left: rem(21);
+    }
+  }
+
+  &__module {
+    padding-top: rem(114 - 24);
+    padding-bottom: rem(120 - 46);
+    background-color: #f8f8f8;
+
+    @include media-breakpoint-down(md) {
+      padding-top: rem(20);
+      padding-bottom: rem(20);
+    }
+  }
+
+  &__items {
+    @include make-col-ready();
+    @include make-col-offset(1);
+    @include make-col(7);
+
+    @include media-breakpoint-down(lg) {
+      @include make-col-offset(0);
+      @include make-col(10);
+      order: 2;
+    }
+
+    &-wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr) repeat(5, 1fr);
+      gap: rem(40);
+      padding-top: rem(24);
+      border-bottom: 1px solid $black;
+
+      @include media-breakpoint-down(md) {
+        display: flex;
+        flex-direction: column;
+        gap: unset;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    &-category {
+      &-wrapper {
+        grid-column-start: 1;
+        grid-column-end: 3;
+
+        @include media-breakpoint-down(md) {
+          grid-column-end: 11;
+        }
+
+        @include media-breakpoint-down(xs) {
+          grid-column-end: 10;
+        }
+      }
+
+      &-name {
+        display: flex;
+        align-items: flex-start;
+
+        span {
+          position: relative;
+          top: rem(-4);
+          margin-left: rem(20);
+        }
+      }
+    }
+
+    &-item {
+      &-wrapper {
+        grid-column-start: 3;
+        grid-column-end: 8;
+
+        @include media-breakpoint-down(md) {
+          grid-column-start: 1;
+          grid-column-end: 11;
+        }
+
+        @include media-breakpoint-down(xs) {
+          grid-column-end: 10;
+        }
+      }
     }
   }
 }

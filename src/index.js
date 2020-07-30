@@ -20,6 +20,7 @@ import cardGray from './views/components/card/cardGray';
 import accordion from './views/components/accordion/accordion';
 import model from './views/modules/model/model';
 
+// init components
 filter.init();
 header.init();
 sliderBanner.init();
