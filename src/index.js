@@ -19,6 +19,7 @@ import filterReset from './views/components/filter/filterReset';
 import cardGray from './views/components/card/cardGray';
 import accordion from './views/components/accordion/accordion';
 import model from './views/modules/model/model';
+import modal from './js/openModal';
 
 // init components
 filter.init();
@@ -31,3 +32,4 @@ filterReset.init();
 cardGray.init();
 accordion.init();
 model.init();
+modal.init();

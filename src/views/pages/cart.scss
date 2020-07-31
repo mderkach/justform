@@ -13,6 +13,7 @@
 
   &__row {
     @include make-row();
+    position: relative;
   }
 
   &__banner {
@@ -26,7 +27,6 @@
 
     @include media-breakpoint-down(lg) {
       @include make-col(10);
-      order: 1;
     }
 
     @include media-breakpoint-down(md) {
@@ -98,7 +98,6 @@
     @include media-breakpoint-down(lg) {
       @include make-col-offset(0);
       @include make-col(10);
-      order: 2;
     }
 
     &-wrapper {
@@ -157,6 +156,102 @@
 
         @include media-breakpoint-down(xs) {
           grid-column-end: 10;
+        }
+      }
+    }
+  }
+
+  &-contacts {
+    @include make-col-ready();
+    @include make-col(4);
+    @include make-col-offset(3);
+    margin-top: calc(27vh - 3.5rem);
+
+    @include media-breakpoint-down(lg) {
+      @include make-col(8);
+      @include make-col-offset(1);
+    }
+
+    @include media-breakpoint-down(sm) {
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+      margin-left: 0 !important;
+    }
+
+    &__wrapper {
+      @extend .search__wrapper;
+
+      &.is-active {
+        @extend .search__wrapper.is-active;
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        @include media-breakpoint-down(lg) {
+          right: rem(20);
+        }
+      }
+
+      .h2 {
+        margin-bottom: rem(6);
+      }
+    }
+
+    &__body {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      gap: rem(24) rem(10);
+      margin-top: rem(107);
+
+      @include media-breakpoint-down(sm) {
+        grid-template-columns: 1fr 2fr;
+      }
+    }
+
+    &__input {
+      padding-bottom: rem(16);
+      background-color: transparent;
+      border-bottom: 1px solid #000;
+    }
+
+    &__controls {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: rem(24) rem(10);
+      padding-top: rem(30);
+
+      @include media-breakpoint-down(sm) {
+        padding-top: rem(10);
+        grid-template-columns: 1fr;
+      }
+
+      input {
+        grid-column-start: 2;
+        grid-column-end: 2;
+        justify-content: flex-start;
+        background-color: transparent;
+        margin-bottom: 0;
+        padding-left: rem(8);
+
+        @include media-breakpoint-down(sm) {
+          grid-column-start: 1;
+          grid-column-end: unset;
+          padding-left: unset;
+          justify-content: center;
+        }
+      }
+
+      button {
+        grid-column-start: 3;
+        grid-column-end: 5;
+        margin-bottom: 0;
+
+        @include media-breakpoint-down(sm) {
+          grid-column-start: 1;
+          grid-column-end: unset;
         }
       }
     }

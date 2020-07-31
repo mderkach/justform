@@ -244,5 +244,32 @@ block content
           .cart__info-item
             span.text-breadcrumbs Bartlett Bed
             span.text-breadcrumbs 1
-        +buttonPrimary('#', 'Узнать цену')
+        +buttonPrimary('#modal', 'Узнать цену')
         +buttonSecondary('#', 'Очистить')
+  .cart-contacts__wrapper.modal(data-modal="#modal").is-active
+    +wrapper('cart')
+      button.search-close.modal-close
+        +icon('', 'close')
+      form.cart-contacts(action="#" method="post")
+        h2.h2 Контактные данные
+        p.text-breadcrumbs
+          |* Обязательные поля
+        .cart-contacts__body
+          label.text-filter(for="name")
+            |Имя* :
+          input.cart-contacts__input.text-regular(type="text" ida="name" name="name" required)
+
+          label.text-filter(for="phone")
+            |Телефон* :
+          input.cart-contacts__input.text-regular(type="text" ida="phone" name="phone" required)
+
+          label.text-filter(for="mail")
+            |E-mail* :
+          input.cart-contacts__input.text-regular(type="mail" ida="mail" name="mail" required)
+
+          label.text-filter(for="comment")
+            |Комментарий :
+          input.cart-contacts__input.text-regular(type="text" ida="comment" name="comment")
+        .cart-contacts__controls
+          input.button.text-breadcrumbs(type="reset", value="Отменить")
+          button.button.button-primary(type="submit") Отправить
