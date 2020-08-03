@@ -1,0 +1,14 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Justform';
+  - var description = '';
+  - var pageClass = 'news-page';
+
+block content
+  +banner(' ', ' ', 'Новости', 'Just Form — Каталог мебели — Категории — Кровати', './assets/img/news-bg.jpg')
+  +news('./assets/img/news1.jpg', 'Сентябрь 7 <br> 2017', 'MDF Italia представляет 20.Venti', 'За последние десятилетия дизайн рабочих пространств пережил глубокие изменения при участии крупных промышленных гигантов, а также небольших компаний. Мы стали частью исторического перехода, в котором на офисный проект повлияли телематические преобразования…')
+  +news('./assets/img/news2.jpg', 'Август 31 <br> 2017', 'Открытие Molteni&Co в Будапеште', 'С открытием нового магазина Molteni & C Flagship в Будапеште в партнёрстве с Solinfo, группа Molteni продолжает стратегически строить свою дистрибьюторскую сеть на европейском рынке.<br><br> Molteni&C Flagship Store отпраздновал своё официальное открытие, проведя Grand Opening…')
+  section.news__pagination
+    +wrapper('news')
+      include ../components/pagination/pagination

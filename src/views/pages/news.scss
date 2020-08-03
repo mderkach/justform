@@ -1,0 +1,19 @@
+.news {
+  &-page {
+    background-color: #f8f8f8;
+
+    .pagination {
+      &__wrapper {
+        @include make-col-offset(0);
+        @include make-col(10);
+
+        padding-bottom: rem(116);
+
+        @include media-breakpoint-down(sm) {
+          padding-top: rem(32);
+          padding-bottom: rem(32);
+        }
+      }
+    }
+  }
+}
