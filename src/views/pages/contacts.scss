@@ -1,6 +1,7 @@
 .contacts {
   &-page {
     .index__furniture {
+      padding-top: 0;
       background-color: #f8f8f8;
     }
 
@@ -19,6 +20,10 @@
           text-align: center;
         }
       }
+    }
+
+    .footer {
+      border-top: none;
     }
   }
 }
