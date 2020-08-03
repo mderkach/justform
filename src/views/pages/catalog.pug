@@ -6,7 +6,7 @@ block variables
   - var pageClass = 'catalog-page';
 
 block content
-  include ../components/banner/banner
+  +banner('Кресла', 'Кухни', 'Кровати', 'Just Form — Каталог мебели — Категории — Кровати', './assets/img/banner-bg.jpg')
   include ../modules/catalog/catalog
   section.catalog__section
     +wrapper('catalog')

@@ -1,9 +1,23 @@
-section.banner
-  +header(false, true, true)
-  +pic('banner__backgorund', './assets/img/banner-bg.jpg')
-  +wrapper('banner')
-    .banner__info-wrapper
-      a(href="#").banner__link.text-regular Кресла
-      h1.banner__title.h1 Кровати
-      a(href="#").banner__link.text-regular Кухни
-    p.banner__info-breadcrumbs.text-breadcrumbs Just Form — Каталог мебели — Категории — Кровати
+mixin banner(linkPrev, linkNext, title, breadcrumbs, bg)
+  - linkPrev = linkPrev|| false
+  - linkNext = linkNext || false
+  - title = title
+  - breadcrumbs = breadcrumbs || false
+  - bg = bg || false
+  section.banner(
+    class= bg ? '' : 'no-bg'
+  )
+    if bg
+      +header(false, true, true)
+      +pic('banner__backgorund', bg)
+    else
+      +header(false, true, false)
+    +wrapper('banner')
+      .banner__info-wrapper
+        if linkPrev
+          a(href="#").banner__link.text-regular #{ linkPrev}
+        h1.banner__title.h1 #{ title }
+        if linkNext
+          a(href="#").banner__link.text-regular #{ linkNext }
+      if breadcrumbs
+        p.banner__info-breadcrumbs.text-breadcrumbs #{ breadcrumbs }

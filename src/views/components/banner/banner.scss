@@ -4,6 +4,21 @@
   padding-bottom: rem(111);
   overflow: hidden;
 
+  &.no-bg {
+    background-color: #f8f8f8;
+
+    .banner {
+      &__title {
+        color: $black;
+      }
+
+      &__link,
+      &__info-breadcrumbs {
+        color: $gray;
+      }
+    }
+  }
+
   &__backgorund {
     position: absolute;
     top: 0;

@@ -1,0 +1,20 @@
+.contacts {
+  &-page {
+    .index__furniture {
+      background-color: #f8f8f8;
+    }
+
+    .banner {
+      &__info-wrapper {
+        flex-direction: column;
+      }
+
+      &__title {
+        font-size: rem(32);
+        margin-top: rem(8);
+        margin-bottom: rem(8);
+        text-align: center;
+      }
+    }
+  }
+}

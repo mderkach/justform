@@ -76,9 +76,15 @@
       @include make-col-offset(0);
       @include make-col(8);
       margin-bottom: rem(33);
+
       &:first-of-type {
         margin-bottom: rem(7);
       }
+    }
+
+    @include media-breakpoint-down(sm) {
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
     }
   }
 

@@ -1,0 +1,21 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Justform';
+  - var description = '';
+  - var pageClass = 'contacts-page';
+
+block content
+  +banner('О компании', ' ', '7 (495) 532—86—86', 'Пн - Пт    10:00 — 20:00')
+
+block append footer
+  section.index__furniture
+    +wrapper('index')
+      h2.index__header.h2
+        |Посетите шоу-рум
+        br
+        |Just Form
+      .index__block
+        p.index__text.text-regular
+          | Здесь вы можете увидеть образцы предлагаемых товаров, виды возможных отделок,
+          |а также окунуться в многообразие коллекций вместе с каталогами лучших европейских производителей. Наши специалисты всегда готовы помочь с выбором, а также проконсультировать вас по всем интересующим вопросам.
