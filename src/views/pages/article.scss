@@ -5,6 +5,10 @@
     .slider-article {
       grid-column-start: 1;
       grid-column-end: 9;
+
+      @include media-breakpoint-down(lg) {
+        grid-column-end: 11;
+      }
     }
   }
 
@@ -20,6 +24,10 @@
 
   &__section {
     padding-top: rem(150 + 64);
+
+    @include media-breakpoint-down(lg) {
+      padding-top: rem(84 + 32);
+    }
   }
 
   &__grid {
@@ -28,6 +36,15 @@
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     gap: rem(44);
+
+    @include media-breakpoint-down(lg) {
+      gap: rem(22) rem(15);
+    }
+  }
+
+  &__aside {
+    grid-column-start: 1;
+    grid-column-end: 10;
   }
 
   &__main {
@@ -38,9 +55,20 @@
     gap: rem(44);
     padding-bottom: rem(116 - 44);
 
+    @include media-breakpoint-down(lg) {
+      grid-column-start: 1;
+      grid-column-end: 11;
+      grid-template-columns: repeat(10, 1fr);
+      gap: rem(22) rem(15);
+    }
+
     &-heading {
       grid-column-start: 1;
       grid-column-end: 6;
+
+      @include media-breakpoint-down(lg) {
+        grid-column-end: 11;
+      }
 
       .h2 {
         margin-bottom: rem(34);
@@ -57,6 +85,12 @@
 
       margin-top: rem(109 - 44);
 
+      @include media-breakpoint-down(lg) {
+        grid-column-start: 1;
+        grid-column-end: 11;
+        margin-top: rem(60 - 22);
+      }
+
       .text-regular {
         margin-bottom: rem(32);
       }
@@ -66,8 +100,11 @@
   &__pic {
     grid-column-start: 1;
     grid-column-end: 9;
-
     width: 100%;
+
+    @include media-breakpoint-down(lg) {
+      grid-column-end: 11;
+    }
 
     img {
       display: block;
@@ -79,5 +116,10 @@
     grid-column-start: 2;
     margin-top: rem(109 - 44);
     line-height: 1;
+
+    @include media-breakpoint-down(lg) {
+      grid-column-start: 1;
+      grid-column-end: 5;
+    }
   }
 }
