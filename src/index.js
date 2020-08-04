@@ -20,6 +20,7 @@ import cardGray from './views/components/card/cardGray';
 import accordion from './views/components/accordion/accordion';
 import model from './views/modules/model/model';
 import modal from './js/openModal';
+import sliderAricle from './views/components/slider/sliderArcticle';
 
 // init components
 filter.init();
@@ -33,3 +34,4 @@ cardGray.init();
 accordion.init();
 model.init();
 modal.init();
+sliderAricle.init();
