@@ -1,0 +1,18 @@
+mixin itemAutopismo(name, factory, pic, info)
+  .item-autopismo
+    +pic('item-autopismo__pic', pic)
+    .item-autopismo__body
+      .item-autopismo__info
+        p.text-regular.item-cart__name #{ name }
+        p.text-breadcrumbs.item-cart__descr #{ factory }
+      .item-autopismo__info-details
+        each item in info
+          .item-autopismo__info-row
+            span.text-breadcrumbs.model__info-details_name  #{ item.name }
+            span.text-breadcrumbs.model__info-details_descr  #{ item.descr }
+      .item-autopismo__sizing
+        .item-autopismo__sizing-header
+          p.text-regular Размеры
+          p.text-breadcrumbs Ширина — Глубина — Высота
+        if block
+          block

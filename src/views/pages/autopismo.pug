@@ -1,0 +1,146 @@
+extends ../layout/autopismo
+
+block variables
+  - var title = 'Justform';
+  - var description = '';
+  - var pageClass = 'autopismo-page';
+
+block content
+  .autopismo
+    +wrapper('autopismo')
+      header.autopismo__header
+        .autopismo__header-top
+          h2.h2 Добрый день,
+            span.inherit-size.inherit-weight Игорь
+          +pic('autopismo__header-logo', './assets/img/logo.png')
+        .autopismo__header-bot
+          p.text-breadcrumbs Вы запрашивали стоимость следующих позиций
+  .autopismo__items-wrapper
+    +wrapper('autopismo')
+      .autopismo__items
+        .cart__items-category-wrapper
+          h2.cart__items-category-name.h2
+            | Столы
+            span.text-breadcrumbs 3
+        .cart__items-item-wrapper
+          +itemAutopismo(
+            'Benson coffee table',
+            'Minotti',
+            './assets/img/autopismo1.jpg',
+            [
+              {
+                name: 'ID',
+                descr: 1295408
+              },
+              {
+                name: 'Цена',
+                descr: '€ 3.500'
+              },
+              {
+                name: 'Количество',
+                descr: 2
+              },
+              {
+                name: 'Сумма',
+                descr: '€ 7.000'
+              }
+            ]
+          )
+            .item-autopismo__info-row
+              span.text-breadcrumbs.model__info-details_name  Раздвижной стол
+              span.text-breadcrumbs.model__info-details_descr  760—540—750
+            .item-autopismo__info-row
+              span.text-breadcrumbs.model__info-details_name  В разложенном виде
+              span.text-breadcrumbs.model__info-details_descr  2260—2130—2130
+          +itemAutopismo(
+            'Calder Table',
+            'Minotti',
+            './assets/img/autopismo2.jpg',
+            [
+              {
+                name: 'ID',
+                descr: 1295408
+              },
+              {
+                name: 'Цена',
+                descr: '€ 1.500'
+              },
+              {
+                name: 'Количество',
+                descr: 1
+              },
+              {
+                name: 'Сумма',
+                descr: '€ 1.000'
+              }
+            ]
+          )
+            +pic('item-autopismo__sizing-pic', './assets/img/model.jpg')
+        .cart__items-category-wrapper
+          h2.cart__items-category-name.h2
+            | Стулья
+            span.text-breadcrumbs 4
+        .cart__items-item-wrapper
+          +itemAutopismo(
+            'Creed Dinning chair',
+            'Minotti',
+            './assets/img/autopismo3.jpg',
+            [
+              {
+                name: 'ID',
+                descr: 2345678
+              },
+              {
+                name: 'Цена',
+                descr: '€ 300'
+              },
+              {
+                name: 'Количество',
+                descr: '4 шт'
+              },
+              {
+                name: 'Сумма',
+                descr: '€ 1.200'
+              }
+            ]
+          )
+            .item-autopismo__info-row
+              span.text-breadcrumbs.model__info-details_name  Cтул
+              span.text-breadcrumbs.model__info-details_descr  760—540—750
+  .autopismo__price-wrapper
+    +wrapper('autopismo')
+      .autopismo__price-inner
+        .autopismo__price-outer
+          .autopismo__price-header
+            h2.h2 Итоговая сумма:
+            p.h2 € 9.700
+          p.autopismo__price-production.text-breadcrumbs
+            |Срок производства:
+            br
+            |45 — 60 календарных дней
+          .autopismo__price-items
+            .item-autopismo__info-row
+              span.text-breadcrumbs.model__info-details_name  Benson coffee table
+              span.text-breadcrumbs.model__info-details_descr  € 7.000
+            .item-autopismo__info-row
+              span.text-breadcrumbs.model__info-details_name Calder Table
+              span.text-breadcrumbs.model__info-details_descr € 1.500
+            .item-autopismo__info-row
+              span.text-breadcrumbs.model__info-details_name Creed Dinning chair
+              span.text-breadcrumbs.model__info-details_descr € 1.200
+          .autopismo__price-comment-wrapper
+            p.autopismo__price-comment-header.text-regular Ваш комментарий:
+            p.autopismo__price-comment.text-regular
+              |Именно этой цитатой можно охарактеризовать итальянских производителей мебели.
+              |Не больше  не меньше: только лучшее сырье и материалы, высокопроф  не меньше
+              |и не меньше: только лучшее сырье и материалы, высокопрофессиональные мастера
+              |и современные технологии позволяют итальянским брендам оставаться на высоте среди других мировых торговых марок.
+  footer.autopismo__footer
+    +wrapper('autopismo')
+      .autopismo__footer-inner
+        h2.h2 Наш адрес:
+        .autopismo__footer-bot
+          a.text-links(href="mailto:hello@justform.ru") hello@justform.ru
+          .autopismo__footer-block
+            p.text-regular 115114, Москва, Дербеневская наб. 7 с14
+            a.text-regular(href="tel:+74955328686") +7 495 532—86—86
