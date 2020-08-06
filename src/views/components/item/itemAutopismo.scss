@@ -8,6 +8,16 @@
 
     &:last-child {
       margin-bottom: rem(30);
+
+      @include media-breakpoint-down(sm) {
+        margin-bottom: rem(16);
+      }
+    }
+
+    @include media-breakpoint-down(sm) {
+      gap: rem(15);
+
+      margin-bottom: rem(32);
     }
 
     &__pic {
@@ -15,6 +25,10 @@
       grid-column-end: 3;
       display: block;
       width: 100%;
+
+      @include media-breakpoint-down(sm) {
+        grid-column-end: 6;
+      }
 
       img {
         display: block;
@@ -28,12 +42,20 @@
       grid-column-end: 6;
       display: block;
       width: 100%;
+
+      @include media-breakpoint-down(sm) {
+        grid-column-start: 1;
+      }
     }
 
     &__info {
       &-details {
         margin-top: rem(65);
         margin-bottom: rem(36);
+
+        @include media-breakpoint-down(sm) {
+          margin-top: rem(20);
+        }
       }
 
       &-row {
