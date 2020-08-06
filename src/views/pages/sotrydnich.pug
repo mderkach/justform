@@ -1,0 +1,60 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Justform';
+  - var description = '';
+  - var pageClass = 'sotrydnich-page';
+
+block content
+  +header(false, true, false)
+  section.zakaz__section
+    +wrapper('zakaz')
+      .zakaz__inner
+        .zakaz__grid
+          h2.zakaz__header.h2
+            |Just Form предлагает
+            br
+            |сотрудничество и партнёрство
+            br
+            |на выгодных условиях
+          .zakaz__block
+            h3.text-filter-links Информационная поддержка
+            p.text-regular
+              |Наши менеджеры в любое время ответят на все интересующие вас вопросы и будут держать в курсе всех новинок ассортимента фабрик.
+          .zakaz__block
+            h3.text-filter-links Лучшие цены
+            p.text-regular
+              |Cпециальные цены для партнёров.
+          .zakaz__block
+            h3.text-filter-links Система бонусов
+            p.text-regular
+              |Накопительная система бонусов, дающих дополнительные привилегии нашим партнёрам и клиентам.
+          .zakaz__block
+            h3.text-filter-links Быстрая доставка
+            p.text-regular
+              |Развитая система доставки из Италии и работа только с крупными и проверенными транспортными компаниями позволяет нам оперативно доставлять заказы.
+          .zakaz__block
+            h3.text-filter-links Страховка заказов
+            p.text-regular
+              |Все заказы застрахованы, так что вы и ваши клиенты никогда не потеряют свои средства.
+          .zakaz__block
+            h3.text-filter-links Каталоги фабрик
+            p.text-regular
+              |Более 2000 каталогов и отделок от ведущих производителей.
+          .zakaz__block
+            h3.text-filter-links Сотрудничество с нами
+            p.text-regular
+              |Если вы талантливый дизайнер или архитектор, оптовый или розничный покупатель, то мы всегда готовы к взаимному развитию. Мы индивидуально подходим к сотрудничеству с каждым партнёром и предлагаем специальную систему скидок и накопительных бонусов.
+          .zakaz__block_centered
+            h2.banner__title.h1 7 (495) 532—86—86
+            p.text-breadcrumbs Пн - Пт    10:00 — 20:00
+            a.text-links(href="mailto:hello@justform.ru") hello@justform.ru
+          h2.zakaz__header.h2
+            |Мы всегда помним о своих партнёрах
+            br
+            |и стараемся уделять им
+            br
+            |как можно больше внимания!
+          .zakaz__block
+            p.text-regular
+              |Вы можете более подробно узнать о программах взаимовыгодного сотрудничества, связавшись с нами по телефону или отправив запрос на электронную почту.

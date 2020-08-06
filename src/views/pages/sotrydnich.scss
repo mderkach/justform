@@ -1,0 +1,23 @@
+.sotrydnich {
+  &-page {
+    background-color: #f8f8f8;
+
+    .banner__title {
+      color: $black;
+
+      @include media-breakpoint-down(lg) {
+        font-size: rem(32);
+        margin-bottom: rem(8);
+        text-align: center;
+      }
+    }
+
+    .text-links {
+      margin-top: rem(106);
+
+      @include media-breakpoint-down(lg) {
+        margin-top: rem(16);
+      }
+    }
+  }
+}
