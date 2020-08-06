@@ -1,0 +1,71 @@
+.zakaz {
+  &-page {
+    background-color: #f8f8f8;
+  }
+
+  &__container {
+    @include make-container($gutter: $grid-gutter-width);
+    @include make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints);
+  }
+
+  &__row {
+    @include make-row();
+    height: 100%;
+  }
+
+  &__section {
+    padding-top: rem(150 + 64);
+
+    @include media-breakpoint-down(lg) {
+      padding-top: rem(84 + 32);
+    }
+  }
+
+  &__inner {
+    @include make-col-ready();
+    @include make-col(8);
+    @include make-col-offset(1);
+    padding-bottom: rem(116);
+
+    @include media-breakpoint-down(lg) {
+      @include make-col(10);
+      @include make-col-offset(0);
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: rem(114) rem(40);
+
+    @include media-breakpoint-down(lg) {
+      gap: rem(20) rem(15);
+    }
+  }
+
+  &__header {
+    grid-column-start: 1;
+    grid-column-end: 9;
+  }
+
+  &__block {
+    grid-column-start: 4;
+    grid-column-end: 9;
+
+    &_centered {
+      grid-column-start: 2;
+      grid-column-end: 8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .h1 {
+        color: $black;
+      }
+    }
+
+    .text-filter-links {
+      margin-bottom: rem(26);
+    }
+  }
+}
