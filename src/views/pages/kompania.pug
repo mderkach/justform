@@ -1,0 +1,24 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Justform';
+  - var description = '';
+  - var pageClass = 'zakaz-page';
+
+block content
+  +banner('Контакты', false, 'Just Form', ' ')
+  +wrapper('zakaz')
+    .zakaz__inner
+      .zakaz__grid
+        .zakaz__block
+          p.text-regular
+            |Just Form имеет прямые контракты с итальянскими и другими европейскими
+            |и американскими фабриками, поэтому мы можем гарантировать минимальные цены
+            |на продукцию и обеспечить высочайший уровень сервиса, включающий доставку
+            |и профессиональный монтаж.
+        h2.zakaz__header.h2
+          |Мы сотрудничаем с фабриками напрямую,
+          br
+          |поэтому можем предложить минимальные
+          br
+          |цены и лучшие условия поставки.

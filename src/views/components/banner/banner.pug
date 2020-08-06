@@ -19,5 +19,7 @@ mixin banner(linkPrev, linkNext, title, breadcrumbs, bg)
         h1.banner__title.h1 #{ title }
         if linkNext
           a(href="#").banner__link.text-regular #{ linkNext }
+        else
+          a(href="#" style="opacity: 0").banner__link.text-regular #{ linkPrev}
       if breadcrumbs
         p.banner__info-breadcrumbs.text-breadcrumbs #{ breadcrumbs }
