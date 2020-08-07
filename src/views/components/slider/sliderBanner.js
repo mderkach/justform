@@ -1,4 +1,5 @@
 import Swiper from 'swiper';
+import './sliderBanner.scss';
 
 const sliderBanner = {
   element: document.querySelector('.slider-banner'),

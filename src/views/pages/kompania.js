@@ -1,0 +1,1 @@
+import './kompania.scss';

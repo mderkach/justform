@@ -1,3 +1,10 @@
+@import 'src/scss/utils/vars';
+@import 'src/scss/utils/libs';
+@import 'src/scss/utils/mixins';
+@import 'src/scss/utils/typography';
+@import 'src/views/components/banner/banner';
+@import './zakaz.scss';
+
 .sotrydnich {
   &-page {
     background-color: #f8f8f8;

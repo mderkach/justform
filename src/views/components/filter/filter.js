@@ -1,4 +1,6 @@
 /* eslint-disable no-plusplus */
+import './filter.scss';
+
 const filter = {
   wrapper: document.querySelectorAll('.filter-wrapper'),
   openFilter: (elm) => {

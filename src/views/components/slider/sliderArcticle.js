@@ -1,4 +1,5 @@
 import Swiper from 'swiper';
+import './sliderArticle.scss';
 
 const sliderAricle = {
   el: document.querySelector('.slider-article'),

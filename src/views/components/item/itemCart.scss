@@ -1,3 +1,8 @@
+@import 'src/scss/utils/vars';
+@import 'src/scss/utils/libs';
+@import 'src/scss/utils/mixins';
+@import 'src/scss/utils/typography';
+
 .item-cart {
   margin-bottom: rem(30);
   border-bottom: 1px solid $black;

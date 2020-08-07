@@ -1,3 +1,12 @@
+@import 'src/scss/utils/vars';
+@import 'src/scss/utils/libs';
+@import 'src/scss/utils/mixins';
+@import 'src/scss/utils/reset';
+@import 'src/scss/utils/typography';
+@import 'src/views/components/search/search';
+@import 'src/views/components/menu/MenuMobile';
+@import 'src/views/components/buttons/buttons';
+
 .header {
   padding: rem(56) 0 rem(50);
   z-index: 900;
@@ -113,7 +122,10 @@
 
   &__container {
     @include make-container($gutter: $grid-gutter-width);
-    @include make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints);
+    @include make-container-max-widths(
+      $max-widths: $container-max-widths,
+      $breakpoints: $grid-breakpoints
+    );
   }
 
   &__row {
@@ -201,7 +213,7 @@
         &::before {
           position: absolute;
           top: -6px;
-          content: "";
+          content: '';
           display: block;
           width: rem(16);
           height: 2px;
@@ -294,7 +306,7 @@
         width: 12px;
         height: 2px;
         background-color: $black;
-        content: "";
+        content: '';
         transition: all 0.3s ease;
       }
 
@@ -322,20 +334,20 @@
     }
 
     &-menu {
-      &[data-parent="items"] {
+      &[data-parent='items'] {
         @include make-col-offset(2);
       }
 
-      &[data-parent="positions"] {
+      &[data-parent='positions'] {
         @include make-col-offset(4);
         margin-right: 20%;
       }
 
-      &[data-parent="more"] {
+      &[data-parent='more'] {
         flex-direction: row;
       }
 
-      &[data-parent="factory"] {
+      &[data-parent='factory'] {
         align-items: flex-start;
         flex-direction: row;
         max-height: unset;
@@ -505,7 +517,7 @@
     padding-top: rem(40);
     z-index: 900;
 
-    &[data-transparent="false"] {
+    &[data-transparent='false'] {
       .header-main-mobile {
         &__logo {
           display: block;

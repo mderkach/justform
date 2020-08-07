@@ -1,3 +1,9 @@
+@import 'src/scss/utils/vars';
+@import 'src/scss/utils/libs';
+@import 'src/scss/utils/mixins';
+@import 'src/scss/utils/reset';
+@import 'src/scss/utils/typography';
+
 .banner {
   position: relative;
   padding-top: rem(197);
@@ -41,7 +47,7 @@
 
     &::before {
       position: absolute;
-      content: "";
+      content: '';
       top: 0;
       left: 0;
       width: 100%;
@@ -52,7 +58,10 @@
 
   &__container {
     @include make-container($gutter: $grid-gutter-width);
-    @include make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints);
+    @include make-container-max-widths(
+      $max-widths: $container-max-widths,
+      $breakpoints: $grid-breakpoints
+    );
   }
 
   &__row {

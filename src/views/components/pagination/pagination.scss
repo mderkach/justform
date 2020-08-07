@@ -1,3 +1,9 @@
+@import 'src/scss/utils/vars';
+@import 'src/scss/utils/libs';
+@import 'src/scss/utils/mixins';
+@import 'src/scss/utils/reset';
+@import 'src/views/components/filter/filterSimple';
+
 .pagination {
   &__wrapper {
     @include make-col-ready();
