@@ -1,4 +1,5 @@
 import ymaps from 'ymaps';
+import './footer.scss';
 
 const mapFooter = {
   element: document.querySelector('.footer__map'),

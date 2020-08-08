@@ -1,8 +1,4 @@
-@import 'src/scss/utils/vars';
-@import 'src/scss/utils/libs';
-@import 'src/scss/utils/mixins';
-@import 'src/scss/utils/reset';
-@import 'src/scss/utils/typography';
+@import 'src/scss/utils/utils';
 @import 'src/views/components/search/search';
 @import 'src/views/components/menu/MenuMobile';
 @import 'src/views/components/buttons/buttons';
@@ -387,11 +383,10 @@
       max-width: 232px;
       margin: 0 $gutter;
       border-bottom: 1px solid #e0e0e0;
-      @extend .text-filter;
 
       &:hover {
         cursor: pointer;
-        @extend .text-filter;
+        color: $gray;
         text-decoration: none;
       }
     }
@@ -475,7 +470,6 @@
         width: 100%;
         margin-left: 0;
         border-bottom: 0;
-        @extend .text-filter-links;
         line-height: rem(56);
       }
     }
@@ -489,7 +483,6 @@
         display: flex;
         justify-content: space-between;
         margin-bottom: rem(16);
-        @extend .text-filter-links;
         line-height: rem(19);
 
         span {

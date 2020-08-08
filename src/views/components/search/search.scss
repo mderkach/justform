@@ -1,3 +1,5 @@
+@import 'src/scss/utils/utils';
+
 .search {
   @include make-col-ready();
   @include make-col-offset(1);
@@ -33,7 +35,10 @@
 
   &__container {
     @include make-container($gutter: $grid-gutter-width);
-    @include make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints);
+    @include make-container-max-widths(
+      $max-widths: $container-max-widths,
+      $breakpoints: $grid-breakpoints
+    );
   }
 
   &__row {
@@ -83,11 +88,10 @@
       align-items: flex-start;
       margin-bottom: rem(32);
 
-      span {
+      .text-breadcrumbs {
         position: relative;
         bottom: rem(9);
         margin-left: $gutter;
-        @extend .text-breadcrumbs;
       }
     }
 

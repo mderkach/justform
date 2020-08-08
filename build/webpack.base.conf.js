@@ -24,7 +24,7 @@ const PAGES = Fs.readdirSync(PAGES_DIR).filter((fileName) => fileName.endsWith('
 
 //entrypoints
 const mainEntry = {
-  app: `${PATHS.src}/main.js`,
+  app: `${PATHS.src}/main.js`
 };
 
 const dynamicEntry = glob
@@ -36,17 +36,6 @@ const dynamicEntry = glob
   }, {});
 
 const entryPoints = Object.assign(mainEntry, dynamicEntry);
-
-function recursiveIssuer(m) {
-  console.log(m)
-  if (m.issuer) {
-    return recursiveIssuer(m.issuer);
-  } else if (m.name) {
-    return m.name;
-  } else {
-    return false;
-  }
-}
 
 module.exports = {
   // BASE config
@@ -208,8 +197,25 @@ module.exports = {
           enforce: true,
         },
         vendorStyles: {
-          name: 'vendor-styles',
+          name: 'app',
           test: /src[\\/]scss/,
+          chunks: 'all',
+          enforce: true,
+        },
+        pages: {
+          name(module, chunks) {
+            const allChunksNames = chunks.map((item) => item.name).join('');
+            const output = allChunksNames;
+            return output;
+          },
+          test(module, chunks) {
+            const path = require('path');
+            const output =
+              module.resource &&
+              module.resource.endsWith('.js') &&
+              module.resource.includes(`${path.sep}pages${path.sep}`);
+            return output;
+          },
           chunks: 'all',
           enforce: true,
         },

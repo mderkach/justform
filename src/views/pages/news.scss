@@ -1,7 +1,7 @@
-@import 'src/scss/utils/vars';
-@import 'src/scss/utils/libs';
-@import 'src/scss/utils/mixins';
-@import 'src/scss/utils/typography';
+@import 'src/scss/utils/utils';
+@import 'src/views/components/banner/banner';
+@import 'src/views/components/news/news';
+@import 'src/views/components/pagination/pagination';
 
 .news {
   &-page {

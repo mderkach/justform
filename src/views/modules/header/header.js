@@ -1,3 +1,5 @@
+import './header.scss';
+
 const header = {
   wrapper: document.querySelector('.header'),
   mobile: document.querySelector('.header-main-mobile'),

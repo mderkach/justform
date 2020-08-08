@@ -1,8 +1,4 @@
-@import 'src/scss/utils/vars';
-@import 'src/scss/utils/libs';
-@import 'src/scss/utils/mixins';
-@import 'src/scss/utils/reset';
-@import 'src/scss/utils/typography';
+@import 'src/scss/utils/utils';
 
 .item {
   &:hover {
