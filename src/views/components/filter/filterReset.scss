@@ -9,6 +9,10 @@
     margin-top: rem(37 - 18);
     margin-bottom: rem(18);
 
+    &:hover {
+      cursor: pointer;
+    }
+
     @include media-breakpoint-down(lg) {
       margin-top: 0;
     }

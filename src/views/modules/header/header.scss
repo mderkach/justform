@@ -91,6 +91,16 @@
               background-color: $white;
             }
           }
+
+          &:hover {
+            .header__menu-button_inner {
+              background-color: $white;
+
+              &::before {
+                background-color: $white;
+              }
+            }
+          }
         }
       }
 
@@ -189,6 +199,8 @@
       padding: 0;
 
       &:hover {
+        cursor: pointer;
+
         .header__menu-button_inner {
           background-color: $gray;
 
@@ -237,6 +249,10 @@
       @include size(rem(16));
       margin-top: 3px;
       padding: 0;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 
