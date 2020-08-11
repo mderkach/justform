@@ -34,7 +34,7 @@ block content
             .model__info-price_wrapper
               .model__info-price(style='background-color: #7eae6f;')
               span.model__info-details_descr.text-breadcrumbs € 20.000
-        +buttonPrimary('#', 'Узнать цену')
+        +buttonPrimary('#modal', 'Узнать цену')
         +buttonSecondary('#', 'В корзину')
         +accordion('Почему нет цены', false, true)
           p.text-regular После того, как вы сделали выбор, заключается договор, где прописаны все особенности товара, его доставка и гарантии. При подписании документов вносится предоплата в размере 70% от стоимости заказа.
@@ -72,3 +72,31 @@ block content
         +item('Название модели','Фабрика','€ 5.000 — 10.000','./assets/img/accs.jpg', false)
         +item('Название модели','Фабрика','€ 5.000 — 10.000','./assets/img/accs.jpg', false)
   +news('./assets/img/news2.jpg', 'Август 31 <br> 2017', 'Открытие Molteni&Co в Будапеште', 'С открытием нового магазина Molteni & C Flagship в Будапеште в партнёрстве с Solinfo, группа Molteni продолжает стратегически строить свою дистрибьюторскую сеть на европейском рынке.<br><br> Molteni&C Flagship Store отпраздновал своё официальное открытие, проведя Grand Opening…')
+
+  .cart-contacts__wrapper.modal(data-modal="#modal")
+    +wrapper('cart')
+      button.search-close.modal-close
+        +icon('', 'close')
+      form.cart-contacts(action="#" method="post")
+        h2.h2 Контактные данные
+        p.text-breadcrumbs
+          |* Обязательные поля
+        .cart-contacts__body
+          label.text-filter(for="name")
+            |Имя* :
+          input.cart-contacts__input.text-regular(type="text" ida="name" name="name" required)
+
+          label.text-filter(for="phone")
+            |Телефон* :
+          input.cart-contacts__input.text-regular(type="text" ida="phone" name="phone" required)
+
+          label.text-filter(for="mail")
+            |E-mail* :
+          input.cart-contacts__input.text-regular(type="mail" ida="mail" name="mail" required)
+
+          label.text-filter(for="comment")
+            |Комментарий :
+          input.cart-contacts__input.text-regular(type="text" ida="comment" name="comment")
+        .cart-contacts__controls
+          input.button.text-breadcrumbs(type="reset", value="Отменить")
+          button.button.button-primary(type="submit") Отправить

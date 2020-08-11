@@ -1,9 +1,10 @@
-@import 'src/scss/utils/utils';
-@import './index';
-@import 'src/views/components/breadcrumbs/breadcrumbs';
-@import 'src/views/components/buttons/buttons';
-@import 'src/views/components/item/item';
-@import 'src/views/components/news/news';
+@import "src/scss/utils/utils";
+@import "./index";
+@import "./cart";
+@import "src/views/components/breadcrumbs/breadcrumbs";
+@import "src/views/components/buttons/buttons";
+@import "src/views/components/item/item";
+@import "src/views/components/news/news";
 
 .model {
   &-page {
@@ -17,10 +18,7 @@
 
   &__container {
     @include make-container($gutter: $grid-gutter-width);
-    @include make-container-max-widths(
-      $max-widths: $container-max-widths,
-      $breakpoints: $grid-breakpoints
-    );
+    @include make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints);
   }
 
   &__row {
@@ -77,7 +75,7 @@
     &-price {
       position: relative;
       top: rem(6);
-      content: '';
+      content: "";
       width: rem(16);
       height: rem(16);
       margin-right: rem(10);
