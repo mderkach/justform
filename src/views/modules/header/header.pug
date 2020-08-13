@@ -94,9 +94,9 @@ mixin header(isToolbar, hasCart, isTransparent)
               p.text-filter-links A
           .header__category-row
             .header__category-factory
-              a.text-filter.is-active(href="#") A
-              a.text-filter(href="#") B
-              a.text-filter(href="#") C
+              a.text-filter.is-active(href="#a") A
+              a.text-filter(href="#b") B
+              a.text-filter(href="#c") C
               a.text-filter(href="#") D
               a.text-filter(href="#") E
               a.text-filter(href="#") F
@@ -120,7 +120,7 @@ mixin header(isToolbar, hasCart, isTransparent)
               a.text-filter(href="#") X
               a.text-filter(href="#") Y
               a.text-filter(href="#") Z
-            .header__category-factory-menu
+            .header__category-factory-menu.is-active#a
               a.header__category-link.text-filter(href="#") ABC ITALIA
               a.header__category-link.text-filter(href="#") Abstracta
               a.header__category-link.text-filter(href="#") Acerbis
@@ -137,6 +137,13 @@ mixin header(isToolbar, hasCart, isTransparent)
               a.header__category-link.text-filter(href="#") Alias
               a.header__category-link.text-filter(href="#") Alias
               a.header__category-link.text-filter(href="#") Alias
+            .header__category-factory-menu#b
+              a.header__category-link.text-filter(href="#") b
+              a.header__category-link.text-filter(href="#") b
+            .header__category-factory-menu#c
+              a.header__category-link.text-filter(href="#") c
+              a.header__category-link.text-filter(href="#") c
+              a.header__category-link.text-filter(href="#") c
         .header__category-menu(data-parent="more")
           .header__category-details
             a.h2(href="tel:+74955328686") 7 (495) 532—86—86

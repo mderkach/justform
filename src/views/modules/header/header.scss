@@ -434,11 +434,15 @@
       &-menu {
         @include make-col(8);
         @include make-col-offset(1);
-        display: flex;
+        display: none;
         flex-direction: column;
         flex-wrap: wrap;
         align-content: flex-start;
         max-height: 364px;
+
+        &.is-active {
+          display: flex;
+        }
       }
     }
 

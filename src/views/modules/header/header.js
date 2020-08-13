@@ -11,6 +11,8 @@ const header = {
   searchMobile: document.querySelector('.header-main-mobile-search'),
   overlay: document.querySelector('.search__wrapper'),
   closeOverlay: document.querySelector('.search-close'),
+  tabsTriggers: document.querySelector('.header__category-factory').querySelectorAll('a'),
+  tabsContents: document.querySelectorAll('.header__category-factory-menu'),
   selectTarget: (link, attr) => {
     const selector = link.getAttribute(attr);
     const target = document.querySelector(`[data-parent=${selector}]`);
@@ -168,6 +170,23 @@ const header = {
         });
       }
     }
+
+    header.tabsTriggers.forEach((trigger) => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        header.tabsTriggers.forEach((anchor) => {
+          anchor.classList.remove('is-active');
+        });
+
+        header.tabsContents.forEach((tab) => {
+          tab.classList.remove('is-active');
+        });
+
+        trigger.classList.add('is-active');
+        const target = document.querySelector(trigger.getAttribute('href'));
+        target.classList.add('is-active');
+      });
+    });
 
     if (header.mobile) {
       const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
