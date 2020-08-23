@@ -1,3 +1,11 @@
+@import "src/scss/utils/utils";
+@import "./index";
+@import "./cart";
+@import "src/views/components/breadcrumbs/breadcrumbs";
+@import "src/views/components/buttons/buttons";
+@import "src/views/components/item/item";
+@import "src/views/components/news/news";
+
 .model {
   &-page {
     position: relative;

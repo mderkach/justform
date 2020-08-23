@@ -1,3 +1,5 @@
+@import 'src/scss/utils/utils';
+
 .filter {
   &-reset {
     display: flex;
@@ -6,6 +8,10 @@
     width: 100%;
     margin-top: rem(37 - 18);
     margin-bottom: rem(18);
+
+    &:hover {
+      cursor: pointer;
+    }
 
     @include media-breakpoint-down(lg) {
       margin-top: 0;

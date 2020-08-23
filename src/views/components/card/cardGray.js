@@ -1,3 +1,5 @@
+import './cardgray.scss';
+
 const cardGray = {
   search: document.querySelector('.card__gray_search'),
   setHeight: () => {

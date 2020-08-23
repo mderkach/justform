@@ -1,3 +1,5 @@
+import './accordion.scss';
+
 const accordion = {
   items: document.querySelectorAll('.accordion-wrapper'),
   init: () => {

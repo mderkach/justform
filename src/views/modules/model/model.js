@@ -1,4 +1,5 @@
 import sliderModel from '../../components/slider/sliderModel';
+import './model.scss';
 
 const model = {
   pictures: document.querySelectorAll('.model__img'),

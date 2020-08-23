@@ -1,10 +1,15 @@
+@import 'src/scss/utils/utils';
+
 .news {
   padding: rem(30) 0;
   border-bottom: 2px solid #e2e2e2;
 
   &__container {
     @include make-container($gutter: $grid-gutter-width);
-    @include make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints);
+    @include make-container-max-widths(
+      $max-widths: $container-max-widths,
+      $breakpoints: $grid-breakpoints
+    );
   }
 
   &__row {
@@ -68,8 +73,6 @@
 
   &__header {
     a {
-      @extend .h2;
-
       &:hover {
         text-decoration: none;
         color: $gray;

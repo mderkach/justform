@@ -1,5 +1,6 @@
 const Path = require('path');
 const Fs = require('fs');
+const glob = require('glob');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -21,14 +22,27 @@ const PATHS = {
 const PAGES_DIR = `${PATHS.src}/views/pages/`;
 const PAGES = Fs.readdirSync(PAGES_DIR).filter((fileName) => fileName.endsWith('.pug'));
 
+//entrypoints
+const mainEntry = {
+  app: `${PATHS.src}/main.js`
+};
+
+const dynamicEntry = glob
+  .sync(`${PAGES_DIR}*.js`).reduce((acc, path) => {
+    const pathname = path.substring(path.lastIndexOf("/") + 1, path.lastIndexOf("."));
+    const entry = pathname;
+    acc[entry] = path;
+    return acc
+  }, {});
+
+const entryPoints = Object.assign(mainEntry, dynamicEntry);
+
 module.exports = {
   // BASE config
   externals: {
     paths: PATHS,
   },
-  entry: {
-    app: PATHS.src,
-  },
+  entry: entryPoints,
   output: {
     filename: `${PATHS.assets}js/[name].js`,
     path: PATHS.dist,
@@ -40,11 +54,11 @@ module.exports = {
         test: /\.pug$/,
         loader: 'pug-loader',
       },
-      {
-        enforce: 'pre',
-        test: /\.js$/,
-        loader: 'webpack-import-glob-loader',
-      },
+      // {
+      //   enforce: 'pre',
+      //   test: /\.js$/,
+      //   loader: 'webpack-import-glob-loader',
+      // },
       {
         test: /\.js$/,
         loader: 'babel-loader',
@@ -113,13 +127,13 @@ module.exports = {
           },
         ],
       },
+      // {
+      //   enforce: 'pre',
+      //   test: /\.(sa|sc|c)ss$/,
+      //   loader: 'webpack-import-glob-loader',
+      // },
       {
-        enforce: 'pre',
-        test: /\.scss$/,
-        loader: 'webpack-import-glob-loader',
-      },
-      {
-        test: /\.scss$/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
           'style-loader',
           MiniCssExtractPlugin.loader,
@@ -174,6 +188,39 @@ module.exports = {
         },
       }),
     ],
+    splitChunks: {
+      cacheGroups: {
+        vendorJs: {
+          name: 'vendor-js',
+          test: /node_modules/,
+          chunks: 'all',
+          enforce: true,
+        },
+        vendorStyles: {
+          name: 'app',
+          test: /src[\\/]scss/,
+          chunks: 'all',
+          enforce: true,
+        },
+        pages: {
+          name(module, chunks) {
+            const allChunksNames = chunks.map((item) => item.name).join('');
+            const output = allChunksNames;
+            return output;
+          },
+          test(module, chunks) {
+            const path = require('path');
+            const output =
+              module.resource &&
+              module.resource.endsWith('.js') &&
+              module.resource.includes(`${path.sep}pages${path.sep}`);
+            return output;
+          },
+          chunks: 'all',
+          enforce: true,
+        },
+      },
+    },
   },
   resolve: {
     alias: {
@@ -182,7 +229,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: `${PATHS.assets}css/[name].css`,
+      moduleFilename: ({ name }) => `${PATHS.assets}css/${name.replace('/js/', '/css/')}.css`,
     }),
     new SpriteLoaderPlugin({
       plainSprite: true,
@@ -191,6 +238,7 @@ module.exports = {
       patterns: [
         { from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },
         { from: `${PATHS.src}/${PATHS.assets}fonts`, to: `${PATHS.assets}fonts` },
+        { from: `${PATHS.src}/${PATHS.assets}css`, to: `${PATHS.assets}css` },
         { from: `${PATHS.src}/static`, to: '' },
       ],
     }),
@@ -203,6 +251,7 @@ module.exports = {
         new HtmlWebpackPlugin({
           template: `${PAGES_DIR}/${page}`,
           filename: `./${page.replace(/\.pug/, '.html')}`,
+          chunks: ['app', `${page.replace(/\.pug/, '')}`],
         }),
     ),
   ],

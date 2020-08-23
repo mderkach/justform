@@ -1,3 +1,6 @@
+@import 'src/scss/utils/utils';
+@import 'src/views/components/filter/filter';
+
 .accordion {
   &-wrapper {
     @extend .filter-wrapper;

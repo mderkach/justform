@@ -1,3 +1,6 @@
+@import 'src/scss/utils/utils';
+@import 'src/views/components/filter/filterSimple';
+
 .pagination {
   &__wrapper {
     @include make-col-ready();

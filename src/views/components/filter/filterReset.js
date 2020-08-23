@@ -1,4 +1,5 @@
 import filter from './filter';
+import './filterReset.scss';
 
 const filterReset = {
   button: document.querySelector('.filter-reset'),

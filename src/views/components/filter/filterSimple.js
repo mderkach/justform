@@ -1,3 +1,5 @@
+import './filterSimple.scss';
+
 const filterSimple = {
   wrapper: document.querySelectorAll('.filter-simple-wrapper'),
   init: () => {

@@ -1,4 +1,6 @@
-@import "node_modules/swiper/swiper.scss";
+@import 'src/scss/utils/utils';
+@import 'node_modules/swiper/swiper.scss';
+@import 'src/views/components/item/item';
 
 .slider-banner {
   @extend .swiper-container;
@@ -25,7 +27,7 @@
 
     &::before {
       position: absolute;
-      content: "";
+      content: '';
       display: block;
       width: 100%;
       height: 100%;
@@ -38,7 +40,10 @@
       left: 50%;
       transform: translateX(-50%);
       @include make-container($gutter: $grid-gutter-width);
-      @include make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints);
+      @include make-container-max-widths(
+        $max-widths: $container-max-widths,
+        $breakpoints: $grid-breakpoints
+      );
       height: 100%;
     }
 
@@ -125,7 +130,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        content: "";
+        content: '';
         width: 100%;
         height: 100%;
         background-color: $white;

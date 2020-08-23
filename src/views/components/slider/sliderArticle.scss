@@ -1,4 +1,5 @@
-@import "node_modules/swiper/swiper.scss";
+@import 'src/scss/utils/utils';
+@import 'node_modules/swiper/swiper.scss';
 
 .slider-article {
   @extend .swiper-container;
@@ -41,7 +42,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        content: "";
+        content: '';
         width: 100%;
         height: 100%;
         background-color: $black;

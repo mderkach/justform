@@ -1,3 +1,5 @@
+@import 'src/scss/utils/utils';
+
 .item-cart {
   margin-bottom: rem(30);
   border-bottom: 1px solid $black;
@@ -73,8 +75,8 @@
 
       &-header {
         flex: 1 0 5%;
-
-        @extend .text-breadcrumbs;
+        color: $gray;
+        font-weight: 300;
         font-size: rem(14);
         line-height: 1;
 

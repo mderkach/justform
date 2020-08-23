@@ -1,3 +1,5 @@
+@import 'src/scss/utils/utils';
+
 .filter {
   &-wrapper {
     position: relative;
@@ -15,7 +17,7 @@
 
             &::before {
               position: absolute;
-              content: "";
+              content: '';
               top: 50%;
               left: 0;
               display: block;
@@ -29,7 +31,7 @@
             &.is-selected {
               &::after {
                 position: absolute;
-                content: "";
+                content: '';
                 top: 50%;
                 left: 2px;
                 display: block;
@@ -49,7 +51,7 @@
 
               &::after {
                 position: absolute;
-                content: "";
+                content: '';
                 top: 50%;
                 left: 2px;
                 display: block;
@@ -106,7 +108,7 @@
       width: 12px;
       height: 2px;
       background-color: $black;
-      content: "";
+      content: '';
       transition: all 0.3s ease;
     }
 
@@ -148,7 +150,6 @@
     transform-origin: top;
 
     &-item {
-      @extend .text-filter;
       border-bottom: 1px solid #e0e0e0;
 
       &.is-selected {

@@ -1,4 +1,5 @@
 import Swiper from 'swiper';
+import './sliderModel.scss';
 
 const sliderModel = {
   slider: new Swiper(document.querySelector('.slider-model'), {

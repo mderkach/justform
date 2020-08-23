@@ -2,7 +2,7 @@
 	"name": "justfrom",
 	"version": "1.0.0",
 	"description": "justform redisign",
-	"main": "index.js",
+	"main": "main.js",
 	"scripts": {
 		"dev": "npm run webp && webpack-dev-server --config ./build/webpack.dev.conf.js",
 		"build": "npm run webp && webpack --config ./build/webpack.build.conf.js",

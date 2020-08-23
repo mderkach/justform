@@ -1,3 +1,9 @@
+@import 'src/scss/utils/utils';
+@import 'src/views/components/search/search';
+@import 'src/views/components/item/itemCart';
+@import 'src/views/components/filter/filterSimpleChecboxes';
+@import 'src/views/components/buttons/buttons';
+
 .cart {
   &-page {
     background-color: #f0f0f0;

@@ -1,3 +1,8 @@
+@import 'src/scss/utils/utils';
+@import 'src/views/components/banner/banner';
+@import 'src/views/components/news/news';
+@import 'src/views/components/pagination/pagination';
+
 .news {
   &-page {
     background-color: #f8f8f8;

@@ -5,6 +5,6 @@ mixin news(banner, date, heading, excerpt)
       time.news__date.text-filter(datetime="") !{ date }
       header.news__header
         h2.h2
-          a(href="#") #{ heading }
+          a.h2(href="#") #{ heading }
       section.news__excerpt
         p.text-regular !{ excerpt }

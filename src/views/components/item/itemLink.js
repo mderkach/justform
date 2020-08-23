@@ -1,3 +1,6 @@
+import './itemLink.scss';
+import './item.scss';
+
 const itemLink = {
   items: document.querySelectorAll('.itemLink'),
   init: () => {

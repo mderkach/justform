@@ -1,4 +1,6 @@
 /* eslint-disable no-plusplus */
+import './filter.scss';
+
 const filter = {
   wrapper: document.querySelectorAll('.filter-wrapper'),
   openFilter: (elm) => {
@@ -76,7 +78,7 @@ const filter = {
   },
   createItem: (value) => {
     const item = document.createElement('div');
-    item.className = 'filter-menu-item';
+    item.className = 'filter-menu-item text-filter;';
     item.textContent = value;
     return item;
   },
