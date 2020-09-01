@@ -1,0 +1,75 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Justform';
+  - var description = '';
+  - var pageClass = 'catalog-page fabrika-catalog-page';
+
+block content
+  +banner('Salma', 'Selva', 'Solo', 'Just Form — Каталог — Фабрики — Selva', './assets/img/banner-bg.jpg')
+  section.catalog
+    +wrapper('catalog')
+      aside.catalog__filter
+        h2.h2.catalog__fabrika-name Selva
+        .catalog__img-block
+          +pic('catalog__img', './assets/img/factory.jpg')
+        .catalog__info-block
+          .catalog__info-row
+            span.text-breadcrumbs Страна
+            span.text-breadcrumbs Италия
+          .catalog__info-row
+            span.text-breadcrumbs Основана
+            span.text-breadcrumbs 1968г.
+          .catalog__info-row
+            span.text-breadcrumbs Тел.
+            span.text-breadcrumbs +39 045 6999111
+          .catalog__info-row
+            span.text-breadcrumbs Факс.
+            span.text-breadcrumbs +39 045 6999111
+          .catalog__info-row
+            span.text-breadcrumbs Сайт
+            span.text-breadcrumbs www.selva.com
+        form.catalog__form
+          +filter(
+              'is-active',
+              'Коллекции фабрики',
+              [
+                { 'name':'Все кровати', 'value': 'Все кровати', 'default': true, 'selected': true, 'disabled': false, 'hidden': false},
+                { 'name':'Изголовье для кровати', 'value': 'Изголовье для кровати', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+                { 'name':'Кованные кровати', 'value': 'Кованные кровати', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+                { 'name':'Кровати с балдахином', 'value': 'Кровати с балдахином', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+              ]
+              )
+          +filter(
+            'is-active',
+            'Предметы',
+            [
+              { 'name':'Любое', 'value': 'Любое', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+              { 'name':'Библиотека', 'value': 'Библиотека', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+              { 'name':'Библиотека', 'value': 'Гостинная', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+            ],
+          false)
+        .catalog__address-wrapper
+          p.text-breadcrumbs Адрес фабрики
+          p.text-breadcrumbs Via Joseph Selva, 307 <br> 37050 Isola Rizza
+        .catalog__socials-wrapper
+          p.text-breadcrumbs Selva в соц. сетях
+          a.text-breadcrumbs(href='#') Facebook
+          a.text-breadcrumbs(href='#') Twitter
+          a.text-breadcrumbs(href='#') Instagram
+          a.text-breadcrumbs(href='#') Thumblr
+          a.text-breadcrumbs(href='#') Pinterest
+          a.text-breadcrumbs(href='#') Youtube
+      .catalog__list
+        h2.h2.catalog__fabrika-list Все предметы фабрики Selva
+        +item('Название модели','Фабрика','€ 5.000 — 10.000','./assets/img/accs.jpg', true)
+        +item('Название модели','Фабрика','€ 500.000 — 10000.000','./assets/img/accs.jpg', true)
+        +item('Название модели','Фабрика','€ 5.000 — 10.000','./assets/img/accs.jpg', true)
+        +item('Название модели','Фабрика','€ 5.000 — 10.000','./assets/img/accs.jpg', true)
+        +item('Название модели','Фабрика','€ 5.000 — 10.000','./assets/img/accs.jpg', true)
+        +item('Название модели','Фабрика','€ 5.000 — 10.000','./assets/img/accs.jpg', true)
+        +item('Название модели','Фабрика','€ 5.000 — 10.000','./assets/img/accs.jpg', true)
+        +item('Название модели','Фабрика','€ 5.000 — 10.000','./assets/img/accs.jpg', true)
+        +item('Название модели','Фабрика','€ 5.000 — 10.000','./assets/img/accs.jpg', true)
+        +item('Название модели','Фабрика','€ 5.000 — 10.000','./assets/img/accs.jpg', true)
+      include ../components/pagination/pagination

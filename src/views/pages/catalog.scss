@@ -5,10 +5,8 @@
 .catalog {
   &__container {
     @include make-container($gutter: $grid-gutter-width);
-    @include make-container-max-widths(
-      $max-widths: $container-max-widths,
-      $breakpoints: $grid-breakpoints
-    );
+    @include make-container-max-widths($max-widths: $container-max-widths,
+      $breakpoints: $grid-breakpoints);
   }
 
   &__row {
@@ -42,6 +40,82 @@
     @include media-breakpoint-down(lg) {
       @include make-col-offset(0);
       @include make-col(10);
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    margin-bottom: rem(21);
+
+    img {
+      display: block;
+      width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  &__info {
+    &-block {
+      width: 100%;
+      margin-bottom: 70px;
+    }
+
+    &-row {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #d8d8d8;
+
+      span {
+        font-size: 0.875rem;
+
+        &:last-child {
+          color: #000;
+        }
+      }
+    }
+  }
+
+  &__address {
+    &-wrapper {
+      margin-bottom: rem(25);
+
+      p {
+        line-height: 1.125rem;
+
+        &:last-child {
+          color: #000;
+        }
+      }
+    }
+  }
+
+  &__socials {
+    &-wrapper {
+      display: flex;
+      flex-direction: column;
+
+      a {
+
+        color: #000 !important;
+
+        &:hover {
+          cursor: pointer;
+          color: #000 !important;
+        }
+      }
+    }
+  }
+
+  &__fabrika {
+    &-name {
+      margin-bottom: rem(40);
+    }
+
+    &-list {
+      position: relative;
+      grid-column: 1 / -1;
+      margin-bottom: -1.7rem;
     }
   }
 }
