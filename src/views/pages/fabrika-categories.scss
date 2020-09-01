@@ -1,0 +1,14 @@
+@import './fabrika-catalog.scss';
+
+.fabrika-categories {
+  &__back {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+
+    .icon {
+      margin-right: rem(20);
+      transform: rotate(180deg);
+    }
+  }
+}

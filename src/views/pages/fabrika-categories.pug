@@ -1,0 +1,107 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Justform';
+  - var description = '';
+  - var pageClass = 'catalog-page fabrika-catalog-page';
+
+block content
+  +banner('Salma', 'Selva', 'Solo', 'Just Form — Каталог — Фабрики — Selva', './assets/img/banner-bg.jpg')
+  section.catalog
+    +wrapper('catalog')
+      aside.catalog__filter
+        h2.h2.catalog__fabrika-name Selva
+        .catalog__img-block
+          +pic('catalog__img', './assets/img/factory.jpg')
+        .catalog__info-block
+          .catalog__info-row
+            span.text-breadcrumbs Страна
+            span.text-breadcrumbs Италия
+          .catalog__info-row
+            span.text-breadcrumbs Основана
+            span.text-breadcrumbs 1968г.
+          .catalog__info-row
+            span.text-breadcrumbs Тел.
+            span.text-breadcrumbs +39 045 6999111
+          .catalog__info-row
+            span.text-breadcrumbs Факс.
+            span.text-breadcrumbs +39 045 6999111
+          .catalog__info-row
+            span.text-breadcrumbs Сайт
+            span.text-breadcrumbs www.selva.com
+        form.catalog__form
+          +filter(
+              'is-active',
+              'Коллекции фабрики',
+              [
+                { 'name':'Все кровати', 'value': 'Все кровати', 'default': true, 'selected': true, 'disabled': false, 'hidden': false},
+                { 'name':'Изголовье для кровати', 'value': 'Изголовье для кровати', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+                { 'name':'Кованные кровати', 'value': 'Кованные кровати', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+                { 'name':'Кровати с балдахином', 'value': 'Кровати с балдахином', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+              ]
+              )
+          +filter(
+            'is-active',
+            'Предметы',
+            [
+              { 'name':'Любое', 'value': 'Любое', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+              { 'name':'Библиотека', 'value': 'Библиотека', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+              { 'name':'Библиотека', 'value': 'Гостинная', 'default': false, 'selected': false, 'disabled': false, 'hidden': false},
+            ],
+          false)
+        .catalog__address-wrapper
+          p.text-breadcrumbs Адрес фабрики
+          p.text-breadcrumbs Via Joseph Selva, 307 <br> 37050 Isola Rizza
+        .catalog__socials-wrapper
+          p.text-breadcrumbs Selva в соц. сетях
+          a.text-breadcrumbs(href='#') Facebook
+          a.text-breadcrumbs(href='#') Twitter
+          a.text-breadcrumbs(href='#') Instagram
+          a.text-breadcrumbs(href='#') Thumblr
+          a.text-breadcrumbs(href='#') Pinterest
+          a.text-breadcrumbs(href='#') Youtube
+      .catalog__list
+        a.h2.catalog__fabrika-list.fabrika-categories__back(href="#")
+          +icon('icon pagination-icon', 'pagination-next')
+          | Все предметы фабрики Selva
+        +itemLink('Двери','./assets/img/door.jpg',['Входные двери','Глухие двери','Двери без обналичников'])
+        +itemLink('Детская мебель','./assets/img/kids.jpg',['Аксессуары для детской','Диваны для детской','Кресла для детской','подменю 1', 'подменю 2'])
+        +itemLink('Диваны','./assets/img/sofa.jpg',['Дизайнерские диваны','Закругленные диваны','Кожанные диваны'])
+        +itemLink('Зеркала','./assets/img/mirror.jpg',['Квадратные зеркла','Круглые зеркала','Напольные зеркала','подменю 1', 'подменю 2'])
+        +itemLink('Двери','./assets/img/door.jpg',['Входные двери','Глухие двери','Двери без обналичников','подменю 1', 'подменю 2'])
+        +itemLink('Детская мебель','./assets/img/kids.jpg',['Аксессуары для детской','Диваны для детской','Кресла для детской','подменю 1', 'подменю 2'])
+        +itemLink('Диваны','./assets/img/sofa.jpg',['Дизайнерские диваны','Закругленные диваны','Кожанные диваны','подменю 1', 'подменю 2'])
+        +itemLink('Зеркала','./assets/img/mirror.jpg',['Квадратные зеркла','Круглые зеркала','Напольные зеркала','подменю 1', 'подменю 2'])
+        +itemLink('Двери','./assets/img/door.jpg',['Входные двери','Глухие двери','Двери без обналичников','подменю 1', 'подменю 2'])
+        +itemLink('Детская мебель','./assets/img/kids.jpg',['Аксессуары для детской','Диваны для детской','Кресла для детской','подменю 1', 'подменю 2'])
+        +itemLink('Диваны','./assets/img/sofa.jpg',['Дизайнерские диваны','Закругленные диваны','Кожанные диваны','подменю 1', 'подменю 2'])
+        +itemLink('Зеркала','./assets/img/mirror.jpg',['Квадратные зеркла','Круглые зеркала','Напольные зеркала','подменю 1', 'подменю 2'])
+  section.fabrika-catalog
+    +wrapper('catalog')
+      .fabrika-catalog__inner
+        .fabrika-catalog__grid
+          p.text-filter-links.medium Мебель от итальянской фабрики Selva
+          .fabrika-catalog__descr-block
+            p.text-regular Позвольте жилому пространству заиграть новой музыкой, олицетворяющей вашу личность и подчёркивающей хороший вкус. Среди богатого ассортимента этой фабрики вы найдёте все необходимые элементы, которые станут достойным дополнением вашего современного интерьера.
+            a.button.text-links(href="#modal") Подробнее…
+  .cart-contacts__wrapper.fabrika-catalog__modal.modal(data-modal="#modal")
+    +wrapper('cart')
+      button.search-close.modal-close
+        +icon('', 'close')
+      .fabrika-catalog__inner
+        h2.h2 Selva
+        .fabrika-catalog__grid
+          p.text-filter-links.medium Мебель от итальянской фабрики Selva
+          .fabrika-catalog__descr-block
+            p.text-regular Позвольте жилому пространству заиграть новой музыкой, олицетворяющей вашу личность и подчёркивающей хороший вкус. Среди богатого ассортимента этой фабрики вы найдёте все необходимые элементы, которые станут достойным дополнением вашего современного интерьера.
+          p.text-filter-links.medium Selva — воплощение ваших желаний
+          .fabrika-catalog__descr-block
+            p.text-regular Фабрика начала свою деятельность в 1968 году, и уже почти 50 лет находится в постоянном поиске идеального баланса между дизайном и функциональностью для удовлетворения постоянно растущих ежедневных потребностей заказчиков. Главное рабочее пространство компании находится в Изола Рицца, пригороде Вероны. Здесь изготовление продукции проводится исключительно в соответствии с традиционными техниками и инновационными технологиями. Благодаря удачному местоположению предприятия фабрика имеет отличную транспортную развязку, что значительно оптимизирует логистические связи.
+            p.text-regular В настоящее время богатый производственный опыт позволяет мебельной фабрике Selva смешивать различные стилистические направления в своих коллекциях в зависимости от индивидуальных предпочтений заказчиков. Высокое качество изделий и ответственное производство сделало мировой бренд Selva изготовителем элит-класса в области жилых пространств и гостиничных интерьеров.
+          p.text-filter-links.medium Дизайн опережающий ожидания
+          .fabrika-catalog__descr-block
+            p.text-regular Фабрика Selva как никто другой чувствует, что необходимо для уюта и комфорта её покупателям. В коллекциях учитывается универсальность и уникальность дизайна, широкий функционал, эргономика изделий, а также их возможное сочетание и параметры.
+            p.text-regular Большую популярность фабрике принесли серии Epoca, Timeless Beauty и Philipp Selva Home, которые состоят из 30 коллекций. Если приглядеться внимательнее, то используемые фабрикой отделки могут показаться похожими между собой, но вы не найдёте и двух одинаковых изделий.
+            p.text-regular Новые модельные линейки Selva всегда «на слуху» и получают лестные отзывы от мировых проектировщиков. Известный дизайнер Тициано Бистаффа пишет, что коллекция Eliza своим присутствием даже в выставочных залах создаёт ощущение домашнего пространства. И это неудивительно: три «винтажные» отделки с потёртостями по углам изделий придают гарнитуру романтический акцент, что создаёт в каждом помещении уютную атмосферу.
+            p.text-regular Металлические декоры, используемые на консолях, могут иметь различные цветовые решения: металл, эксклюзивные варианты в серебре или в золоте. Любителям ярких акцентов фабрика предлагает коллекцию Solitaire, где элементы гарнитуров декорированы настоящими кристаллами Swarovski.
+            p.text-regular Находясь в постоянном стилевом эксперименте, руководство компании в настоящий момент делает упор на популярные модерн, «классику» и арт-деко. Такие изделия носят универсальный дизайн и могут вписаться в любой современный интерьер.

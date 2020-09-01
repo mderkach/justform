@@ -78,7 +78,7 @@ const filter = {
   },
   createItem: (value) => {
     const item = document.createElement('div');
-    item.className = 'filter-menu-item text-filter;';
+    item.className = 'filter-menu-item text-filter';
     item.textContent = value;
     return item;
   },
