@@ -2,3 +2,61 @@
 @import 'src/views/components/banner/banner';
 @import 'src/views/modules/catalog/catalog';
 @import './catalog.scss';
+@import './cart.scss';
+
+.fabrika-catalog {
+  padding: rem(127) 0 0;
+  background-color: #f8f8f8;
+  border-top: 2px solid #e2e2e2;
+
+  @include media-breakpoint-down(lg) {
+    padding: rem(50) 0 0;
+  }
+
+  &__inner {
+    @include make-col-ready();
+    @include make-col(8);
+    @include make-col-offset(1);
+    padding-bottom: rem(116);
+
+    @include media-breakpoint-down(lg) {
+      @include make-col(10);
+      @include make-col-offset(0);
+      padding-bottom: rem(32);
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 4fr);
+    gap: rem(114) rem(40);
+
+    @include media-breakpoint-down(lg) {
+      grid-template-columns: 8fr;
+      gap: rem(20) rem(15);
+    }
+  }
+
+  &__descr {
+    &-block {
+      .text-regular {
+        margin-bottom: rem(20);
+      }
+
+      .button {
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  &__modal {
+    .h2 {
+      margin-top: .75rem;
+      margin-bottom: rem(110);
+
+      @include media-breakpoint-down(lg) {
+        margin-bottom: rem(30);
+      }
+    }
+  }
+}
