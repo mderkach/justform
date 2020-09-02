@@ -1,14 +1,12 @@
 @import 'src/scss/utils/utils';
 @import 'src/views/components/banner/banner';
-@import './zakaz.scss';
+@import './fabriki';
 
 .sotrydnich {
   &-page {
     background-color: #f8f8f8;
 
     .banner__title {
-      color: $black;
-
       @include media-breakpoint-down(lg) {
         font-size: rem(32);
         margin-bottom: rem(8);
@@ -23,5 +21,138 @@
         margin-top: rem(16);
       }
     }
+
+    .fabriki {
+      &__section {
+        padding: rem(100) 0;
+        border-top: 1px solid #e2e2e2;
+      }
+
+      &__inner {
+        padding-bottom: 0;
+      }
+
+      &__heading {
+        grid-column: 1 / 6;
+
+        .h2 {
+          margin-bottom: rem(26);
+        }
+      }
+
+      &__block {
+        .medium {
+          display: block;
+          margin-top: rem(40);
+        }
+      }
+    }
   }
+
+  &__container {
+    @include make-container($gutter: $grid-gutter-width);
+    @include make-container-max-widths($max-widths: $container-max-widths,
+      $breakpoints: $grid-breakpoints);
+  }
+
+  &__row {
+    @include make-row();
+    height: 100%;
+  }
+
+  &__section {
+    padding: rem(64) 0 rem(130);
+    border-bottom: 2px solid #e2e2e2;
+  }
+
+  &__inner {
+    @include make-col-ready();
+    @include make-col(9);
+    @include make-col-offset(1);
+  }
+
+  &__grid {
+    @include make-col-ready();
+    @include make-col(7);
+    @include make-col-offset(2);
+    margin-top: 98px;
+
+    display: grid;
+    grid-template-columns: minmax((368/912)*100%, 3fr) 1fr minmax((368/912)*100%, 3fr);
+    gap: rem(62) rem(40);
+  }
+
+  &__block {
+    grid-column: 1;
+
+    &:nth-child(2n) {
+      grid-column: 3;
+    }
+
+    .medium {
+      color: #000;
+      margin-bottom: 26px;
+    }
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: minmax((232/1050)*100%, 2fr) minmax(((1050 - 232 - 30)/1050)*100%, 6fr);
+    gap: rem(40);
+    grid-column: 2 / -1;
+    padding: rem(30) 0;
+    border-bottom: 1px solid #e2e2e2;
+
+    &:last-child {
+      border: none;
+    }
+
+    &-wrapper {
+      @include make-col-ready();
+      @include make-col(9);
+      @include make-col-offset(1);
+
+      display: grid;
+      grid-template-columns: repeat(9, 1fr);
+      gap: 0 rem(40);
+    }
+
+    &-descr {
+
+      .h2 {
+        margin-bottom: 26px;
+      }
+    }
+  }
+
+  &__links {
+    padding: rem(100) 0;
+
+    &-grid {
+      @include make-col-ready();
+      @include make-col(9);
+      @include make-col-offset(1);
+
+      display: grid;
+      grid-template-columns: repeat(9, 1fr);
+      grid-template-rows: 200px 200px;
+      gap: rem(40);
+    }
+
+    &-item {
+      padding: rem(20);
+      background-color: #959191;
+      grid-column: span 2;
+
+      &:first-child,
+      &:last-child {
+        grid-column: span 3;
+      }
+
+      .text-regular {
+        color: #fff;
+      }
+    }
+  }
+
 }

@@ -6,55 +6,116 @@ block variables
   - var pageClass = 'sotrydnich-page';
 
 block content
-  +header(false, true, false)
-  section.zakaz__section
-    +wrapper('zakaz')
-      .zakaz__inner
-        .zakaz__grid
-          h2.zakaz__header.h2
-            |Just Form предлагает
-            br
-            |сотрудничество и партнёрство
-            br
-            |на выгодных условиях
-          .zakaz__block
-            h3.text-filter-links Информационная поддержка
+  +banner(' ', ' ', 'Сотрудничество', 'Just Form — Сотрудничество', './assets/img/sotr.jpg')
+  section.sotrydnich__section
+    +wrapper('sotrydnich')
+      .sotrydnich__inner
+        h2.h2
+          |Just Form предлагает
+          br
+          |сотрудничество и партнёрство
+          br
+          |на выгодных условиях
+      .sotrydnich__grid
+        .sotrydnich__block
+          p.text-regular.medium Информационная поддержка
+          p.text-regular Наши менеджеры в любое время ответят на все интересующие вас вопросы и будут держать в курсе всех новинок ассортимента фабрик.
+        .sotrydnich__block
+          p.text-regular.medium Лучшие цены
+          p.text-regular Cпециальные цены для партнёров.
+        .sotrydnich__block
+          p.text-regular.medium Система бонусов
+          p.text-regular Накопительная система бонусов, дающих дополнительные привилегии нашим партнёрам и клиентам.
+        .sotrydnich__block
+          p.text-regular.medium Быстрая доставка
+          p.text-regular Развитая система доставки из Италии и работа только с крупными и проверенными транспортными компаниями позволяет нам оперативно доставлять заказы.
+  section.sotrydnich__item-block
+    +wrapper('sotrydnich')
+      .sotrydnich__item-wrapper
+        .sotrydnich__item
+          +pic('sotrydnich__item-img', './assets/img/accs.jpg')
+          .sotrydnich__item-descr
+            h2.h2 Новоселам
+            p.text-regular Новоселам мы предлагаем С открытием нового магазина Molteni & C Flagship в Будапеште в партнёрстве с Solinfo, группа Molteni продолжает стратегически строить свою дистрибьюторскую сеть на европейском рынке.
+        .sotrydnich__item
+          +pic('sotrydnich__item-img', './assets/img/accs.jpg')
+          .sotrydnich__item-descr
+            h2.h2 Кафе и ресторанам
+            p.text-regular Новоселам мы предлагаем С открытием нового магазина Molteni & C Flagship в Будапеште в партнёрстве с Solinfo, группа Molteni продолжает стратегически строить свою дистрибьюторскую сеть на европейском рынке.
+        .sotrydnich__item
+          +pic('sotrydnich__item-img', './assets/img/accs.jpg')
+          .sotrydnich__item-descr
+            h2.h2 Дизайнерам и архитекторам
+            p.text-regular Новоселам мы предлагаем С открытием нового магазина Molteni & C Flagship в Будапеште в партнёрстве с Solinfo, группа Molteni продолжает стратегически строить свою дистрибьюторскую сеть на европейском рынке.
+  section.sotrydnich__links
+    +wrapper('sotrydnich')
+      .sotrydnich__links-grid
+        .sotrydnich__links-item
+          p.text-regular Прямые поставки из Европы
+        .sotrydnich__links-item
+          p.text-regular Эксклюзивная дизайнерская мебель
+        .sotrydnich__links-item
+          p.text-regular Индивидуальный менеджер
+        .sotrydnich__links-item
+          p.text-regular Доставка по России и Европе
+        .sotrydnich__links-item
+          p.text-regular Вознаграждение дизайнерам и архитекторам
+        .sotrydnich__links-item
+          p.text-regular Помощь в визуализации проекта
+        .sotrydnich__links-item
+          p.text-regular Доступ к каталогам фабрик
+        .sotrydnich__links-item
+          p.text-regular Поставки без посредников
+  section.fabriki__section
+    +wrapper('fabriki')
+      .fabriki__inner
+        .fabriki__grid
+          .fabriki__heading
+            h2.fabriki__header.h2
+              |Итальянские мебельные
+              br
+              |фабрики
             p.text-regular
-              |Наши менеджеры в любое время ответят на все интересующие вас вопросы и будут держать в курсе всех новинок ассортимента фабрик.
-          .zakaz__block
-            h3.text-filter-links Лучшие цены
-            p.text-regular
-              |Cпециальные цены для партнёров.
-          .zakaz__block
-            h3.text-filter-links Система бонусов
-            p.text-regular
-              |Накопительная система бонусов, дающих дополнительные привилегии нашим партнёрам и клиентам.
-          .zakaz__block
-            h3.text-filter-links Быстрая доставка
-            p.text-regular
-              |Развитая система доставки из Италии и работа только с крупными и проверенными транспортными компаниями позволяет нам оперативно доставлять заказы.
-          .zakaz__block
-            h3.text-filter-links Страховка заказов
-            p.text-regular
-              |Все заказы застрахованы, так что вы и ваши клиенты никогда не потеряют свои средства.
-          .zakaz__block
-            h3.text-filter-links Каталоги фабрик
-            p.text-regular
-              |Более 2000 каталогов и отделок от ведущих производителей.
-          .zakaz__block
-            h3.text-filter-links Сотрудничество с нами
-            p.text-regular
-              |Если вы талантливый дизайнер или архитектор, оптовый или розничный покупатель, то мы всегда готовы к взаимному развитию. Мы индивидуально подходим к сотрудничеству с каждым партнёром и предлагаем специальную систему скидок и накопительных бонусов.
-          .zakaz__block_centered
-            h2.banner__title.h1 7 (495) 532—86—86
-            p.text-breadcrumbs Пн - Пт    10:00 — 20:00
-            a.text-links(href="mailto:hello@justform.ru") hello@justform.ru
-          h2.zakaz__header.h2
-            |Мы всегда помним о своих партнёрах
-            br
-            |и стараемся уделять им
-            br
-            |как можно больше внимания!
-          .zakaz__block
-            p.text-regular
-              |Вы можете более подробно узнать о программах взаимовыгодного сотрудничества, связавшись с нами по телефону или отправив запрос на электронную почту.
+              |Мы сотрудничаем только с лучшими меельными фабриками Европы
+              br
+              |и являемся эсклюзивным представителем многих из них
+          .fabriki__img-block
+            +pic('fabriki__img', './assets/img/factory.jpg')
+            p.text-filter-links.medium Arte di Murano
+          .fabriki__block
+            .fabriki__block_inner
+              a.fabriki-link.text-filter(href="#") ABC ITALIA
+              a.fabriki-link.text-filter(href="#") Abstracta
+              a.fabriki-link.text-filter(href="#") Acerbis
+              a.fabriki-link.text-filter(href="#") ACTIU
+              a.fabriki-link.text-filter(href="#") Adele-C
+              a.fabriki-link.text-filter(href="#") Adentro
+              a.fabriki-link.text-filter(href="#") ADORA
+              a.fabriki-link.text-filter(href="#") Adrenalina
+              a.fabriki-link.text-filter(href="#") Agresti
+              a.fabriki-link.text-filter(href="#") ALBED
+              a.fabriki-link.text-filter(href="#") Alberta Salotti
+              a.fabriki-link.text-filter(href="#") Alchymia
+              a.fabriki-link.text-filter(href="#") Alias
+              a.fabriki-link.text-filter(href="#") Alias
+              a.fabriki-link.text-filter(href="#") Alias
+              a.fabriki-link.text-filter(href="#") Alias
+              a.fabriki-link.text-filter(href="#") ABC ITALIA
+              a.fabriki-link.text-filter(href="#") Abstracta
+              a.fabriki-link.text-filter(href="#") Acerbis
+              a.fabriki-link.text-filter(href="#") ACTIU
+              a.fabriki-link.text-filter(href="#") Adele-C
+              a.fabriki-link.text-filter(href="#") Adentro
+              a.fabriki-link.text-filter(href="#") ADORA
+              a.fabriki-link.text-filter(href="#") Adrenalina
+              a.fabriki-link.text-filter(href="#") Agresti
+              a.fabriki-link.text-filter(href="#") ALBED
+              a.fabriki-link.text-filter(href="#") Alberta Salotti
+              a.fabriki-link.text-filter(href="#") Alchymia
+              a.fabriki-link.text-filter(href="#") Alias
+              a.fabriki-link.text-filter(href="#") Alias
+              a.fabriki-link.text-filter(href="#") Alias
+              a.fabriki-link.text-filter(href="#") Alias
+            a.text-links.medium(href="#") Показать все…
+  section.sotrydnich
+    +wrapper('sotrydnich')
