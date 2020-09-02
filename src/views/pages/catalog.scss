@@ -78,6 +78,7 @@
 
   &__address {
     &-wrapper {
+      margin-top: rem(25);
       margin-bottom: rem(25);
 
       p {
@@ -123,6 +124,34 @@
 
       @include media-breakpoint-down(lg) {
         margin-bottom: 0;
+      }
+    }
+  }
+
+  &__main {
+    &_fabrika {
+      @include make-col-ready();
+      @include make-col(8);
+
+      @include media-breakpoint-down(lg) {
+        @include make-col(10);
+      }
+
+      .catalog__list {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .pagination__wrapper {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
       }
     }
   }

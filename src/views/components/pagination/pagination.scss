@@ -6,6 +6,7 @@
     @include make-col-ready();
     @include make-col(8);
     @include make-col-offset(2);
+
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     padding-top: rem(105);
@@ -27,6 +28,10 @@
   &__pages {
     display: flex;
     align-items: center;
+
+    @include media-breakpoint-down(sm) {
+      justify-content: space-between;
+    }
   }
 
   &-link {
@@ -34,6 +39,10 @@
     margin-right: rem(40);
     font-size: rem(30);
     line-height: rem(32);
+
+    @include media-breakpoint-down(sm) {
+      margin-right: 0;
+    }
 
     &.is-active {
       color: #e2e2e2;
@@ -63,8 +72,7 @@
     }
 
     @include media-breakpoint-down(md) {
-      grid-column-start: 1 !important;
-      grid-column-end: 1 !important;
+      grid-column: 1 / 1 !important;
       grid-row-start: 2;
     }
 

@@ -9,6 +9,16 @@
   background-color: #f8f8f8;
   border-top: 2px solid #e2e2e2;
 
+  &__back {
+    display: flex;
+    align-items: center;
+
+    .icon {
+      margin-right: rem(20);
+      transform: rotate(180deg);
+    }
+  }
+
   @include media-breakpoint-down(lg) {
     padding: rem(50) 0 0;
   }
