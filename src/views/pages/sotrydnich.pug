@@ -119,3 +119,72 @@ block content
             a.text-links.medium(href="#") Показать все…
   section.sotrydnich
     +wrapper('sotrydnich')
+      .zakaz__inner
+        .zakaz__grid
+          h2.zakaz__header.h2
+            | Как с нами работать
+          .zakaz__block
+            h3.text-filter-links 1. Отправить заявку
+          .zakaz__block
+            h3.text-filter-links 2. Получить приглашение на персональную конслуьтацию
+          .zakaz__block
+            h3.text-filter-links 3. Заключить соглашение о сотрудничестве
+          .zakaz__block
+            h3.text-filter-links 4. Оформить заказ в нашем салоне
+          .zakaz__block
+            h3.text-filter-links 5. Получить бонус
+          .zakaz__block
+            h3.text-filter-links 6. Разместить фото готового проекта на сайте
+  section.sotrydnich__section
+    +wrapper('sotrydnich')
+      .sotrydnich__inner
+        h2.h2
+          |Just Form предлагает
+          br
+          |сотрудничество и партнёрство
+          br
+          |на выгодных условиях
+      .sotrydnich__grid
+        .sotrydnich__block
+          p.text-regular.medium Страховка заказов
+          p.text-regular Все заказы застрахованы, так что вы и ваши клиенты никогда не потеряют свои средства.
+        .sotrydnich__block
+          p.text-regular.medium Каталоги фабрик
+          p.text-regular Более 2000 каталогов и отделок от ведущих производителей.
+        .sotrydnich__block
+          p.text-regular.medium Сотрудничество с нами
+          p.text-regular Если вы талантливый дизайнер или архитектор, оптовый или розничный покупатель, то мы всегда готовы к взаимному развитию. Мы индивидуально подходим к сотрудничеству с каждым партнёром и предлагаем специальную систему скидок и накопительных бонусов.
+  section.sotrydnich
+    +wrapper('sotrydnich')
+      .zakaz__inner
+        .zakaz__grid
+          h2.zakaz__header.h2
+            | Станьте нашим партнером
+            p.text-breadcrumbs * Обязательные поля
+          .zakaz__block
+            form.sotrydnich__form(action="#")
+              .cart-contacts__body
+                label.text-filter(for="name")
+                  |Имя* :
+                input.cart-contacts__input.text-regular(type="text" id="name" name="name" required)
+
+                label.text-filter(for="phone")
+                  |Телефон* :
+                input.cart-contacts__input.text-regular(type="text" id="phone" name="phone" required)
+
+                label.text-filter(for="mail")
+                  |E-mail* :
+                input.cart-contacts__input.text-regular(type="mail" id="mail" name="mail" required)
+
+                label.text-filter(for="portfolio")
+                  |Ссылка
+                  br
+                  |на портфолио* :
+                input.cart-contacts__input.text-regular(type="text" id="portfolio" name="portfolio")
+
+                label.text-filter(for="comment")
+                  |Комментарий :
+                input.cart-contacts__input.text-regular(type="text" id="comment" name="comment")
+              .cart-contacts__controls
+                input.button.text-breadcrumbs(type="reset", value="Отменить")
+                button.button.button-primary(type="submit") Отправить
