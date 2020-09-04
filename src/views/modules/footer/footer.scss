@@ -7,10 +7,8 @@
 
   &__container {
     @include make-container($gutter: $grid-gutter-width);
-    @include make-container-max-widths(
-      $max-widths: $container-max-widths,
-      $breakpoints: $grid-breakpoints
-    );
+    @include make-container-max-widths($max-widths: $container-max-widths,
+      $breakpoints: $grid-breakpoints);
   }
 
   &__row {
@@ -37,7 +35,7 @@
       margin-bottom: rem(20);
     }
 
-    + .footer__block {
+    +.footer__block {
       padding-top: rem(149);
 
       @include media-breakpoint-down(lg) {
@@ -95,5 +93,10 @@
     &:hover {
       color: inherit;
     }
+  }
+
+  &__img {
+    height: auto;
+    filter: none;
   }
 }

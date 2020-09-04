@@ -1,12 +1,17 @@
-@import 'src/scss/utils/utils';
-@import 'src/views/components/banner/banner';
-@import './fabriki';
-@import './zakaz';
-@import './cart';
+@import "src/scss/utils/utils";
+@import "src/views/components/banner/banner";
+@import "src/views/modules/footer/footer";
+@import "./fabriki";
+@import "./zakaz";
+@import "./cart";
 
 .sotrydnich {
   padding: rem(100) 0;
   background-color: #efeded;
+
+  @include media-breakpoint-down(md) {
+    padding: rem(30) 0;
+  }
 
   &-page {
     background-color: #f8f8f8;
@@ -23,6 +28,10 @@
       &__section {
         padding: rem(100) 0;
         border-top: 1px solid #e2e2e2;
+
+        @include media-breakpoint-down(md) {
+          padding: rem(30) 0;
+        }
       }
 
       &__inner {
@@ -82,8 +91,7 @@
 
   &__container {
     @include make-container($gutter: $grid-gutter-width);
-    @include make-container-max-widths($max-widths: $container-max-widths,
-      $breakpoints: $grid-breakpoints);
+    @include make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints);
   }
 
   &__row {
@@ -93,6 +101,10 @@
 
   &__section {
     padding: rem(64) 0 rem(130);
+
+    @include media-breakpoint-down(md) {
+      padding: rem(30) 0 rem(40);
+    }
   }
 
   &__inner {
@@ -113,13 +125,15 @@
     margin-top: 98px;
 
     display: grid;
-    grid-template-columns: minmax((368/912)*100%, 3fr) 1fr minmax((368/912)*100%, 3fr);
+    grid-template-columns: minmax((368/912) * 100%, 3fr) 1fr minmax((368/912) * 100%, 3fr);
     gap: rem(62) rem(40);
 
     @include media-breakpoint-down(lg) {
       @include make-col(10);
       @include make-col-offset(0);
       margin-top: rem(20);
+
+      gap: rem(20);
     }
   }
 
@@ -146,7 +160,7 @@
 
   &__item {
     display: grid;
-    grid-template-columns: minmax((232/1050)*100%, 2fr) minmax(((1050 - 232 - 30)/1050)*100%, 6fr);
+    grid-template-columns: minmax((232/1050) * 100%, 2fr) minmax(((1050 - 232 - 30)/1050) * 100%, 6fr);
     gap: rem(40);
     grid-column: 2 / -1;
     padding: rem(30) 0;
@@ -158,24 +172,18 @@
 
     @include media-breakpoint-down(lg) {
       grid-column: 1 / -1;
+      gap: rem(20);
     }
 
     @include media-breakpoint-down(sm) {
       grid-template-columns: 1fr;
     }
 
-    &-block {
-      border-top: 2px solid #e2e2e2;
-    }
 
     &-wrapper {
       @include make-col-ready();
       @include make-col(9);
       @include make-col-offset(1);
-
-      display: grid;
-      grid-template-columns: repeat(9, 1fr);
-      gap: 0 rem(40);
 
       @include media-breakpoint-down(lg) {
         @include make-col(10);
@@ -183,8 +191,19 @@
       }
     }
 
-    &-descr {
+    &-inner {
+      display: grid;
+      grid-template-columns: repeat(9, 1fr);
+      gap: 0 rem(40);
+      border-top: 2px solid #e2e2e2;
+      border-bottom: 2px solid #e2e2e2;
 
+      @include media-breakpoint-down(lg) {
+        gap: 0 rem(20);
+      }
+    }
+
+    &-descr {
       .h2 {
         margin-bottom: 26px;
       }
@@ -193,6 +212,10 @@
 
   &__links {
     padding: rem(100) 0;
+
+    @include media-breakpoint-down(md) {
+      padding: rem(30) 0;
+    }
 
     &-grid {
       @include make-col-ready();
@@ -207,6 +230,8 @@
       @include media-breakpoint-down(lg) {
         @include make-col(10);
         @include make-col-offset(0);
+
+        gap: rem(20);
       }
 
       @include media-breakpoint-down(md) {
@@ -220,7 +245,12 @@
       grid-column: span 2;
 
       @include media-breakpoint-down(md) {
+        padding: rem(10);
         grid-column: span 4;
+      }
+
+      @include media-breakpoint-down(xs) {
+        grid-column: 1 / -1;
       }
 
       &:first-child,
@@ -230,15 +260,21 @@
         @include media-breakpoint-down(md) {
           grid-column: span 4;
         }
-      }
 
+        @include media-breakpoint-down(xs) {
+          grid-column: 1 / -1;
+        }
+      }
 
       .text-regular {
         color: #fff;
+
+        @include media-breakpoint-down(md) {
+          font-size: rem(14);
+        }
       }
     }
   }
-
 
   &__form {
     .cart-contacts {

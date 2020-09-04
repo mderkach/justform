@@ -32,21 +32,22 @@ block content
   section.sotrydnich__item-block
     +wrapper('sotrydnich')
       .sotrydnich__item-wrapper
-        .sotrydnich__item
-          +pic('sotrydnich__item-img', './assets/img/accs.jpg')
-          .sotrydnich__item-descr
-            h2.h2 Новоселам
-            p.text-regular Новоселам мы предлагаем С открытием нового магазина Molteni & C Flagship в Будапеште в партнёрстве с Solinfo, группа Molteni продолжает стратегически строить свою дистрибьюторскую сеть на европейском рынке.
-        .sotrydnich__item
-          +pic('sotrydnich__item-img', './assets/img/accs.jpg')
-          .sotrydnich__item-descr
-            h2.h2 Кафе и ресторанам
-            p.text-regular Новоселам мы предлагаем С открытием нового магазина Molteni & C Flagship в Будапеште в партнёрстве с Solinfo, группа Molteni продолжает стратегически строить свою дистрибьюторскую сеть на европейском рынке.
-        .sotrydnich__item
-          +pic('sotrydnich__item-img', './assets/img/accs.jpg')
-          .sotrydnich__item-descr
-            h2.h2 Дизайнерам и архитекторам
-            p.text-regular Новоселам мы предлагаем С открытием нового магазина Molteni & C Flagship в Будапеште в партнёрстве с Solinfo, группа Molteni продолжает стратегически строить свою дистрибьюторскую сеть на европейском рынке.
+        .sotrydnich__item-inner
+          .sotrydnich__item
+            +pic('sotrydnich__item-img', './assets/img/accs.jpg')
+            .sotrydnich__item-descr
+              h2.h2 Новоселам
+              p.text-regular Новоселам мы предлагаем С открытием нового магазина Molteni & C Flagship в Будапеште в партнёрстве с Solinfo, группа Molteni продолжает стратегически строить свою дистрибьюторскую сеть на европейском рынке.
+          .sotrydnich__item
+            +pic('sotrydnich__item-img', './assets/img/accs.jpg')
+            .sotrydnich__item-descr
+              h2.h2 Кафе и ресторанам
+              p.text-regular Новоселам мы предлагаем С открытием нового магазина Molteni & C Flagship в Будапеште в партнёрстве с Solinfo, группа Molteni продолжает стратегически строить свою дистрибьюторскую сеть на европейском рынке.
+          .sotrydnich__item
+            +pic('sotrydnich__item-img', './assets/img/accs.jpg')
+            .sotrydnich__item-descr
+              h2.h2 Дизайнерам и архитекторам
+              p.text-regular Новоселам мы предлагаем С открытием нового магазина Molteni & C Flagship в Будапеште в партнёрстве с Solinfo, группа Molteni продолжает стратегически строить свою дистрибьюторскую сеть на европейском рынке.
   section.sotrydnich__links
     +wrapper('sotrydnich')
       .sotrydnich__links-grid
@@ -188,3 +189,20 @@ block content
               .cart-contacts__controls
                 input.button.text-breadcrumbs(type="reset", value="Отменить")
                 button.button.button-primary(type="submit") Отправить
+
+block footer
+  footer.footer
+    +wrapper('footer')
+      .footer__block
+        h2.h2
+          |Заходите в гости.
+          br
+          |Мы всегда Вам рады
+        a.text-links.footer-hide-mobile(href="mailto:hello@justform.ru") hello@justform.ru
+      .footer__block.no-offset
+        p.text-regular 115114, Москва, Дербеневская наб. 7 с14
+        a.text-regular(href="tel:+74955328686") +7 495 532—86—86
+      .footer__map.footer__img
+        +pic('', './assets/img/footer__img.jpg')
+      .footer__block.no-offset.footer-show-mobile
+        a.text-links(href="mailto:hello@justform.ru") hello@justform.ru
