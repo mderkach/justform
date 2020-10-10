@@ -5,6 +5,14 @@ const search = {
   reset: document.querySelector('.search__reset'),
   resultsText: document.querySelector('.search__results-not-found'),
   input: document.querySelector('#search-from'),
+  isEmptyOrSpaces(str) {
+    return str === null || str.match(/^ *$/) !== null;
+  },
+  typeEvent() {
+    this.input.addEventListener('input', () => {
+      setTimeout(search.render, 500);
+    });
+  },
   render() {
     const query = search.input.value;
     fetch(`${URI}q=${query}`)
@@ -20,9 +28,7 @@ const search = {
       });
   },
   init() {
-    if (this.results) {
-      console.log('int srch');
-    }
+    this.typeEvent();
   },
 };
 
