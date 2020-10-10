@@ -1,6 +1,8 @@
 import ymaps from 'ymaps';
 import './footer.scss';
 
+const pinImg = 'assets/img/pin.png';
+
 const mapFooter = {
   element: document.querySelector('.footer__map'),
   init: () => {
@@ -19,7 +21,7 @@ const mapFooter = {
             {
               iconLayout: 'default#image',
               // Своё изображение иконки метки.
-              iconImageHref: 'assets/img/pin.png',
+              iconImageHref: pinImg,
               // Размеры метки.
               iconImageSize: [39, 46],
             },

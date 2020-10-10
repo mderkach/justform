@@ -1,8 +1,10 @@
 // import all svg
-function requireAll(r) {
-  r.keys().forEach(r);
+if (process.env.NODE_ENV !== 'production') {
+  const requireAll = function (r) {
+    r.keys().forEach(r);
+  };
+
+  requireAll(require.context('../assets/svg/', true, /\.svg$/));
+
+  console.log('svg sprite ready');
 }
-
-requireAll(require.context('../assets/svg/', true, /\.svg$/));
-
-console.log('svg sprite ready');
