@@ -166,7 +166,7 @@ mixin header(isToolbar, hasCart, isTransparent)
             a.text-filter(href="#") Стулья
             a.text-filter(href="#") Текстиль
             .header__category-cart-buttons
-              +buttonPrimary('#', 'Узнать цену')
+              +buttonPrimary('#modal', 'Узнать цену')
               +buttonSecondary('#', 'Подробнее')
   header.header-main-mobile(
     data-transparent= isTransparent ? 'true' : 'false'

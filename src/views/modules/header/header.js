@@ -1,5 +1,10 @@
 import './header.scss';
 
+const LogoSource = './assets/img/logo.png';
+const LogoImg = './assets/img/logo.webp';
+const LogoSourceAlt = './assets/img/logo-alt.png';
+const LogoImgAlt = './assets/img/logo-alt.webp';
+
 const header = {
   wrapper: document.querySelector('.header'),
   mobile: document.querySelector('.header-main-mobile'),
@@ -88,11 +93,11 @@ const header = {
     const logoSource = logo.querySelector('source');
     const logoImg = logo.querySelector('img');
     if (!bool) {
-      logoSource.setAttribute('srcset', './assets/img/logo.png');
-      logoImg.setAttribute('src', './assets/img/logo.webp');
+      logoSource.setAttribute('srcset', LogoSource);
+      logoImg.setAttribute('src', LogoImg);
     } else {
-      logoSource.setAttribute('srcset', './assets/img/logo-alt.png');
-      logoImg.setAttribute('src', './assets/img/logo-alt.webp');
+      logoSource.setAttribute('srcset', LogoSourceAlt);
+      logoImg.setAttribute('src', LogoImgAlt);
     }
   },
   stuck: false,
