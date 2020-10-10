@@ -4,7 +4,7 @@ const search = {
   results: document.querySelector('.search__results'),
   reset: document.querySelector('.search__reset'),
   resultsText: document.querySelector('.search__results-not-found'),
-  input: document.querySelector('#search-from'),
+  input: document.querySelector('.search__input'),
   isEmptyOrSpaces(str) {
     return str === null || str.match(/^ *$/) !== null;
   },
