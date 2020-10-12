@@ -1,3 +1,5 @@
+import '../views/pages/cart.scss';
+
 const modal = {
   window: document.querySelector('.modal'),
   init: () => {

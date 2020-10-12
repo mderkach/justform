@@ -13,6 +13,13 @@ html(lang='ru')
 
   body(class=pageClass)
     block content
+    block modal
+      .cart-contacts__wrapper.modal(data-modal="#test-modal")
+        +wrapper('cart')
+          button.search-close.modal-close
+            +icon('', 'close')
+          .test
+            p шаблон модалки
     block footer
       include ../modules/footer/footer
     block script
