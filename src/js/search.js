@@ -9,7 +9,6 @@ const search = {
     return str === null || str.match(/^ *$/) !== null;
   },
   typeEvent() {
-    console.log(this.input);
     this.input.addEventListener('input', () => {
       setTimeout(search.render, 500);
     });
