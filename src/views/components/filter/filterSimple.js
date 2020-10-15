@@ -37,6 +37,9 @@ const filterSimple = {
               }
 
               trigger.parentElement.classList.remove('is-active');
+              if (radio.hasAttribute('data-href')) {
+                window.location.href = radio.getAttribute('data-href');
+              }
             });
           });
         }

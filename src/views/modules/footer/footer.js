@@ -1,7 +1,7 @@
 import ymaps from 'ymaps';
 import './footer.scss';
 
-const pinImg = 'assets/img/pin.png';
+const pinImg = '/assets/pin.png';
 
 const mapFooter = {
   element: document.querySelector('.footer__map'),

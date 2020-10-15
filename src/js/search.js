@@ -1,4 +1,4 @@
-const URI = '';
+const URI = '/poisk?';
 
 const search = {
   results: document.querySelector('.search__results'),
