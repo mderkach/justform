@@ -91,7 +91,6 @@ const filter = {
       counter.style.display = 'none';
     }
     counter.textContent = opts.length;
-    console.log(opts);
   },
   toggleActive: (items, options, select, wrapper, multiple) => {
     items.forEach((item) => {
