@@ -111,13 +111,11 @@ const filter = {
             });
           }
           item.classList.add('is-selected');
-          const selectedOptions = [];
           options.forEach((option) => {
             if (!multiple) {
               option.setAttribute('selected', false);
-            } else {
-              selectedOptions.append(option.getAttribute('data-id'));
             }
+
             if (option.value === item.textContent) {
               option.setAttribute('selected', true);
               window.location.href = option.getAttribute('data-href');
