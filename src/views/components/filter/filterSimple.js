@@ -10,6 +10,7 @@ const filterSimple = {
         if (trigger) {
           trigger.addEventListener('click', (e) => {
             e.preventDefault();
+            console.log('test filter', trigger.parentElement);
             trigger.parentElement.classList.toggle('is-active');
           });
 
