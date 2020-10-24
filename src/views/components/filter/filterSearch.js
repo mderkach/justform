@@ -10,11 +10,9 @@ const filterSearch = {
         return;
       }
 
-      setTimeout(() => {
-        if (input.value.length >= 3) {
-          alert(`Идет поиск по запросу: ${input.value}.`);
-        }
-      }, 500);
+      if (input.value.length >= 3) {
+        setTimeout(alert(`Идет поиск по запросу: ${input.value}.`), 750);
+      }
     });
   },
   openFilter: (elm) => {
