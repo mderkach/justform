@@ -1,0 +1,8 @@
+mixin filterSearch(classname, name)
+  - classname = classname || ''
+  - name = name
+  .filter-search-wrapper(class=classname)
+    .filter-search-header
+      span.filter-search-name.text-filter-links #{name}
+    .filter-search-menu
+      input.filter-search-input(type="text")
