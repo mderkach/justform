@@ -102,6 +102,7 @@ const filter = {
           options.forEach((option) => {
             if (option.value === item.textContent) {
               option.setAttribute('selected', false);
+              window.location.href = option.getAttribute('data-href');
             }
           });
         } else {
