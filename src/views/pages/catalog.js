@@ -155,7 +155,7 @@ let filterCatalog = {
 
 filterCatalog.init();
 
-filter.init(filterCatalog.onSelect, filterCatalog.onUnSelect);
+filter.init(filterCatalog.onSelect, filterCatalog.onUnSelect, CATEGORY_NULL_VALUE);
 filterSimple.init(filterCatalog.onSelect);
 filterReset.init(filterCatalog.onClearFilters);
 filterSearch.init(filterCatalog.onFabricSelect);

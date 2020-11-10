@@ -4,6 +4,7 @@ import './filter.scss';
 const filter = {
   selectedCallback: null,
   unSelectedCallback: null,
+  selectedNullValue: null,
   wrapper: document.querySelectorAll('.filter-wrapper'),
   openFilter: (elm) => {
     const header = elm.querySelector('.filter-header');
@@ -109,25 +110,38 @@ const filter = {
           });
         } else {
           if (!multiple) {
-            items.forEach((elm) => {
-              elm.classList.remove('is-selected');
-            });
+            filter.removeSelectedFormItems(items);
           }
           item.classList.add('is-selected');
-          options.forEach((option) => {
-            if (!multiple) {
-              option.setAttribute('selected', false);
-            }
+          //Кнопка "Любое"
+          if(item.hasAttribute('data-null-property') && item.getAttribute('data-null-property')){
+            options.forEach((option) => {
+              if(!option.hasAttribute('data-id') || option.getAttribute('data-id') != filter.selectedNullValue){
+                option.setAttribute('selected', false);
+              }
+            });
+            filter.removeSelectedFormItems(items);
+          }else{
+            options.forEach((option) => {
+              if (!multiple) {
+                option.setAttribute('selected', false);
+              }
 
-            if (option.value === item.textContent) {
-              option.setAttribute('selected', true);
-              filter.onSelect(option);
-            }
-          });
+              if (option.value === item.textContent) {
+                option.setAttribute('selected', true);
+                filter.onSelect(option);
+              }
+            });
+          }
         }
 
         filter.calculateSelected(select, wrapper);
       });
+    });
+  },
+  removeSelectedFormItems(items){
+    items.forEach((elm) => {
+      elm.classList.remove('is-selected');
     });
   },
   onSelect(option){
@@ -146,9 +160,10 @@ const filter = {
       filter.unSelectedCallback(option);
     }
   },
-  init: (selectedCallback = null, unselectedCallback = null) => {
+  init: (selectedCallback = null, unselectedCallback = null, selectedNullValue = -1) => {
     filter.selectedCallback = selectedCallback;
     filter.unSelectedCallback = unselectedCallback;
+    filter.selectedNullValue = selectedNullValue;
     if (filter.wrapper) {
       filter.createSelect();
     }
