@@ -30,15 +30,23 @@ let filterCatalog = {
 
      switch(type){
         case 'categories':
-          index = filterCatalog.params.categories.indexOf(id);
-          if(index === -1) {
-            filterCatalog.params.categories.push(id);
+          if(id == CATEGORY_NULL_VALUE){
+            filterCatalog.params.categories = [];
+          }else {
+            index = filterCatalog.params.categories.indexOf(id);
+            if (index === -1) {
+              filterCatalog.params.categories.push(id);
+            }
           }
         break;
         case 'places':
-          index = filterCatalog.params.places.indexOf(id);
-          if(index === -1) {
-            filterCatalog.params.places.push(id);
+          if(id == CATEGORY_NULL_VALUE){
+            filterCatalog.params.places = [];
+          }else {
+            index = filterCatalog.params.places.indexOf(id);
+            if (index === -1) {
+              filterCatalog.params.places.push(id);
+            }
           }
         break;
         case 'subcategory':

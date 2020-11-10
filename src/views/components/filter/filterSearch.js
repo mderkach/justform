@@ -12,7 +12,8 @@ const filterSearch = {
       const filterItems = wrapper.querySelector('.filter-items');
       const activateSearch = function (input, item){
         item.addEventListener('click', (e) => {
-          input.value = item.innerHTML;
+          filterItems.innerHTML = "";
+          input.value = item.innerText;
           input.setAttribute('data-id', item.getAttribute('data-id'));
 
           if(selectedCallback != null){
@@ -21,12 +22,13 @@ const filterSearch = {
         });
       };
 
-      filterItems.innerHTML = "";
       if(input.value.length == 0){
+        filterItems.innerHTML = "";
         selectedCallback(null);
       }
 
       if (input.value.length >= 3) {
+        filterItems.innerHTML = "";
         fetch("/katalog/fabric_search.html?q=" + input.value)
           .then(response => response.json())
           .then(data => {

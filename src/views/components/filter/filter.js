@@ -142,8 +142,8 @@ const filter = {
     if (option.hasAttribute('data-href')) {
       //TODO: move selectedCallback
       window.location.href = option.getAttribute('data-href');
-    }else if(filter.unselectedCallback != null){
-      filter.unselectedCallback(option);
+    }else if(filter.unSelectedCallback != null){
+      filter.unSelectedCallback(option);
     }
   },
   init: (selectedCallback = null, unselectedCallback = null) => {
