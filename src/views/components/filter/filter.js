@@ -2,6 +2,8 @@
 import './filter.scss';
 
 const filter = {
+  selectedCallback: null,
+  unSelectedCallback: null,
   wrapper: document.querySelectorAll('.filter-wrapper'),
   openFilter: (elm) => {
     const header = elm.querySelector('.filter-header');
@@ -102,7 +104,7 @@ const filter = {
           options.forEach((option) => {
             if (option.value === item.textContent) {
               option.setAttribute('selected', false);
-              window.location.href = option.getAttribute('data-href');
+              filter.onUnSelect(option);
             }
           });
         } else {
@@ -119,7 +121,7 @@ const filter = {
 
             if (option.value === item.textContent) {
               option.setAttribute('selected', true);
-              window.location.href = option.getAttribute('data-href');
+              filter.onSelect(option);
             }
           });
         }
@@ -128,7 +130,25 @@ const filter = {
       });
     });
   },
-  init: () => {
+  onSelect(option){
+    if (option.hasAttribute('data-href')) {
+      //TODO: move selectedCallback
+      window.location.href = option.getAttribute('data-href');
+    }else if(filter.selectedCallback != null){
+      filter.selectedCallback(option);
+    }
+  },
+  onUnSelect(option){
+    if (option.hasAttribute('data-href')) {
+      //TODO: move selectedCallback
+      window.location.href = option.getAttribute('data-href');
+    }else if(filter.unselectedCallback != null){
+      filter.unselectedCallback(option);
+    }
+  },
+  init: (selectedCallback = null, unselectedCallback = null) => {
+    filter.selectedCallback = selectedCallback;
+    filter.unSelectedCallback = unselectedCallback;
     if (filter.wrapper) {
       filter.createSelect();
     }

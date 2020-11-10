@@ -3,11 +3,12 @@ import './filterReset.scss';
 
 const filterReset = {
   button: document.querySelector('.filter-reset'),
-  init: () => {
+  init: (callback = null) => {
     if (filterReset.button) {
       filterReset.button.addEventListener('click', () => {
         filter.refresh();
         filter.createSelect();
+        callback();
       });
     }
   },

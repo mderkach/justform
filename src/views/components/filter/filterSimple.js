@@ -2,7 +2,7 @@ import './filterSimple.scss';
 
 const filterSimple = {
   wrapper: document.querySelectorAll('.filter-simple-wrapper'),
-  init: () => {
+  init: (selectedCallback = null) => {
     if (filterSimple.wrapper) {
       filterSimple.wrapper.forEach((filter) => {
         const trigger = filter.querySelector('.filter-simple-value');
@@ -39,7 +39,10 @@ const filterSimple = {
 
               trigger.parentElement.classList.remove('is-active');
               if (radio.hasAttribute('data-href')) {
+                //TODO: move selectedCallback
                 window.location.href = radio.getAttribute('data-href');
+              }else if(selectedCallback != null){
+                selectedCallback(radio);
               }
             });
           });

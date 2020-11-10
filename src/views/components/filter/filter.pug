@@ -12,6 +12,8 @@ mixin filter(classname, name, options, multiple)
           hidden=option.hidden
           disabled=option.disabled
           default=option.default
+          data-id=option.data_id
+          data-type=option.data_type
           ) #{ option.name }
     .filter-header
       span.filter-name.text-filter-links #{name}

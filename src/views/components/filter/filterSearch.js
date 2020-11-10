@@ -2,16 +2,45 @@ import './filterSearch.scss';
 
 const filterSearch = {
   wrapper: document.querySelectorAll('.filter-search-wrapper'),
-  onInput(wrapper) {
+  onInput(wrapper, selectedCallback = null) {
     const input = wrapper.querySelector('input');
-
     input.addEventListener('keyup', (e) => {
       if (e.isComposing || e.keyCode === 229) {
         return;
       }
 
+      const filterItems = wrapper.querySelector('.filter-items');
+      const activateSearch = function (input, item){
+        item.addEventListener('click', (e) => {
+          input.value = item.innerHTML;
+          input.setAttribute('data-id', item.getAttribute('data-id'));
+
+          if(selectedCallback != null){
+            selectedCallback(item);
+          }
+        });
+      };
+
+      filterItems.innerHTML = "";
+      if(input.value.length == 0){
+        selectedCallback(null);
+      }
+
       if (input.value.length >= 3) {
-        setTimeout(alert(`Идет поиск по запросу: ${input.value}.`), 750);
+        fetch("/katalog/fabric_search.html?q=" + input.value)
+          .then(response => response.json())
+          .then(data => {
+            input.removeAttribute('data-id');
+            data.results.forEach(function (item, i, items){
+               var filterItem = document.createElement('div');
+                filterItem.className = "filter-menu-item text-filter filter-search-item";
+                filterItem.setAttribute('data-id', item.id);
+                filterItem.innerText = item.text;
+                filterItems.append(filterItem);
+                activateSearch(input, filterItem);
+              }
+            );
+          });
       }
     });
   },
@@ -28,11 +57,11 @@ const filterSearch = {
       }
     });
   },
-  init: () => {
+  init: (selectedCallback = null) => {
     if (filterSearch.wrapper.length > 0) {
       filterSearch.wrapper.forEach((wrapper) => {
         filterSearch.openFilter(wrapper);
-        filterSearch.onInput(wrapper);
+        filterSearch.onInput(wrapper, selectedCallback);
       });
     }
   },
