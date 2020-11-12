@@ -96,7 +96,7 @@ const filter = {
     counter.textContent = opts.length;
   },
   toggleActive: (items, options, select, wrapper, multiple) => {
-    items.forEach((item) => {
+    items.forEach((item, index, itemsArray) => {
       item.addEventListener('click', (e) => {
         e.preventDefault();
 
@@ -110,28 +110,30 @@ const filter = {
           });
         } else {
           if (!multiple) {
-            filter.removeSelectedFormItems(items);
+            filter.removeSelectedFormItems(itemsArray);
           }
           item.classList.add('is-selected');
           //Кнопка "Любое"
-          if(item.hasAttribute('data-null-property') && item.getAttribute('data-null-property')){
-            options.forEach((option) => {
-              if(!option.hasAttribute('data-id') || option.getAttribute('data-id') != filter.selectedNullValue){
-                option.setAttribute('selected', false);
-              }
-            });
-            filter.removeSelectedFormItems(items);
-          }else{
-            options.forEach((option) => {
-              if (!multiple) {
-                option.setAttribute('selected', false);
-              }
 
-              if (option.value === item.textContent) {
-                option.setAttribute('selected', true);
-                filter.onSelect(option);
+          options.forEach((option) => {
+            if (!multiple) {
+              option.setAttribute('selected', false);
+            }
+
+            if (option.value === item.textContent) {
+              option.setAttribute('selected', true);
+              filter.onSelect(option);
+              let optionId = option.getAttribute('data-id');
+              if (optionId == filter.selectedNullValue) {
+                item.setAttribute('data-null-property', true);
               }
-            });
+            }
+          });
+
+          if(item.hasAttribute('data-null-property') && item.getAttribute('data-null-property')){
+            filter.removeSelectedFormItems(itemsArray, options);
+          }else{
+            filter.removeSelectedFromAllValue(itemsArray);
           }
         }
 
@@ -139,24 +141,37 @@ const filter = {
       });
     });
   },
-  removeSelectedFormItems(items){
+  removeSelectedFromAllValue(items) {
     items.forEach((elm) => {
-      elm.classList.remove('is-selected');
+      if(elm.hasAttribute('data-null-property') && elm.getAttribute('data-null-property')) {
+        elm.classList.remove('is-selected');
+      }
     });
   },
-  onSelect(option){
+  removeSelectedFormItems(items, options) {
+    items.forEach((elm) => {
+      if(!elm.hasAttribute('data-null-property') || !elm.getAttribute('data-null-property')) {
+        elm.classList.remove('is-selected');
+      }
+    });
+
+    options.forEach((option) => {
+        option.setAttribute('selected', false);
+    });
+  },
+  onSelect(option) {
     if (option.hasAttribute('data-href')) {
       //TODO: move selectedCallback
       window.location.href = option.getAttribute('data-href');
-    }else if(filter.selectedCallback != null){
+    } else if (filter.selectedCallback != null) {
       filter.selectedCallback(option);
     }
   },
-  onUnSelect(option){
+  onUnSelect(option) {
     if (option.hasAttribute('data-href')) {
       //TODO: move selectedCallback
       window.location.href = option.getAttribute('data-href');
-    }else if(filter.unSelectedCallback != null){
+    } else if (filter.unSelectedCallback != null) {
       filter.unSelectedCallback(option);
     }
   },
