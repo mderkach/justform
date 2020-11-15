@@ -3,6 +3,7 @@ import './catalog.scss';
 
 // js & components
 import filter from '../components/filter/filter';
+import filterCatalog from '../components/filter/filterCatalog';
 import filterSimple from '../components/filter/filterSimple';
 import filterReset from '../components/filter/filterReset';
 import filterSearch from '../components/filter/filterSearch';
@@ -11,17 +12,17 @@ import filterSearch from '../components/filter/filterSearch';
 const baseUrl = "";
 const CATEGORY_NULL_VALUE = -1;
 
-let filterCatalog = {
+let filterCatalogUtils = {
    params: {},
    catalogRow: document.querySelector('.catalog__row'),
    currentEntity: document.getElementById('current_entity'),
 
    init(){
-     filterCatalog.clearParams();
+     filterCatalogUtils.clearParams();
    },
    onClearFilters(){
-     filterCatalog.clearParams();
-     filterCatalog.filterRequest();
+     filterCatalogUtils.clearParams();
+     filterCatalogUtils.filterRequest();
    },
    onSelect(option){
      let index;
@@ -31,34 +32,34 @@ let filterCatalog = {
      switch(type){
         case 'categories':
           if(id == CATEGORY_NULL_VALUE){
-            filterCatalog.params.categories = [];
+            filterCatalogUtils.params.categories = [];
           }else {
-            index = filterCatalog.params.categories.indexOf(id);
+            index = filterCatalogUtils.params.categories.indexOf(id);
             if (index === -1) {
-              filterCatalog.params.categories.push(id);
+              filterCatalogUtils.params.categories.push(id);
             }
           }
         break;
         case 'places':
           if(id == CATEGORY_NULL_VALUE){
-            filterCatalog.params.places = [];
+            filterCatalogUtils.params.places = [];
           }else {
-            index = filterCatalog.params.places.indexOf(id);
+            index = filterCatalogUtils.params.places.indexOf(id);
             if (index === -1) {
-              filterCatalog.params.places.push(id);
+              filterCatalogUtils.params.places.push(id);
             }
           }
         break;
         case 'subcategory':
           if(id == CATEGORY_NULL_VALUE){
-            filterCatalog.params.subcategory = null;
+            filterCatalogUtils.params.subcategory = null;
           }else {
-            filterCatalog.params.subcategory = id;
+            filterCatalogUtils.params.subcategory = id;
           }
         break;
       }
 
-     filterCatalog.filterRequest();
+     filterCatalogUtils.filterRequest();
    },
   onUnSelect(option){
     let index;
@@ -67,27 +68,27 @@ let filterCatalog = {
 
     switch(type){
       case 'categories':
-        index = filterCatalog.params.categories.indexOf(id);
+        index = filterCatalogUtils.params.categories.indexOf(id);
         if(index !== -1) {
-          filterCatalog.params.categories.splice(index, 1);
+          filterCatalogUtils.params.categories.splice(index, 1);
         }
         break;
       case 'places':
-        index = filterCatalog.params.places.indexOf(id);
+        index = filterCatalogUtils.params.places.indexOf(id);
         if(index !== -1){
-          filterCatalog.params.places.splice(index, 1);
+          filterCatalogUtils.params.places.splice(index, 1);
         }
         break;
       case 'subcategory':
-        filterCatalog.params.subcategory = null;
+        filterCatalogUtils.params.subcategory = null;
         break;
     }
 
-    filterCatalog.filterRequest();
+    filterCatalogUtils.filterRequest();
   },
    filterRequest(){
-     const searchParams = new URLSearchParams(filterCatalog.removeEmptyParams(
-       filterCatalog.params, param => param !== null && param !== undefined && param !== []
+     const searchParams = new URLSearchParams(filterCatalogUtils.removeEmptyParams(
+       filterCatalogUtils.params, param => param !== null && param !== undefined && param !== []
      ));
 
      fetch(baseUrl +"/katalog/filter?" +  searchParams.toString())
@@ -95,15 +96,16 @@ let filterCatalog = {
        .then(response=>{
          let catalogList = document.querySelector('.catalog__list');
          if(catalogList != null) {
-           filterCatalog.catalogRow.removeChild(catalogList);
+           filterCatalogUtils.catalogRow.removeChild(catalogList);
          }
 
          let paginationWrapper = document.querySelector('.pagination__wrapper');
          if(paginationWrapper != null) {
-           filterCatalog.catalogRow.removeChild(paginationWrapper);
+           filterCatalogUtils.catalogRow.removeChild(paginationWrapper);
          }
 
-         filterCatalog.catalogRow.insertAdjacentHTML('beforeend', response);
+         filterCatalogUtils.catalogRow.insertAdjacentHTML('beforeend', response);
+         filterSimple.init(filterCatalogUtils.onSelect);
        });
    },
    removeEmptyParams(params, predicate){
@@ -129,33 +131,33 @@ let filterCatalog = {
        category: null
      }
 
-     let pageType = filterCatalog.currentEntity.getAttribute('data-type');
-     let pageId = filterCatalog.currentEntity.getAttribute('data-id');
+     let pageType = filterCatalogUtils.currentEntity.getAttribute('data-type');
+     let pageId = filterCatalogUtils.currentEntity.getAttribute('data-id');
      if(pageType === 'category'){
        init.category = pageId;
      }else{
        init.place = pageId;
      }
 
-     filterCatalog.params = init;
+     filterCatalogUtils.params = init;
    },
 
    onFabricSelect(item){
      if(item == null){
-       if(filterCatalog.params.fabric != null){
-         filterCatalog.params.fabric = null;
-         filterCatalog.filterRequest();
+       if(filterCatalogUtils.params.fabric != null){
+         filterCatalogUtils.params.fabric = null;
+         filterCatalogUtils.filterRequest();
        }
      }else {
-       filterCatalog.params.fabric = item.getAttribute('data-id');
-       filterCatalog.filterRequest();
+       filterCatalogUtils.params.fabric = item.getAttribute('data-id');
+       filterCatalogUtils.filterRequest();
      }
    }
 }
 
-filterCatalog.init();
+filterCatalogUtils.init();
 
-filter.init(filterCatalog.onSelect, filterCatalog.onUnSelect, CATEGORY_NULL_VALUE);
-filterSimple.init(filterCatalog.onSelect);
-filterReset.init(filterCatalog.onClearFilters);
-filterSearch.init(filterCatalog.onFabricSelect);
+filterCatalog.init(filterCatalogUtils.onSelect, filterCatalogUtils.onUnSelect, CATEGORY_NULL_VALUE);
+filterSimple.init();
+filterReset.init(filterCatalogUtils.onClearFilters);
+filterSearch.init(filterCatalogUtils.onFabricSelect);

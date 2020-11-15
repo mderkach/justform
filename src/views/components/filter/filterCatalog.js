@@ -1,7 +1,10 @@
 /* eslint-disable no-plusplus */
 import './filter.scss';
 
-const filter = {
+const filterCatalog = {
+  selectedCallback: null,
+  unSelectedCallback: null,
+  selectedNullValue: null,
   wrapper: document.querySelectorAll('.filter-wrapper'),
   openFilter: (elm) => {
     const header = elm.querySelector('.filter-header');
@@ -17,24 +20,24 @@ const filter = {
     });
   },
   createSelect: () => {
-    filter.wrapper.forEach((label) => {
+    filterCatalog.wrapper.forEach((label) => {
       const select = label.querySelector('select');
       const options = [...label.querySelector('select')];
       // create menu
-      filter.createSelectMenu(label);
+      filterCatalog.createSelectMenu(label);
       // create menu items
-      filter.createSelectMenuItems(label);
+      filterCatalog.createSelectMenuItems(label);
 
-      filter.openFilter(label);
+      filterCatalog.openFilter(label);
 
       const menuItem = label.querySelectorAll('.filter-menu-item');
       if (!select.hasAttribute('multiple')) {
-        filter.toggleActive(menuItem, options, select, label, false);
+        filterCatalog.toggleActive(menuItem, options, select, label, false);
       } else {
-        filter.toggleActive(menuItem, options, select, label, true);
+        filterCatalog.toggleActive(menuItem, options, select, label, true);
       }
 
-      filter.calculateSelected(select, label);
+      filterCatalog.calculateSelected(select, label);
     });
   },
   createSelectMenu: (elm) => {
@@ -51,7 +54,7 @@ const filter = {
     // options array
     const tempMenu = [];
     options.forEach((option) => {
-      const item = filter.createItem(option.value);
+      const item = filterCatalog.createItem(option.value);
 
       if (option.hasAttribute('default')) {
         item.classList.add('is-selected');
@@ -93,7 +96,7 @@ const filter = {
     counter.textContent = opts.length;
   },
   toggleActive: (items, options, select, wrapper, multiple) => {
-    items.forEach((item) => {
+    items.forEach((item, index, itemsArray) => {
       item.addEventListener('click', (e) => {
         e.preventDefault();
 
@@ -102,16 +105,16 @@ const filter = {
           options.forEach((option) => {
             if (option.value === item.textContent) {
               option.setAttribute('selected', false);
-              window.location.href = option.getAttribute('data-href');
+              filterCatalog.onUnSelect(option);
             }
           });
         } else {
           if (!multiple) {
-            items.forEach((elm) => {
-              elm.classList.remove('is-selected');
-            });
+            filterCatalog.removeSelectedFormItems(itemsArray);
           }
           item.classList.add('is-selected');
+          //Кнопка "Любое"
+
           options.forEach((option) => {
             if (!multiple) {
               option.setAttribute('selected', false);
@@ -119,18 +122,67 @@ const filter = {
 
             if (option.value === item.textContent) {
               option.setAttribute('selected', true);
-              window.location.href = option.getAttribute('data-href');
+              filterCatalog.onSelect(option);
+              let optionId = option.getAttribute('data-id');
+              if (optionId == filterCatalog.selectedNullValue) {
+                item.setAttribute('data-null-property', true);
+              }
             }
           });
+
+          if(item.hasAttribute('data-null-property') && item.getAttribute('data-null-property')){
+            filterCatalog.removeSelectedFormItems(itemsArray, options);
+          }else{
+            filterCatalog.removeSelectedFromAllValue(itemsArray);
+          }
         }
 
-        filter.calculateSelected(select, wrapper);
+        filterCatalog.calculateSelected(select, wrapper);
       });
     });
   },
-  init: () => {
-    if (filter.wrapper) {
-      filter.createSelect();
+  removeSelectedFromAllValue(items) {
+    items.forEach((elm) => {
+      if(elm.hasAttribute('data-null-property') && elm.getAttribute('data-null-property')) {
+        elm.classList.remove('is-selected');
+      }
+    });
+  },
+  removeSelectedFormItems(items, options) {
+    items.forEach((elm) => {
+      if(!elm.hasAttribute('data-null-property') || !elm.getAttribute('data-null-property')) {
+        elm.classList.remove('is-selected');
+      }
+    });
+
+    if(options) {
+      options.forEach((option) => {
+        option.setAttribute('selected', false);
+      });
+    }
+  },
+  onSelect(option) {
+    if (option.hasAttribute('data-href')) {
+      //TODO: move selectedCallback
+      window.location.href = option.getAttribute('data-href');
+    } else if (filterCatalog.selectedCallback != null) {
+      filterCatalog.selectedCallback(option);
+    }
+  },
+  onUnSelect(option) {
+    if (option.hasAttribute('data-href')) {
+      //TODO: move selectedCallback
+      window.location.href = option.getAttribute('data-href');
+    } else if (filterCatalog.unSelectedCallback != null) {
+      filterCatalog.unSelectedCallback(option);
+    }
+  },
+  init: (selectedCallback = null, unselectedCallback = null, selectedNullValue = -1) => {
+    filterCatalog.selectedCallback = selectedCallback;
+    filterCatalog.unSelectedCallback = unselectedCallback;
+    filterCatalog.selectedNullValue = selectedNullValue;
+    if (filterCatalog.wrapper) {
+      filterCatalog.createSelect();
     }
   },
   recreateNode: (el, withChildren) => {
@@ -143,7 +195,7 @@ const filter = {
     }
   },
   refresh: () => {
-    filter.wrapper.forEach((label) => {
+    filterCatalog.wrapper.forEach((label) => {
       const select = label.querySelector('select');
       const options = [...label.querySelector('select')];
 
@@ -152,9 +204,9 @@ const filter = {
       });
 
       label.querySelector('.filter-menu').remove();
-      filter.calculateSelected(select, label);
+      filterCatalog.calculateSelected(select, label);
     });
   },
 };
 
-export default filter;
+export default filterCatalog;
