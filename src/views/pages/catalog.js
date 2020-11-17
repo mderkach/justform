@@ -5,7 +5,7 @@ import './catalog.scss';
 import filter from '../components/filter/filter';
 import filterCatalog from '../components/filter/filterCatalog';
 import filterSimple from '../components/filter/filterSimple';
-import filterReset from '../components/filter/filterReset';
+import filterResetCatalog from '../components/filter/filterResetCatalog';
 import filterSearch from '../components/filter/filterSearch';
 // initialise components
 
@@ -105,7 +105,7 @@ let filterCatalogUtils = {
          }
 
          filterCatalogUtils.catalogRow.insertAdjacentHTML('beforeend', response);
-         filterSimple.init(filterCatalogUtils.onSelect);
+         filterSimple.reinit();
        });
    },
    removeEmptyParams(params, predicate){
@@ -140,6 +140,11 @@ let filterCatalogUtils = {
      }
 
      filterCatalogUtils.params = init;
+
+     let element = document.getElementById('fabric_search_input');
+     if(element) {
+       element.setAttribute("value", "");
+     }
    },
 
    onFabricSelect(item){
@@ -159,5 +164,5 @@ filterCatalogUtils.init();
 
 filterCatalog.init(filterCatalogUtils.onSelect, filterCatalogUtils.onUnSelect, CATEGORY_NULL_VALUE);
 filterSimple.init();
-filterReset.init(filterCatalogUtils.onClearFilters);
+filterResetCatalog.init(filterCatalogUtils.onClearFilters, filterCatalog);
 filterSearch.init(filterCatalogUtils.onFabricSelect);
