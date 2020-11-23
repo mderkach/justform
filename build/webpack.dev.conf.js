@@ -22,7 +22,7 @@ const devWebpackConfig = Merge(BaseWebpackConfig, {
 		new BrowserSyncPlugin(
 			{
 				host: 'localhost',
-				port: 3000,
+				port: 3001,
 				proxy: 'http://localhost:8080/',
 				notify: false,
 			},

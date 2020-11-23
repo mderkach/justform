@@ -8,6 +8,7 @@ block variables
 block content
   +banner('Кресла', 'Кухни', 'Кровати', 'Just Form — Каталог мебели — Категории — Кровати', './assets/img/banner-bg.jpg')
   include ../modules/catalog/catalog
+  input(type='hidden', id="current_entity", data-type="category", data-id=6)
   section.catalog__section
     +wrapper('catalog')
       h2.catalog__header.h2 Итальянские кровати

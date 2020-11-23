@@ -1,9 +1,9 @@
 import './header.scss';
 
-const LogoSource = './assets/img/logo.png';
-const LogoImg = './assets/img/logo.webp';
-const LogoSourceAlt = './assets/img/logo-alt.png';
-const LogoImgAlt = './assets/img/logo-alt.webp';
+const LogoSource = '/assets/logo.png';
+const LogoImg = '/assets/logo.webp';
+const LogoSourceAlt = '/assets/logo-alt.png';
+const LogoImgAlt = '/assets/logo-alt.webp';
 
 const header = {
   wrapper: document.querySelector('.header'),

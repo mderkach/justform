@@ -1,12 +1,16 @@
 import './filterSimple.scss';
+import filter from "./filter";
 
 const filterSimple = {
   wrapper: document.querySelectorAll('.filter-simple-wrapper'),
-  init: () => {
+  init: (selectedCallback = null, id = null) => {
     if (filterSimple.wrapper) {
       filterSimple.wrapper.forEach((filter) => {
-        const trigger = filter.querySelector('.filter-simple-value');
-        const items = filter.querySelectorAll('.filter-simple-label');
+        let simpleFilterValueSelector = '.filter-simple-value'
+        let simpleFilterLabelSelector = '.filter-simple-label'
+
+        const trigger = filter.querySelector(simpleFilterValueSelector);
+        const items = filter.querySelectorAll(simpleFilterLabelSelector);
         if (trigger) {
           trigger.addEventListener('click', (e) => {
             e.preventDefault();
@@ -37,12 +41,22 @@ const filterSimple = {
               }
 
               trigger.parentElement.classList.remove('is-active');
+              if (radio.hasAttribute('data-href')) {
+                //TODO: move selectedCallback
+                window.location.href = radio.getAttribute('data-href');
+              }else if(selectedCallback != null){
+                selectedCallback(radio);
+              }
             });
           });
         }
       });
     }
   },
+  reinit(selectedCallback = null, id = null){
+    filterSimple.wrapper = document.querySelectorAll('.filter-simple-wrapper');
+    filterSimple.init(selectedCallback, id)
+  }
 };
 
 export default filterSimple;
