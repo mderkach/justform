@@ -9,6 +9,7 @@
     }
 
     .banner {
+      padding-bottom: rem(50);
       &__info-wrapper {
         @include media-breakpoint-down(sm) {
           flex-direction: column;
@@ -26,7 +27,15 @@
     }
 
     .footer {
+      padding-top: rem(50);
       border-top: none;
+
+      &__block {
+        margin-bottom: rem(50);
+        + .footer__block {
+          padding-top: rem(50);
+        }
+      }
     }
   }
 }

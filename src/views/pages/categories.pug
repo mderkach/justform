@@ -1,0 +1,128 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Justform';
+  - var description = '';
+  - var pageClass = 'categories-page';
+
+block content
+  section.categories__banner
+    +header(false, true, true)
+    include ../components/slider/sliderBanner
+  include ../modules/filterMainMobile/filterMainMobile
+  section.categories__categories
+    .categories__container
+      .categories__grid
+        +itemLink('Аксессуары','./assets/img/accs.jpg')
+        +itemLink('Бары','./assets/img/bar.jpg')
+        +itemLink('Библиотеки','./assets/img/libr.jpg')
+        +itemLink('Буфеты и витрины','./assets/img/showcase.jpg')
+        +itemLink('Гардеробные','./assets/img/wardrobe.jpg')
+        +itemLink('Двери','./assets/img/door.jpg',['Входные двери','Глухие двери','Двери без обналичников','подменю 1', 'подменю 2'])
+        +itemLink('Детская мебель','./assets/img/kids.jpg',['Аксессуары для детской','Диваны для детской','Кресла для детской','подменю 1', 'подменю 2'])
+        +itemLink('Диваны','./assets/img/sofa.jpg',['Дизайнерские диваны','Закругленные диваны','Кожанные диваны','подменю 1', 'подменю 2'])
+        +itemLink('Зеркала','./assets/img/mirror.jpg',['Квадратные зеркла','Круглые зеркала','Напольные зеркала','подменю 1', 'подменю 2'])
+        +itemLink('Ковры','./assets/img/carpet.jpg')
+        +itemLink('Комоды','./assets/img/commode.jpg')
+        +itemLink('Консоли','./assets/img/console.jpg')
+        +itemLink('Кресла','./assets/img/chairs.jpg',['Дизайнерские кресла','Кресла кровати','Офисные и рабочие кресла','подменю 1', 'подменю 2'])
+        +itemLink('Кровати','./assets/img/beds.jpg',['Изголовье для кровати','Кованные кровати','Кровати с балдахином','подменю 1', 'подменю 2'])
+        +itemLink('Кухни','./assets/img/kitchen.jpg')
+        +itemLink('Кушетки и банкетки','./assets/img/couch.jpg')
+        +itemLink('Матрас','./assets/img/mattres.jpg')
+        +itemLink('Мебель для ТВ','./assets/img/tv.jpg',['Рамы под ТВ','Тумбы под  ТВ'])
+        +itemLink('Мебель для ванной','./assets/img/shower.jpg')
+        +itemLink('Офисная мебель','./assets/img/office.jpg',['Кресла для кабинета','Офисные комоды','Офисные стеллажи','подменю 1', 'подменю 2'])
+        +itemLink('Пуфы','./assets/img/poof.jpg')
+        +itemLink('Свет','./assets/img/light.jpg',['Бра','Люстры','Настольные лампы','подменю 1', 'подменю 2'])
+        +itemLink('Секретеры','./assets/img/secret.jpg')
+        +itemLink('Столы','./assets/img/table.jpg',['Журнальные столы','Компьютерные столы','Кофейные столики','подменю 1', 'подменю 2'])
+        +itemLink('Стулья','./assets/img/armchair.jpg',['Барные стулья','Вращающиеся стулья','Ротанг и плетеные стулья','подменю 1', 'подменю 2'])
+        +itemLink('Текстиль','./assets/img/textyle.jpg')
+        +itemLink('Уличная мебель','./assets/img/street.jpg',['Аксессуары для улицы','Барные стулья для улицы','Диваны для улицы','подменю 1', 'подменю 2'])
+        +itemLink('Тумбы','./assets/img/stand.jpg')
+        +itemLink('Шкафы','./assets/img/locker.jpg',['С компланарными дверьми','С раздвижными дверьми','С распашными дверьми'])
+        a.card__gray.card__gray_alt.card__gray_search(href="#")
+          +icon('card__gray-icon', 'search')
+          p.card__gray-descr Поиск
+  section.categories__furniture
+    +wrapper('categories')
+      h2.categories__header.h2 Мебель для любых потребностей
+      .categories__block
+        p.categories__text.text-regular
+          | Едва только мы переступаем порог двери дома, мы сразу же оказываемся в мире мебели. Мебель — вот именно то, что окружает нас повсюду, если только человек не является затворником, живущем в лесу. Все остальные люди желают проводить свое время в максимально возможном комфорте, который нам призваны обеспечить предметы мебели.
+      h3.categories__furniture-h3.text-filter-links Основная домашняя мебель
+      .categories__block.no-offset
+        p.categories__text.text-regular
+          | Если зайти к любому человеку в гости, то, несомненно, в каждом доме можно найти похожие предметы мебели, без которых существовать комфортно, где бы то ни было, просто невозможно. Пусть внешний вид таких предметов отличается иногда кардинально, функции которые они выполняют, практически идентичные. Например, почти в каждой прихожей есть вешалки или целые гардеробные, которые должны отличаться не только функциональностью, но и отличным внешним видом. В любой гостиной обязательным элементом будет мягкий уголок, телевизор и мебель для него, а также несколько аксессуаров, которые завершат образ комнаты. Точно также в спальной должна располагаться удобная кровать, дающая хозяевам отдых в конце рабочего дня, детская комната должна содержать удобную самым маленьким мебель. Ну а мебель для ванной и кухни должна иметь свои преимущества, основным из которых можно назвать функциональность.
+      h3.categories__furniture-h3.text-filter-links Аксессуары для украшения жилища
+      .categories__block.no-offset
+        p.categories__text.text-regular
+          | Тем не менее, какой бы не была меблировка дома, полностью образ и стиль помещения можно создать лишь при помощи столь любимыми многими аксессуаров. И неважно, будет ли это оригинальное зеркало, ковер или что-то другое, без этих предметов не обойтись. В конце концов, без них интерьер будет лишен «жизни», поэтому их поиску и выбору уделяют времени подчас больше, чем покупке самой мебели.
+        p.categories__text.text-regular
+          | Конечно же, выбор интерьера, который будет вас окружать — это процесс достаточно трудоёмкий, однако мы постарались максимально его упростить. Каталог Just Form предлагает самые разные категории мебели и аксессуаров, которые могут вам понадобиться, а навигация по нему очень проста и понятна. Смотрите, выбирайте и воплощайте свои мечты в реальность!
+  //- section.categories__payment
+  //-   +wrapper('categories')
+  //-     .categories__payment-block
+  //-       h2.h2 Оплата товаров
+  //-       a.text-regular(href="tel:+74955328686") +7 495 532—86—86
+  //-     .categories__block
+  //-       p.categories__text.text-regular Оплату товаров вы можете осуществить <br> следующими способами:
+  //-       .categories__payment-methods
+  //-         .categories__payment-methods-row
+  //-           +icon('','money')
+  //-           span.text-filter-links Наличными
+  //-         .categories__payment-methods-row
+  //-           +icon('','moneyless')
+  //-           span.text-filter-links Безналичный расчет
+  //-         .categories__payment-methods-row
+  //-           +icon('','bankcard')
+  //-           span.text-filter-links Банковской картой
+  //- +news('./assets/img/news1.jpg', 'Сентябрь 7 <br> 2017', 'MDF Italia представляет 20.Venti', 'За последние десятилетия дизайн рабочих пространств пережил глубокие изменения при участии крупных промышленных гигантов, а также небольших компаний. Мы стали частью исторического перехода, в котором на офисный проект повлияли телематические преобразования…')
+  //- +news('./assets/img/news2.jpg', 'Август 31 <br> 2017', 'Открытие Molteni&Co в Будапеште', 'С открытием нового магазина Molteni & C Flagship в Будапеште в партнёрстве с Solinfo, группа Molteni продолжает стратегически строить свою дистрибьюторскую сеть на европейском рынке.<br><br> Molteni&C Flagship Store отпраздновал своё официальное открытие, проведя Grand Opening…')
+  //- section.categories__factory
+  //-   +wrapper('categories')
+  //-     h2.categories__header.h2 Итальянские мебельные <br> фабрики
+  //-     .categories__block
+  //-       p.text-filter-links A
+  //-       .categories__factory-menu
+  //-         a.categories__factory-link.text-filter(href="#") ABC ITALIA
+  //-         a.categories__factory-link.text-filter(href="#") Abstracta
+  //-         a.categories__factory-link.text-filter(href="#") Acerbis
+  //-         a.categories__factory-link.text-filter(href="#") ACTIU
+  //-         a.categories__factory-link.text-filter(href="#") Adele-C
+  //-         a.categories__factory-link.text-filter(href="#") Adentro
+  //-         a.categories__factory-link.text-filter(href="#") ADORA
+  //-         a.categories__factory-link.text-filter(href="#") Adrenalina
+  //-         a.categories__factory-link.text-filter(href="#") Agresti
+  //-         a.categories__factory-link.text-filter(href="#") ALBED
+  //-         a.categories__factory-link.text-filter(href="#") Alberta Salotti
+  //-         a.categories__factory-link.text-filter(href="#") Alchymia
+  //-         a.categories__factory-link.text-filter(href="#") Alias
+  //-         a.categories__factory-link.text-filter(href="#") Alivar
+  //-         a.categories__factory-link.text-filter(href="#") Allievi
+  //-         a.categories__factory-link.text-filter(href="#") Alma Design
+  //-         a.categories__factory-link.text-filter(href="#") Alta Moda
+  //-         a.categories__factory-link.text-filter(href="#") Altinox
+  //-         a.categories__factory-link.text-filter(href="#") Altreforme
+  //-         a.categories__factory-link.text-filter(href="#") AM Classic
+  //-         a.categories__factory-link.text-filter(href="#") AMBIVALENZ
+  //-         a.categories__factory-link.text-filter(href="#") And Then Design
+  //-         a.categories__factory-link.text-filter(href="#") Andrea Fanfani
+  //-         a.categories__factory-link.text-filter(href="#") Angelo Cappellini
+  //-         a.categories__factory-link.text-filter(href="#") Annibale Colombo
+  //-         a.categories__factory-link.text-filter(href="#") Antonio Lupi
+  //-         a.categories__factory-link.text-filter(href="#") Apulia Design
+  //-         a.categories__factory-link.text-filter(href="#") Archeo Venice Design
+  //-         a.categories__factory-link.text-filter(href="#") Area Declic
+  //-         a.categories__factory-link.text-filter(href="#") Arflex
+  //-         a.categories__factory-link.text-filter(href="#") ariannasoldati
+  //-         a.categories__factory-link.text-filter(href="#") Arkeos
+  //-         a.categories__factory-link.text-filter(href="#") Arketipo
+  //-         a.categories__factory-link.text-filter(href="#") Arlex Italia
+  //-         a.categories__factory-link.text-filter(href="#") Arper
+  //-         a.categories__factory-link.text-filter(href="#") Arredo Classic
+  //-         a.categories__factory-link.text-filter(href="#") Arrmet
+  //-         a.categories__factory-link.text-filter(href="#") Arte Brotto
+  //-         a.categories__factory-link.text-filter(href="#") Arte di Murano
+  //-       a.categories__more.text-links(href="#") Подробнее…
