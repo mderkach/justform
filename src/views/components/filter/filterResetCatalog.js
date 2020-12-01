@@ -13,7 +13,7 @@ const filterReset = {
   init: (callback = null, filterCatalog = null) => {
     if (filterReset.button) {
       filterReset.button.addEventListener('click', () => {
-        if(filterCatalog) {
+        if (filterCatalog) {
           filterCatalog.refresh();
           filterCatalog.createSelect();
         }

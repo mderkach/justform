@@ -1,13 +1,14 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-shadow */
 import './filterSimple.scss';
-import filter from "./filter";
 
 const filterSimple = {
   wrapper: document.querySelectorAll('.filter-simple-wrapper'),
   init: (selectedCallback = null, id = null) => {
     if (filterSimple.wrapper) {
       filterSimple.wrapper.forEach((filter) => {
-        let simpleFilterValueSelector = '.filter-simple-value'
-        let simpleFilterLabelSelector = '.filter-simple-label'
+        const simpleFilterValueSelector = '.filter-simple-value';
+        const simpleFilterLabelSelector = '.filter-simple-label';
 
         const trigger = filter.querySelector(simpleFilterValueSelector);
         const items = filter.querySelectorAll(simpleFilterLabelSelector);
@@ -42,9 +43,9 @@ const filterSimple = {
 
               trigger.parentElement.classList.remove('is-active');
               if (radio.hasAttribute('data-href')) {
-                //TODO: move selectedCallback
+                // TODO: move selectedCallback
                 window.location.href = radio.getAttribute('data-href');
-              }else if(selectedCallback != null){
+              } else if (selectedCallback != null) {
                 selectedCallback(radio);
               }
             });
@@ -53,10 +54,10 @@ const filterSimple = {
       });
     }
   },
-  reinit(selectedCallback = null, id = null){
+  reinit(selectedCallback = null, id = null) {
     filterSimple.wrapper = document.querySelectorAll('.filter-simple-wrapper');
-    filterSimple.init(selectedCallback, id)
-  }
+    filterSimple.init(selectedCallback, id);
+  },
 };
 
 export default filterSimple;

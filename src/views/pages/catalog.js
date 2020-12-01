@@ -1,3 +1,8 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-prototype-builtins */
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable default-case */
+/* eslint-disable eqeqeq */
 // styles
 import './catalog.scss';
 
@@ -9,73 +14,73 @@ import filterResetCatalog from '../components/filter/filterResetCatalog';
 import filterSearch from '../components/filter/filterSearch';
 // initialise components
 
-const baseUrl = "";
+const baseUrl = '';
 const CATEGORY_NULL_VALUE = -1;
 
-let filterCatalogUtils = {
-   params: {},
-   catalogRow: document.querySelector('.catalog__row'),
-   currentEntity: document.getElementById('current_entity'),
+const filterCatalogUtils = {
+  params: {},
+  catalogRow: document.querySelector('.catalog__row'),
+  currentEntity: document.getElementById('current_entity'),
 
-   init(){
-     filterCatalogUtils.clearParams();
-   },
-   onClearFilters(){
-     filterCatalogUtils.clearParams();
-     filterCatalogUtils.filterRequest();
-   },
-   onSelect(option){
-     let index;
-     let id = option.getAttribute('data-id');
-     let type = option.getAttribute('data-type');
-
-     switch(type){
-        case 'categories':
-          if(id == CATEGORY_NULL_VALUE){
-            filterCatalogUtils.params.categories = [];
-          }else {
-            index = filterCatalogUtils.params.categories.indexOf(id);
-            if (index === -1) {
-              filterCatalogUtils.params.categories.push(id);
-            }
-          }
-        break;
-        case 'places':
-          if(id == CATEGORY_NULL_VALUE){
-            filterCatalogUtils.params.places = [];
-          }else {
-            index = filterCatalogUtils.params.places.indexOf(id);
-            if (index === -1) {
-              filterCatalogUtils.params.places.push(id);
-            }
-          }
-        break;
-        case 'subcategory':
-          if(id == CATEGORY_NULL_VALUE){
-            filterCatalogUtils.params.subcategory = null;
-          }else {
-            filterCatalogUtils.params.subcategory = id;
-          }
-        break;
-      }
-
-     filterCatalogUtils.filterRequest();
-   },
-  onUnSelect(option){
+  init() {
+    filterCatalogUtils.clearParams();
+  },
+  onClearFilters() {
+    filterCatalogUtils.clearParams();
+    filterCatalogUtils.filterRequest();
+  },
+  onSelect(option) {
     let index;
-    let id = option.getAttribute('data-id');
-    let type = option.getAttribute('data-type');
+    const id = option.getAttribute('data-id');
+    const type = option.getAttribute('data-type');
 
-    switch(type){
+    switch (type) {
+      case 'categories':
+        if (id == CATEGORY_NULL_VALUE) {
+          filterCatalogUtils.params.categories = [];
+        } else {
+          index = filterCatalogUtils.params.categories.indexOf(id);
+          if (index === -1) {
+            filterCatalogUtils.params.categories.push(id);
+          }
+        }
+        break;
+      case 'places':
+        if (id == CATEGORY_NULL_VALUE) {
+          filterCatalogUtils.params.places = [];
+        } else {
+          index = filterCatalogUtils.params.places.indexOf(id);
+          if (index === -1) {
+            filterCatalogUtils.params.places.push(id);
+          }
+        }
+        break;
+      case 'subcategory':
+        if (id == CATEGORY_NULL_VALUE) {
+          filterCatalogUtils.params.subcategory = null;
+        } else {
+          filterCatalogUtils.params.subcategory = id;
+        }
+        break;
+    }
+
+    filterCatalogUtils.filterRequest();
+  },
+  onUnSelect(option) {
+    let index;
+    const id = option.getAttribute('data-id');
+    const type = option.getAttribute('data-type');
+
+    switch (type) {
       case 'categories':
         index = filterCatalogUtils.params.categories.indexOf(id);
-        if(index !== -1) {
+        if (index !== -1) {
           filterCatalogUtils.params.categories.splice(index, 1);
         }
         break;
       case 'places':
         index = filterCatalogUtils.params.places.indexOf(id);
-        if(index !== -1){
+        if (index !== -1) {
           filterCatalogUtils.params.places.splice(index, 1);
         }
         break;
