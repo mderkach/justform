@@ -190,6 +190,11 @@ const header = {
         trigger.classList.add('is-active');
         const target = document.querySelector(trigger.getAttribute('href'));
         target.classList.add('is-active');
+        const letter = document.getElementById('fabric-letter-text');
+
+        if(letter && target.getAttribute('id')){
+          letter.innerText = target.getAttribute('id').toUpperCase();
+        }
       });
     });
 

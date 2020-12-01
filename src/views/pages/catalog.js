@@ -135,8 +135,10 @@ let filterCatalogUtils = {
      let pageId = filterCatalogUtils.currentEntity.getAttribute('data-id');
      if(pageType === 'category'){
        init.category = pageId;
-     }else{
+     }else if(pageType === 'places'){
        init.place = pageId;
+     }else{
+       init.place = null;
      }
 
      filterCatalogUtils.params = init;
