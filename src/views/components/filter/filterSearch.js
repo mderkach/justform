@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-param-reassign */
 import './filterSearch.scss';
 
 const filterSearch = {
@@ -11,40 +13,38 @@ const filterSearch = {
 
       const filterItems = wrapper.querySelector('.filter-items');
 
-      filterSearch.updateSearchItems(filterItems, input, selectedCallback)
-
+      filterSearch.updateSearchItems(filterItems, input, selectedCallback);
     });
   },
-  activateSearch(input, item, filterItems, selectedCallback){
+  activateSearch(input, item, filterItems, selectedCallback) {
     item.addEventListener('click', (e) => {
-      filterItems.innerHTML = "";
+      filterItems.innerHTML = '';
       input.value = item.innerText;
       input.setAttribute('data-id', item.getAttribute('data-id'));
 
-      if(selectedCallback != null){
+      if (selectedCallback != null) {
         selectedCallback(item);
       }
     });
   },
-  updateSearchItems(filterItems, input, selectedCallback){
+  updateSearchItems(filterItems, input, selectedCallback) {
     if (input.value.length >= 3) {
-      filterItems.innerHTML = "";
-      fetch("/katalog/fabric_search.html?q=" + input.value)
-        .then(response => response.json())
-        .then(data => {
+      filterItems.innerHTML = '';
+      fetch(`/katalog/fabric_search.html?q=${input.value}`)
+        .then((response) => response.json())
+        .then((data) => {
           input.removeAttribute('data-id');
-          data.results.forEach(function (item, i, items){
-              var filterItem = document.createElement('div');
-              filterItem.className = "filter-menu-item text-filter filter-search-item";
-              filterItem.setAttribute('data-id', item.id);
-              filterItem.innerText = item.text;
-              filterItems.append(filterItem);
-              filterSearch.activateSearch(input, filterItem, filterItems, selectedCallback);
-            }
-          );
+          data.results.forEach(function (item, i, items) {
+            const filterItem = document.createElement('div');
+            filterItem.className = 'filter-menu-item text-filter filter-search-item';
+            filterItem.setAttribute('data-id', item.id);
+            filterItem.innerText = item.text;
+            filterItems.append(filterItem);
+            filterSearch.activateSearch(input, filterItem, filterItems, selectedCallback);
+          });
         });
-    }else{
-      filterItems.innerHTML = "";
+    } else {
+      filterItems.innerHTML = '';
       selectedCallback(null);
     }
   },
@@ -58,7 +58,7 @@ const filterSearch = {
 
       if (elm.classList.contains('is-active')) {
         elm.classList.remove('is-active');
-        filterItems.innerHTML = "";
+        filterItems.innerHTML = '';
       } else {
         elm.classList.add('is-active');
         filterSearch.updateSearchItems(filterItems, input, selectedCallback);

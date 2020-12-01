@@ -121,7 +121,7 @@ const filterCatalog = {
             filterCatalog.removeSelectedFormItems(itemsArray);
           }
           item.classList.add('is-selected');
-          //Кнопка "Любое"
+          // Кнопка "Любое"
 
           options.forEach((option) => {
             if (!multiple) {
@@ -131,16 +131,17 @@ const filterCatalog = {
             if (option.value === item.textContent) {
               option.setAttribute('selected', true);
               filterCatalog.onSelect(option);
-              let optionId = option.getAttribute('data-id');
+              const optionId = option.getAttribute('data-id');
+              // eslint-disable-next-line eqeqeq
               if (optionId == filterCatalog.selectedNullValue) {
                 item.setAttribute('data-null-property', true);
               }
             }
           });
 
-          if(item.hasAttribute('data-null-property') && item.getAttribute('data-null-property')){
+          if (item.hasAttribute('data-null-property') && item.getAttribute('data-null-property')) {
             filterCatalog.removeSelectedFormItems(itemsArray, options);
-          }else{
+          } else {
             filterCatalog.removeSelectedFromAllValue(itemsArray);
           }
         }
@@ -151,19 +152,19 @@ const filterCatalog = {
   },
   removeSelectedFromAllValue(items) {
     items.forEach((elm) => {
-      if(elm.hasAttribute('data-null-property') && elm.getAttribute('data-null-property')) {
+      if (elm.hasAttribute('data-null-property') && elm.getAttribute('data-null-property')) {
         elm.classList.remove('is-selected');
       }
     });
   },
   removeSelectedFormItems(items, options) {
     items.forEach((elm) => {
-      if(!elm.hasAttribute('data-null-property') || !elm.getAttribute('data-null-property')) {
+      if (!elm.hasAttribute('data-null-property') || !elm.getAttribute('data-null-property')) {
         elm.classList.remove('is-selected');
       }
     });
 
-    if(options) {
+    if (options) {
       options.forEach((option) => {
         option.setAttribute('selected', false);
       });
@@ -171,7 +172,7 @@ const filterCatalog = {
   },
   onSelect(option) {
     if (option.hasAttribute('data-href')) {
-      //TODO: move selectedCallback
+      // TODO: move selectedCallback
       window.location.href = option.getAttribute('data-href');
     } else if (filterCatalog.selectedCallback != null) {
       filterCatalog.selectedCallback(option);
@@ -179,7 +180,7 @@ const filterCatalog = {
   },
   onUnSelect(option) {
     if (option.hasAttribute('data-href')) {
-      //TODO: move selectedCallback
+      // TODO: move selectedCallback
       window.location.href = option.getAttribute('data-href');
     } else if (filterCatalog.unSelectedCallback != null) {
       filterCatalog.unSelectedCallback(option);

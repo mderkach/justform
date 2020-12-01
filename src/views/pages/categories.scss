@@ -12,6 +12,11 @@
     position: relative;
     width: 100%;
     height: 100%;
+    padding-top: rem(150);
+
+    @include media-breakpoint-down(lg) {
+      padding-top: rem(84);
+    }
 
     &-header {
       position: absolute;

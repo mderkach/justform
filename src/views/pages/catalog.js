@@ -1,3 +1,8 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-prototype-builtins */
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable default-case */
+/* eslint-disable eqeqeq */
 // styles
 import './catalog.scss';
 
@@ -9,73 +14,73 @@ import filterResetCatalog from '../components/filter/filterResetCatalog';
 import filterSearch from '../components/filter/filterSearch';
 // initialise components
 
-const baseUrl = "";
+const baseUrl = '';
 const CATEGORY_NULL_VALUE = -1;
 
-let filterCatalogUtils = {
-   params: {},
-   catalogRow: document.querySelector('.catalog__row'),
-   currentEntity: document.getElementById('current_entity'),
+const filterCatalogUtils = {
+  params: {},
+  catalogRow: document.querySelector('.catalog__row'),
+  currentEntity: document.getElementById('current_entity'),
 
-   init(){
-     filterCatalogUtils.clearParams();
-   },
-   onClearFilters(){
-     filterCatalogUtils.clearParams();
-     filterCatalogUtils.filterRequest();
-   },
-   onSelect(option){
-     let index;
-     let id = option.getAttribute('data-id');
-     let type = option.getAttribute('data-type');
-
-     switch(type){
-        case 'categories':
-          if(id == CATEGORY_NULL_VALUE){
-            filterCatalogUtils.params.categories = [];
-          }else {
-            index = filterCatalogUtils.params.categories.indexOf(id);
-            if (index === -1) {
-              filterCatalogUtils.params.categories.push(id);
-            }
-          }
-        break;
-        case 'places':
-          if(id == CATEGORY_NULL_VALUE){
-            filterCatalogUtils.params.places = [];
-          }else {
-            index = filterCatalogUtils.params.places.indexOf(id);
-            if (index === -1) {
-              filterCatalogUtils.params.places.push(id);
-            }
-          }
-        break;
-        case 'subcategory':
-          if(id == CATEGORY_NULL_VALUE){
-            filterCatalogUtils.params.subcategory = null;
-          }else {
-            filterCatalogUtils.params.subcategory = id;
-          }
-        break;
-      }
-
-     filterCatalogUtils.filterRequest();
-   },
-  onUnSelect(option){
+  init() {
+    filterCatalogUtils.clearParams();
+  },
+  onClearFilters() {
+    filterCatalogUtils.clearParams();
+    filterCatalogUtils.filterRequest();
+  },
+  onSelect(option) {
     let index;
-    let id = option.getAttribute('data-id');
-    let type = option.getAttribute('data-type');
+    const id = option.getAttribute('data-id');
+    const type = option.getAttribute('data-type');
 
-    switch(type){
+    switch (type) {
+      case 'categories':
+        if (id == CATEGORY_NULL_VALUE) {
+          filterCatalogUtils.params.categories = [];
+        } else {
+          index = filterCatalogUtils.params.categories.indexOf(id);
+          if (index === -1) {
+            filterCatalogUtils.params.categories.push(id);
+          }
+        }
+        break;
+      case 'places':
+        if (id == CATEGORY_NULL_VALUE) {
+          filterCatalogUtils.params.places = [];
+        } else {
+          index = filterCatalogUtils.params.places.indexOf(id);
+          if (index === -1) {
+            filterCatalogUtils.params.places.push(id);
+          }
+        }
+        break;
+      case 'subcategory':
+        if (id == CATEGORY_NULL_VALUE) {
+          filterCatalogUtils.params.subcategory = null;
+        } else {
+          filterCatalogUtils.params.subcategory = id;
+        }
+        break;
+    }
+
+    filterCatalogUtils.filterRequest();
+  },
+  onUnSelect(option) {
+    let index;
+    const id = option.getAttribute('data-id');
+    const type = option.getAttribute('data-type');
+
+    switch (type) {
       case 'categories':
         index = filterCatalogUtils.params.categories.indexOf(id);
-        if(index !== -1) {
+        if (index !== -1) {
           filterCatalogUtils.params.categories.splice(index, 1);
         }
         break;
       case 'places':
         index = filterCatalogUtils.params.places.indexOf(id);
-        if(index !== -1){
+        if (index !== -1) {
           filterCatalogUtils.params.places.splice(index, 1);
         }
         break;
@@ -86,79 +91,83 @@ let filterCatalogUtils = {
 
     filterCatalogUtils.filterRequest();
   },
-   filterRequest(){
-     const searchParams = new URLSearchParams(filterCatalogUtils.removeEmptyParams(
-       filterCatalogUtils.params, param => param !== null && param !== undefined && param !== []
-     ));
+  filterRequest() {
+    const searchParams = new URLSearchParams(
+      filterCatalogUtils.removeEmptyParams(
+        filterCatalogUtils.params,
+        (param) => param !== null && param !== undefined && param !== [],
+      ),
+    );
 
-     fetch(baseUrl +"/katalog/filter?" +  searchParams.toString())
-       .then(response=>response.text())
-       .then(response=>{
-         let catalogList = document.querySelector('.catalog__list');
-         if(catalogList != null) {
-           filterCatalogUtils.catalogRow.removeChild(catalogList);
-         }
+    fetch(`${baseUrl}/katalog/filter?${searchParams.toString()}`)
+      .then((response) => response.text())
+      .then((response) => {
+        const catalogList = document.querySelector('.catalog__list');
+        if (catalogList != null) {
+          filterCatalogUtils.catalogRow.removeChild(catalogList);
+        }
 
-         let paginationWrapper = document.querySelector('.pagination__wrapper');
-         if(paginationWrapper != null) {
-           filterCatalogUtils.catalogRow.removeChild(paginationWrapper);
-         }
+        const paginationWrapper = document.querySelector('.pagination__wrapper');
+        if (paginationWrapper != null) {
+          filterCatalogUtils.catalogRow.removeChild(paginationWrapper);
+        }
 
-         filterCatalogUtils.catalogRow.insertAdjacentHTML('beforeend', response);
-         filterSimple.reinit();
-       });
-   },
-   removeEmptyParams(params, predicate){
-     let result = {}, key;
+        filterCatalogUtils.catalogRow.insertAdjacentHTML('beforeend', response);
+        filterSimple.reinit();
+      });
+  },
+  removeEmptyParams(params, predicate) {
+    const result = {};
+    let key;
 
-     for (key in params) {
-       if (params.hasOwnProperty(key) && predicate(params[key])) {
-         result[key] = params[key];
-       }
-     }
+    for (key in params) {
+      if (params.hasOwnProperty(key) && predicate(params[key])) {
+        result[key] = params[key];
+      }
+    }
 
-     return result;
-   },
-   clearParams(){
-     let init = {
-       fabric: null,
-       subcategory: null,
-       places: [],
-       categories: [],
-       page: 1,
-       per_page: 40,
-       place: null,
-       category: null
-     }
+    return result;
+  },
+  clearParams() {
+    const init = {
+      fabric: null,
+      subcategory: null,
+      places: [],
+      categories: [],
+      page: 1,
+      per_page: 40,
+      place: null,
+      category: null,
+    };
 
-     let pageType = filterCatalogUtils.currentEntity.getAttribute('data-type');
-     let pageId = filterCatalogUtils.currentEntity.getAttribute('data-id');
-     if(pageType === 'category'){
-       init.category = pageId;
-     }else{
-       init.place = pageId;
-     }
+    const pageType = filterCatalogUtils.currentEntity.getAttribute('data-type');
+    const pageId = filterCatalogUtils.currentEntity.getAttribute('data-id');
+    if (pageType === 'category') {
+      init.category = pageId;
+    } else {
+      init.place = pageId;
+    }
 
-     filterCatalogUtils.params = init;
+    filterCatalogUtils.params = init;
 
-     let element = document.getElementById('fabric_search_input');
-     if(element) {
-       element.setAttribute("value", "");
-     }
-   },
+    const element = document.getElementById('fabric_search_input');
+    if (element) {
+      element.setAttribute('value', '');
+    }
+  },
 
-   onFabricSelect(item){
-     if(item == null){
-       if(filterCatalogUtils.params.fabric != null){
-         filterCatalogUtils.params.fabric = null;
-         filterCatalogUtils.filterRequest();
-       }
-     }else {
-       filterCatalogUtils.params.fabric = item.getAttribute('data-id');
-       filterCatalogUtils.filterRequest();
-     }
-   }
-}
+  onFabricSelect(item) {
+    if (item == null) {
+      if (filterCatalogUtils.params.fabric != null) {
+        filterCatalogUtils.params.fabric = null;
+        filterCatalogUtils.filterRequest();
+      }
+    } else {
+      filterCatalogUtils.params.fabric = item.getAttribute('data-id');
+      filterCatalogUtils.filterRequest();
+    }
+  },
+};
 
 filterCatalogUtils.init();
 
