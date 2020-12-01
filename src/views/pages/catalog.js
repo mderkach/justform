@@ -91,83 +91,81 @@ const filterCatalogUtils = {
 
     filterCatalogUtils.filterRequest();
   },
-  filterRequest() {
-    const searchParams = new URLSearchParams(
-      filterCatalogUtils.removeEmptyParams(
-        filterCatalogUtils.params,
-        (param) => param !== null && param !== undefined && param !== [],
-      ),
-    );
+   filterRequest(){
+     const searchParams = new URLSearchParams(filterCatalogUtils.removeEmptyParams(
+       filterCatalogUtils.params, param => param !== null && param !== undefined && param !== []
+     ));
 
-    fetch(`${baseUrl}/katalog/filter?${searchParams.toString()}`)
-      .then((response) => response.text())
-      .then((response) => {
-        const catalogList = document.querySelector('.catalog__list');
-        if (catalogList != null) {
-          filterCatalogUtils.catalogRow.removeChild(catalogList);
-        }
+     fetch(baseUrl +"/katalog/filter?" +  searchParams.toString())
+       .then(response=>response.text())
+       .then(response=>{
+         let catalogList = document.querySelector('.catalog__list');
+         if(catalogList != null) {
+           filterCatalogUtils.catalogRow.removeChild(catalogList);
+         }
 
-        const paginationWrapper = document.querySelector('.pagination__wrapper');
-        if (paginationWrapper != null) {
-          filterCatalogUtils.catalogRow.removeChild(paginationWrapper);
-        }
+         let paginationWrapper = document.querySelector('.pagination__wrapper');
+         if(paginationWrapper != null) {
+           filterCatalogUtils.catalogRow.removeChild(paginationWrapper);
+         }
 
-        filterCatalogUtils.catalogRow.insertAdjacentHTML('beforeend', response);
-        filterSimple.reinit();
-      });
-  },
-  removeEmptyParams(params, predicate) {
-    const result = {};
-    let key;
+         filterCatalogUtils.catalogRow.insertAdjacentHTML('beforeend', response);
+         filterSimple.reinit();
+       });
+   },
+   removeEmptyParams(params, predicate){
+     let result = {}, key;
 
-    for (key in params) {
-      if (params.hasOwnProperty(key) && predicate(params[key])) {
-        result[key] = params[key];
-      }
-    }
+     for (key in params) {
+       if (params.hasOwnProperty(key) && predicate(params[key])) {
+         result[key] = params[key];
+       }
+     }
 
-    return result;
-  },
-  clearParams() {
-    const init = {
-      fabric: null,
-      subcategory: null,
-      places: [],
-      categories: [],
-      page: 1,
-      per_page: 40,
-      place: null,
-      category: null,
-    };
+     return result;
+   },
+   clearParams(){
+     let init = {
+       fabric: null,
+       subcategory: null,
+       places: [],
+       categories: [],
+       page: 1,
+       per_page: 40,
+       place: null,
+       category: null
+     }
 
-    const pageType = filterCatalogUtils.currentEntity.getAttribute('data-type');
-    const pageId = filterCatalogUtils.currentEntity.getAttribute('data-id');
-    if (pageType === 'category') {
-      init.category = pageId;
-    } else {
-      init.place = pageId;
-    }
+     let pageType = filterCatalogUtils.currentEntity.getAttribute('data-type');
+     let pageId = filterCatalogUtils.currentEntity.getAttribute('data-id');
+     if(pageType === 'category'){
+       init.category = pageId;
+     }else if(pageType === 'places'){
+       init.place = pageId;
+     }else{
+       init.place = null;
+     }
 
-    filterCatalogUtils.params = init;
+     filterCatalogUtils.params = init;
 
-    const element = document.getElementById('fabric_search_input');
-    if (element) {
-      element.setAttribute('value', '');
-    }
-  },
+     let element = document.getElementById('fabric_search_input');
+     if(element) {
+       element.setAttribute("value", "");
+     }
+   },
 
-  onFabricSelect(item) {
-    if (item == null) {
-      if (filterCatalogUtils.params.fabric != null) {
-        filterCatalogUtils.params.fabric = null;
-        filterCatalogUtils.filterRequest();
-      }
-    } else {
-      filterCatalogUtils.params.fabric = item.getAttribute('data-id');
-      filterCatalogUtils.filterRequest();
-    }
-  },
-};
+   onFabricSelect(item){
+     if(item == null){
+       if(filterCatalogUtils.params.fabric != null){
+         filterCatalogUtils.params.fabric = null;
+         filterCatalogUtils.filterRequest();
+       }
+     }else {
+       filterCatalogUtils.params.fabric = item.getAttribute('data-id');
+       filterCatalogUtils.filterRequest();
+     }
+   }
+}
 
 filterCatalogUtils.init();
 
