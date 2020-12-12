@@ -24,16 +24,37 @@ const filterCatalogUtils = {
 
   init() {
     filterCatalogUtils.clearParams();
+    let properties = ['fabric' , 'subcategory', 'places', 'categories', 'styles'];
+
+    properties.forEach((property)=>{
+      let propertyElement = document.getElementById('initial_' + property);
+      let propertyValue = null;
+
+      if(propertyElement){
+        propertyValue = propertyElement.getAttribute('value');
+      }
+
+      if(propertyValue) {
+        filterCatalogUtils.addToProperty(property, propertyValue);
+      }
+    });
   },
   onClearFilters() {
     filterCatalogUtils.clearParams();
     filterCatalogUtils.filterRequest();
   },
   onSelect(option) {
-    let index;
     const id = option.getAttribute('data-id');
     const type = option.getAttribute('data-type');
 
+    filterCatalogUtils.addToProperty(type, id);
+    filterCatalogUtils.filterRequest();
+  },
+  addToProperty(type, id){
+    let index;
+    /**
+     * TODO: Рефакторить этот ужас
+     */
     switch (type) {
       case 'categories':
         if (id == CATEGORY_NULL_VALUE) {
@@ -62,9 +83,15 @@ const filterCatalogUtils = {
           filterCatalogUtils.params.subcategory = id;
         }
         break;
-    }
 
-    filterCatalogUtils.filterRequest();
+      case 'styles':
+        if (id == CATEGORY_NULL_VALUE) {
+          filterCatalogUtils.params.styles = null;
+        } else {
+          filterCatalogUtils.params.styles = id;
+        }
+        break;
+    }
   },
   onUnSelect(option) {
     let index;
@@ -86,6 +113,12 @@ const filterCatalogUtils = {
         break;
       case 'subcategory':
         filterCatalogUtils.params.subcategory = null;
+        break;
+      case 'styles':
+        index = filterCatalogUtils.params.styles.indexOf(id);
+        if (index !== -1) {
+          filterCatalogUtils.params.styles.splice(index, 1);
+        }
         break;
     }
 
@@ -130,6 +163,7 @@ const filterCatalogUtils = {
        subcategory: null,
        places: [],
        categories: [],
+       styles: [],
        page: 1,
        per_page: 40,
        place: null,
