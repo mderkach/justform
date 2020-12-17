@@ -144,6 +144,7 @@ const filterCatalogUtils = {
 
          filterCatalogUtils.catalogRow.insertAdjacentHTML('beforeend', response);
          filterSimple.reinit();
+         filterCatalog.reinit();
        });
    },
    removeEmptyParams(params, predicate){
@@ -167,16 +168,20 @@ const filterCatalogUtils = {
        page: 1,
        per_page: 40,
        place: null,
-       category: null
+       category: null,
+       style: null
      }
 
      let pageType = filterCatalogUtils.currentEntity.getAttribute('data-type');
      let pageId = filterCatalogUtils.currentEntity.getAttribute('data-id');
      if(pageType === 'category'){
        init.category = pageId;
-     }else if(pageType === 'places'){
+     }else if(pageType === 'place'){
        init.place = pageId;
-     }else{
+     } else if(pageType === 'style'){
+       init.style = pageId;
+    }
+     else{
        init.place = null;
      }
 

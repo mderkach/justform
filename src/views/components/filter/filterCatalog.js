@@ -194,6 +194,12 @@ const filterCatalog = {
       filterCatalog.createSelect();
     }
   },
+  reinit(){
+    filterCatalog.wrapper = document.querySelectorAll('.filter-wrapper');
+    if (filterCatalog.wrapper) {
+      filterCatalog.createSelect();
+    }
+  },
   recreateNode: (el, withChildren) => {
     if (withChildren) {
       el.parentNode.replaceChild(el.cloneNode(true), el);
