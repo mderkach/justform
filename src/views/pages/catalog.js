@@ -12,6 +12,9 @@ import filterCatalog from '../components/filter/filterCatalog';
 import filterSimple from '../components/filter/filterSimple';
 import filterResetCatalog from '../components/filter/filterResetCatalog';
 import filterSearch from '../components/filter/filterSearch';
+import accordion from '../components/accordion/accordion';
+accordion.init();
+
 // initialise components
 
 const baseUrl = '';
@@ -86,9 +89,9 @@ const filterCatalogUtils = {
 
       case 'styles':
         if (id == CATEGORY_NULL_VALUE) {
-          filterCatalogUtils.params.styles = null;
+          filterCatalogUtils.params.styles = [];
         } else {
-          filterCatalogUtils.params.styles = id;
+          filterCatalogUtils.params.styles.push(id);
         }
         break;
     }
@@ -144,7 +147,6 @@ const filterCatalogUtils = {
 
          filterCatalogUtils.catalogRow.insertAdjacentHTML('beforeend', response);
          filterSimple.reinit();
-         filterCatalog.reinit();
        });
    },
    removeEmptyParams(params, predicate){
@@ -210,5 +212,5 @@ filterCatalogUtils.init();
 
 filterCatalog.init(filterCatalogUtils.onSelect, filterCatalogUtils.onUnSelect, CATEGORY_NULL_VALUE);
 filterSimple.init();
-filterResetCatalog.init(filterCatalogUtils.onClearFilters, filterCatalog);
+filterResetCatalog.init(filterCatalogUtils.onClearFilters, filterCatalog, filterSimple);
 filterSearch.init(filterCatalogUtils.onFabricSelect);

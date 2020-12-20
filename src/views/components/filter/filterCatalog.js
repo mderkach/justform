@@ -48,6 +48,16 @@ const filterCatalog = {
       filterCatalog.calculateSelected(select, label);
     });
   },
+  //TODO: REMOVE DUPLICATE
+  reCreateSelect: () => {
+    filterCatalog.wrapper.forEach((label) => {
+      const select = label.querySelector('select');
+      const options = [...label.querySelector('select')];
+      const menuItem = label.querySelectorAll('.filter-menu-item');
+      filterCatalog.removeSelectedFormItems(menuItem, options);
+      filterCatalog.calculateSelected(select, label);
+    });
+  },
   createSelectMenu: (elm) => {
     const menu = document.createElement('div');
     menu.className = 'filter-menu';
@@ -195,9 +205,9 @@ const filterCatalog = {
     }
   },
   reinit(){
-    filterCatalog.wrapper = document.querySelectorAll('.filter-wrapper');
+   // filterCatalog.wrapper = document.querySelectorAll('.filter-wrapper');
     if (filterCatalog.wrapper) {
-      filterCatalog.createSelect();
+      filterCatalog.reCreateSelect();
     }
   },
   recreateNode: (el, withChildren) => {

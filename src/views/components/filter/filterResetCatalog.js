@@ -1,4 +1,6 @@
 import './filterReset.scss';
+import filterSimple from "./filterSimple";
+import filterCatalog from "./filterCatalog";
 
 /**
  * TODO:
@@ -14,8 +16,7 @@ const filterReset = {
     if (filterReset.button) {
       filterReset.button.addEventListener('click', () => {
         if (filterCatalog) {
-          filterCatalog.refresh();
-          filterCatalog.createSelect();
+          filterCatalog.reinit();
         }
 
         callback();
