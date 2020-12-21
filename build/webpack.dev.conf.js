@@ -23,7 +23,7 @@ const devWebpackConfig = Merge(BaseWebpackConfig, {
 			{
 				host: 'localhost',
 				port: 3001,
-				proxy: 'http://localhost:8080/',
+				proxy: 'http://localhost:8081/',
 				notify: false,
 			},
 			{

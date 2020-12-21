@@ -1,9 +1,9 @@
-@import "src/scss/utils/utils";
-@import "src/views/components/banner/banner";
-@import "src/views/modules/footer/footer";
-@import "./fabriki";
-@import "./zakaz";
-@import "./cart";
+@import 'src/scss/utils/utils';
+@import 'src/views/components/banner/banner';
+@import 'src/views/modules/footer/footer';
+@import './fabriki';
+@import './zakaz';
+@import './cart';
 
 .sotrydnich {
   padding: rem(100) 0;
@@ -16,11 +16,23 @@
   &-page {
     background-color: #f8f8f8;
 
-    .banner__title {
-      @include media-breakpoint-down(lg) {
-        font-size: rem(32);
-        margin-bottom: rem(8);
-        text-align: center;
+    .banner {
+      &__title {
+        font-size: rem(48);
+
+        @include media-breakpoint-down(lg) {
+          font-size: rem(32);
+          margin-bottom: rem(8);
+          text-align: center;
+        }
+      }
+
+      &__info {
+        &-breadcrumbs {
+          margin-top: rem(10);
+          max-width: 80%;
+          text-align: center;
+        }
       }
     }
 
@@ -91,7 +103,10 @@
 
   &__container {
     @include make-container($gutter: $grid-gutter-width);
-    @include make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints);
+    @include make-container-max-widths(
+      $max-widths: $container-max-widths,
+      $breakpoints: $grid-breakpoints
+    );
   }
 
   &__row {
@@ -160,7 +175,10 @@
 
   &__item {
     display: grid;
-    grid-template-columns: minmax((232/1050) * 100%, 2fr) minmax(((1050 - 232 - 30)/1050) * 100%, 6fr);
+    grid-template-columns: minmax((232/1050) * 100%, 2fr) minmax(
+        ((1050 - 232 - 30)/1050) * 100%,
+        6fr
+      );
     gap: rem(40);
     grid-column: 2 / -1;
     padding: rem(30) 0;
@@ -178,7 +196,6 @@
     @include media-breakpoint-down(sm) {
       grid-template-columns: 1fr;
     }
-
 
     &-wrapper {
       @include make-col-ready();
