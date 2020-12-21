@@ -138,6 +138,7 @@
     @include make-col(7);
     @include make-col-offset(2);
     margin-top: 98px;
+    margin-bottom: rem(30);
 
     display: grid;
     grid-template-columns: minmax((368/912) * 100%, 3fr) 1fr minmax((368/912) * 100%, 3fr);
@@ -150,10 +151,29 @@
 
       gap: rem(20);
     }
+
+    &-densed {
+      margin-top: rem(20);
+      margin-bottom: rem(20);
+      gap: 0 rem(40);
+
+      @include media-breakpoint-down(lg) {
+        gap: 0;
+      }
+
+      .text-regular {
+        color: #000;
+        margin-bottom: rem(8);
+      }
+    }
   }
 
   &__block {
     grid-column: 1;
+
+    &-fluid {
+      grid-column: 1/-1;
+    }
 
     @include media-breakpoint-down(sm) {
       grid-column: 1 / -1;
@@ -225,6 +245,11 @@
         margin-bottom: 26px;
       }
     }
+  }
+
+  &__subheader {
+    margin-top: rem(16);
+    color: #000;
   }
 
   &__links {
