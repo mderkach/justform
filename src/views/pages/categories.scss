@@ -2,10 +2,25 @@
 @import 'src/views/modules/header/header';
 @import 'src/views/modules/filterMainMobile/filterMainMobile';
 @import 'src/views/components/news/news';
+@import 'src/views/components/pagination/pagination';
 
 .categories {
   &-page {
     background-color: #f8f8f8;
+
+    .pagination {
+      &__wrapper {
+        @include make-col-offset(0);
+        @include make-col(10);
+
+        padding-bottom: rem(116);
+
+        @include media-breakpoint-down(sm) {
+          padding-top: rem(32);
+          padding-bottom: rem(32);
+        }
+      }
+    }
   }
 
   &__banner {

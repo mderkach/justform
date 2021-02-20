@@ -116,7 +116,7 @@ const header = {
             header.wrapper.focus();
             const isTransparent = header.checkTransparency(header.wrapper);
             const wasTransparent = header.checkWasTransparant(header.wrapper);
-            let target = header.selectTarget(category, 'href');
+            let target = header.selectTarget(category, 'data-block');
 
             header.categories.forEach((link) => {
               if (link === category && !link.classList.contains('is-active')) {
@@ -188,7 +188,7 @@ const header = {
         });
 
         trigger.classList.add('is-active');
-        const target = document.querySelector(trigger.getAttribute('href'));
+        const target = document.querySelector(trigger.getAttribute('data-block'));
         target.classList.add('is-active');
         const letter = document.getElementById('fabric-letter-text');
 
