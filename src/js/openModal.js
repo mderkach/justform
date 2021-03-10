@@ -13,7 +13,7 @@ const modal = {
             const targetSelector = button.getAttribute('href');
             const target = document.querySelector(`[data-modal="${targetSelector}"]`);
             const close = target.querySelector('.modal-close');
-he
+
             target.classList.add('is-active');
             document.body.classList.add('is-modal-open');
 
